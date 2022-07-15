@@ -41,7 +41,7 @@ const Benefit: React.FC<{
           <Stack sx={{ position: "relative" }}>
             <Box
               sx={(theme) => ({
-                color: theme.colors.purple[0],
+                color: theme.colors.purple[7],
                 position: "absolute",
                 top: -20,
                 left: 0,
@@ -52,7 +52,7 @@ const Benefit: React.FC<{
             </Box>
             <Box
               sx={(theme) => ({
-                color: theme.colors.purple[0],
+                color: theme.colors.purple[7],
                 position: "absolute",
                 bottom: -20,
                 right: 0,
