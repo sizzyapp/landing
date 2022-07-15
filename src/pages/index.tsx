@@ -3,10 +3,17 @@ import { AppShell } from "@mantine/core";
 import { Hero } from "components/Hero";
 import { ResponsiveHeader } from "../components/Header";
 import Benefits from "../components/Benefits";
+import FInalSlide from "../components/FInalSlide";
+import { FooterSimple } from "../components/Footer";
 
 const Home: NextPage = () => {
   return (
     <AppShell
+      sx={{
+        "&:selection": {
+          backgroundColor: "red",
+        },
+      }}
       header={
         <ResponsiveHeader
           links={[
@@ -20,9 +27,18 @@ const Home: NextPage = () => {
           ]}
         />
       }
+      footer={
+        <FooterSimple
+          links={[
+            { link: "/privacy", label: "Privacy" },
+            { link: "/terms", label: "Terms and Conditions" },
+          ]}
+        />
+      }
     >
       <Hero />
       <Benefits />
+      <FInalSlide />
     </AppShell>
   );
 };

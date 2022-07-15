@@ -8,6 +8,7 @@ import {
   Group,
   Text,
   Center,
+  useMantineTheme,
 } from "@mantine/core";
 import image from "assets/logo.png";
 import { HEADER_HEIGHT } from "components/Header";
@@ -77,6 +78,7 @@ const useStyles = createStyles((theme) => ({
 
 export function Hero() {
   const { classes } = useStyles();
+  const { colors } = useMantineTheme();
   return (
     <Container>
       <Center
@@ -91,16 +93,27 @@ export function Hero() {
               <span className={classes.highlight}>Ship</span> your websites
               faster
             </Title>
-            <Text color="dimmed" mt="md">
-              <b>A browser</b>, and more! <br />
-              A developer's ultimate toolkit. <br />
+            <Text
+              sx={{
+                opacity: 0.6,
+              }}
+              mt="md"
+            >
+              <b>A browser</b>, and more! <br />A developer's{" "}
+              <b>ultimate toolkit.</b> <br />
               <b>Develop, debug and test</b> your website with ease and speed.{" "}
               <b>Intuitive and quick </b> development tools help you focus on
               your product and ideas.
             </Text>
 
             <Group mt={30}>
-              <Button radius="xl" size="md" className={classes.control}>
+              <Button
+                radius="xl"
+                size="md"
+                variant="gradient"
+                gradient={{ from: colors.purple[4], to: colors.pink[6] }}
+                className={classes.control}
+              >
                 Download Now
               </Button>
               <Button
