@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/core": "^4.2.12",
+    "@mantine/hooks": "^4.2.12",
+    "@mantine/next": "^4.2.12",
     "next": "12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -19,6 +22,7 @@
     "@types/react-dom": "18.0.6",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.2",
+    "prettier": "^2.7.1",
     "typescript": "4.7.4"
   }
 }
