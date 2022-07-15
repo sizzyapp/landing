@@ -99,7 +99,8 @@ export function Hero() {
               }}
               mt="md"
             >
-              <b>A browser</b>, and more! <br />A developer's{" "}
+              <b>A browser</b>, and more! <br />
+              {"A developer's "}
               <b>ultimate toolkit.</b> <br />
               <b>Develop, debug and test</b> your website with ease and speed.{" "}
               <b>Intuitive and quick </b> development tools help you focus on

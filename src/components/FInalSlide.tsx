@@ -32,7 +32,7 @@ const FInalSlide: React.FC = () => {
               opacity: 0.8,
             })}
           >
-            Don't worry our app has a dark theme.
+            {"Don't worry our app has a dark theme."}
           </Text>
 
           <Button
