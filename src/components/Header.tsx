@@ -104,6 +104,7 @@ export function ResponsiveHeader({ links }: HeaderResponsiveProps) {
   const items = links.map((link) => (
     <a
       target="_blank"
+      rel="noreferrer"
       key={link.label}
       href={link.link}
       className={cx(classes.link, {
