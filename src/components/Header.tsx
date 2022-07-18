@@ -103,13 +103,13 @@ export function ResponsiveHeader({ links }: HeaderResponsiveProps) {
 
   const items = links.map((link) => (
     <a
+      target="_blank"
       key={link.label}
       href={link.link}
       className={cx(classes.link, {
         [classes.linkActive]: active === link.link,
       })}
       onClick={(event) => {
-        event.preventDefault();
         setActive(link.link);
         toggleOpened(false);
       }}
