@@ -31,6 +31,7 @@ A set of well-thought tools and features allow you to develop and test for all u
                 "Recently migrated a site from global sass to css modules and just having the current production page and the development one next to each other with click & scroll sync is seriously a killer feature within @sizzyapp. Can really recommend it!",
             }}
             image={responsive.src}
+            actionText="Try It Out"
           />
           <Benefit
             title="Pretty Presentations"
@@ -41,6 +42,7 @@ A set of well-thought tools and features allow you to develop and test for all u
                 "Sizzy is a powerful selling tool.  When we have a prospect who doesn't have a responsive site, when we show them their site on Sizzy, they are impressed and we look even more professional.",
             }}
             image={screenshot.src}
+            actionText="Try It Out"
           />
           <Benefit
             title="Smooth Context Switching"
@@ -52,6 +54,7 @@ We understand the pain of context-switching when you are working on multiple pro
                 "I use Sizzy to develop all my apps. Love projects feature, because I always have to switch between 3-4 projects. I enjoy overlay DevTools mode it helps me to easily debug my apps.",
             }}
             image={projects.src}
+            actionText="Try It Out"
           />
           <Benefit
             title="Better Ways to Investigate Visual Bugs"
@@ -72,6 +75,7 @@ We understand the pain of context-switching when you are working on multiple pro
                 "It’s the bread to my web dev butter. I won’t shut up about it. I’m happy to show it off. I paid for it monthly when I had no job. It sped up how much ground I could cover for different devices compared to chrome dev tools.",
             }}
             image={misc.src}
+            actionText="Try It Out"
           />
         </Stack>
       </Center>

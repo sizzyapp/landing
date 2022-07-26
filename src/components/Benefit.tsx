@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Center,
   createStyles,
   Group,
@@ -7,6 +8,7 @@ import {
   Stack,
   Text,
   Title,
+  useMantineTheme,
 } from "@mantine/core";
 import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
 
@@ -34,8 +36,11 @@ const Benefit: React.FC<{
     author: string;
   };
   image: string;
-}> = ({ title, description, image, quote }) => {
+  actionText: string;
+}> = ({ title, description, image, quote, actionText }) => {
   const { classes } = useStyles();
+  const { colors } = useMantineTheme();
+
   return (
     <Center
       sx={{
@@ -111,6 +116,20 @@ const Benefit: React.FC<{
             boxShadow: theme.shadows.lg,
           })}
         />
+        <Button
+          variant="gradient"
+          gradient={{ from: colors.purple[4], to: colors.pink[6] }}
+          radius="xl"
+          target="_blank"
+          href="https://portal.sizzy.co/download"
+          component="a"
+          sx={{
+            alignSelf: "center",
+          }}
+          size="lg"
+        >
+          {actionText}
+        </Button>
       </Stack>
     </Center>
   );
