@@ -4,7 +4,7 @@ import Head from "next/head";
 
 const Privacy = () => {
   return (
-    <>
+    <html>
       <Head>
         <style jsx>
           {`
@@ -41,6 +41,8 @@ const Privacy = () => {
           rel="stylesheet"
         />
         <title>Sizzy Privacy Policy</title>
+      </Head>
+      <body>
         <div className="privacy">
           <div style={{ maxWidth: 900, margin: "auto" }}>
             <h2>Privacy Policy</h2>
@@ -571,8 +573,8 @@ const Privacy = () => {
             <p>&nbsp;</p>
           </div>
         </div>
-      </Head>
-    </>
+      </body>
+    </html>
   );
 };
 
