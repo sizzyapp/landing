@@ -25,8 +25,8 @@ const useStyles = createStyles((theme) => ({
       paddingBottom: theme.spacing.xl * 2,
     },
     [theme.fn.smallerThan("sm")]: {
-      paddingTop: theme.spacing.xl,
-      paddingBottom: theme.spacing.xl,
+      paddingTop: 0,
+      paddingBottom: theme.spacing.xl * 2,
     },
   },
 
@@ -62,6 +62,11 @@ const useStyles = createStyles((theme) => ({
     flex: 1,
     [theme.fn.smallerThan("md")]: {
       margin: theme.spacing.md,
+    },
+    [theme.fn.smallerThan("sm")]: {
+      margin: theme.spacing.sm,
+      marginLeft: theme.spacing.xl,
+      marginRight: theme.spacing.xl,
     },
   },
 

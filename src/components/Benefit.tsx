@@ -1,5 +1,30 @@
-import { Box, Center, Group, Image, Stack, Text, Title } from "@mantine/core";
+import {
+  Box,
+  Center,
+  createStyles,
+  Group,
+  Image,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
 import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
+
+const useStyles = createStyles((theme) => ({
+  inner: {
+    paddingTop: theme.spacing.xl * 4,
+    paddingBottom: theme.spacing.xl * 4,
+
+    [theme.fn.smallerThan("lg")]: {
+      paddingTop: theme.spacing.xl * 2,
+      paddingBottom: theme.spacing.xl * 2,
+    },
+    [theme.fn.smallerThan("sm")]: {
+      paddingTop: theme.spacing.xl,
+      paddingBottom: theme.spacing.xl,
+    },
+  },
+}));
 
 const Benefit: React.FC<{
   title: string;
@@ -10,13 +35,15 @@ const Benefit: React.FC<{
   };
   image: string;
 }> = ({ title, description, image, quote }) => {
+  const { classes } = useStyles();
   return (
     <Center
       sx={{
-        height: "95vh",
+        minHeight: "95vh",
       }}
     >
       <Stack
+        className={classes.inner}
         sx={(theme) => ({
           paddingTop: theme.spacing.xl * 4,
           paddingBottom: theme.spacing.xl * 4,
