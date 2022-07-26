@@ -36,6 +36,9 @@ const FInalSlide: React.FC = () => {
           </Text>
 
           <Button
+            target="_blank"
+            component="a"
+            href="https://portal.sizzy.co/download"
             variant="gradient"
             radius="xl"
             size="lg"

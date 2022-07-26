@@ -114,6 +114,9 @@ export function Hero() {
                 variant="gradient"
                 gradient={{ from: colors.purple[4], to: colors.pink[6] }}
                 className={classes.control}
+                target="_blank"
+                href="https://portal.sizzy.co/download"
+                component="a"
               >
                 Download Now
               </Button>
