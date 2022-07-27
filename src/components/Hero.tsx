@@ -8,10 +8,10 @@ import {
   Group,
   Text,
   Center,
-  useMantineTheme,
 } from "@mantine/core";
 import image from "assets/logo.png";
 import { HEADER_HEIGHT } from "components/Header";
+import DownloadButton from "components/DownloadButton";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -83,7 +83,6 @@ const useStyles = createStyles((theme) => ({
 
 export function Hero() {
   const { classes } = useStyles();
-  const { colors } = useMantineTheme();
   return (
     <Container>
       <Center
@@ -113,18 +112,7 @@ export function Hero() {
             </Text>
 
             <Group mt={30}>
-              <Button
-                radius="xl"
-                size="md"
-                variant="gradient"
-                gradient={{ from: colors.purple[4], to: colors.pink[6] }}
-                className={classes.control}
-                target="_blank"
-                href="https://portal.sizzy.co/download"
-                component="a"
-              >
-                Download Now
-              </Button>
+              <DownloadButton className={classes.control} />
               <Button
                 variant="default"
                 radius="xl"

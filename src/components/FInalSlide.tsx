@@ -1,14 +1,7 @@
-import {
-  Button,
-  Center,
-  Container,
-  Stack,
-  Text,
-  useMantineTheme,
-} from "@mantine/core";
+import { Center, Container, Stack, Text } from "@mantine/core";
+import DownloadButton from "components/DownloadButton";
 
 const FInalSlide: React.FC = () => {
-  const { colors } = useMantineTheme();
   return (
     <Container
       sx={(theme) => ({
@@ -35,20 +28,13 @@ const FInalSlide: React.FC = () => {
             {"Don't worry our app has a dark theme."}
           </Text>
 
-          <Button
-            target="_blank"
-            component="a"
-            href="https://portal.sizzy.co/download"
-            variant="gradient"
-            radius="xl"
-            size="lg"
-            gradient={{ from: colors.purple[4], to: colors.pink[6] }}
+          <DownloadButton
             sx={{
               alignSelf: "start",
             }}
           >
             Download Now
-          </Button>
+          </DownloadButton>
         </Stack>
       </Center>
     </Container>

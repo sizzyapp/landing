@@ -11,6 +11,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
+import DownloadButton from "components/DownloadButton";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -39,7 +40,6 @@ const Benefit: React.FC<{
   actionText: string;
 }> = ({ title, description, image, quote, actionText }) => {
   const { classes } = useStyles();
-  const { colors } = useMantineTheme();
 
   return (
     <Center
@@ -116,20 +116,7 @@ const Benefit: React.FC<{
             boxShadow: theme.shadows.lg,
           })}
         />
-        <Button
-          variant="gradient"
-          gradient={{ from: colors.purple[4], to: colors.pink[6] }}
-          radius="xl"
-          target="_blank"
-          href="https://portal.sizzy.co/download"
-          component="a"
-          sx={{
-            alignSelf: "center",
-          }}
-          size="lg"
-        >
-          {actionText}
-        </Button>
+        <DownloadButton size="lg" label={actionText} variant="light" />
       </Stack>
     </Center>
   );
