@@ -53,6 +53,15 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
+  subtitle: {
+    fontSize: theme.fontSizes.xl * 1.3,
+    lineHeight: 1.2,
+    opacity: 0.8,
+    [theme.fn.smallerThan("xs")]: {
+      fontSize: theme.fontSizes.xl,
+    },
+  },
+
   control: {
     [theme.fn.smallerThan("xs")]: {
       flex: 1,
@@ -101,15 +110,15 @@ export function Hero() {
               <span className={classes.highlight}>Ship</span> your websites
               faster
             </Title>
+            <Text mt="md" className={classes.subtitle}>
+              The last developer tool you need.
+            </Text>
             <Text
+              mt="sm"
               sx={{
                 opacity: 0.6,
               }}
-              mt="md"
             >
-              <b>A browser</b>, and more! <br />
-              {"A developer's "}
-              <b>ultimate toolkit.</b> <br />
               <b>Develop, debug and test</b> your website with ease and speed.{" "}
               <b>Intuitive and quick </b> development tools help you focus on
               your product and ideas.
