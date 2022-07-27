@@ -13,7 +13,7 @@ export default function App(props: AppProps) {
   const pageLoaded = useOnPageLoad();
 
   useGoogleAnalytics({
-    id: process.env.NEXT_PUBLIC_ANALYTICS_ID,
+    id: process.env.NEXT_PUBLIC_ANALYTICS_ID as string,
     startLoading: pageLoaded,
     delay: 100,
   });
