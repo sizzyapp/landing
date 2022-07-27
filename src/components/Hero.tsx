@@ -60,13 +60,16 @@ const useStyles = createStyles((theme) => ({
 
   image: {
     flex: 1,
+    maxWidth: 300,
     [theme.fn.smallerThan("md")]: {
       margin: theme.spacing.md,
+      maxWidth: 250,
     },
     [theme.fn.smallerThan("sm")]: {
       margin: theme.spacing.sm,
       marginLeft: theme.spacing.xl,
       marginRight: theme.spacing.xl,
+      maxWidth: 200,
     },
   },
 

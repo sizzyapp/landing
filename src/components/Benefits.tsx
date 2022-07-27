@@ -1,14 +1,14 @@
 import { Center, Container, Stack, Title } from "@mantine/core";
 import Benefit from "components/Benefit";
-import responsive from "assets/responsive.png";
-import screenshot from "assets/screenshot.png";
-import projects from "assets/projects.png";
-import misc from "assets/misc.png";
+import saveTestingTime from "assets/save-testing-time.jpg";
+import presentations from "assets/presentations.jpg";
+import projects from "assets/projects.jpg";
+import misc from "assets/misc.jpeg";
 import inspectcss from "assets/inspectcss.gif";
 
 const Benefits: React.FC = () => {
   return (
-    <Container id="benefits">
+    <Container size="xl" className="sizzy-red-1" id="benefits">
       <Center>
         <Stack>
           <Title
@@ -30,7 +30,7 @@ A set of well-thought tools and features allow you to develop and test for all u
               content:
                 "Recently migrated a site from global sass to css modules and just having the current production page and the development one next to each other with click & scroll sync is seriously a killer feature within @sizzyapp. Can really recommend it!",
             }}
-            image={responsive.src}
+            image={saveTestingTime.src}
             actionText="Save Time"
           />
           <Benefit
@@ -41,7 +41,7 @@ A set of well-thought tools and features allow you to develop and test for all u
               content:
                 "Sizzy is a powerful selling tool.  When we have a prospect who doesn't have a responsive site, when we show them their site on Sizzy, they are impressed and we look even more professional.",
             }}
-            image={screenshot.src}
+            image={presentations.src}
             actionText="Create Beautiful Presentations"
           />
           <Benefit
