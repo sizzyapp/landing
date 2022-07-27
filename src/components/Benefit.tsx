@@ -1,15 +1,12 @@
 import {
   Box,
-  Button,
   Center,
   Container,
   createStyles,
-  Group,
   Image,
   Stack,
   Text,
   Title,
-  useMantineTheme,
 } from "@mantine/core";
 import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
 import DownloadButton from "components/DownloadButton";

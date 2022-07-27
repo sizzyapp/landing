@@ -10,6 +10,7 @@ import {
   Title,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
+import { trackButtonClick } from "utils/utils";
 
 export const HEADER_HEIGHT = 60;
 
@@ -113,6 +114,7 @@ export function ResponsiveHeader({ links }: HeaderResponsiveProps) {
       onClick={(event) => {
         setActive(link.link);
         toggleOpened(false);
+        trackButtonClick(link.label);
       }}
     >
       {link.label}

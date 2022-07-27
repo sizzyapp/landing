@@ -1,4 +1,5 @@
 import { Button, useMantineTheme, ButtonProps } from "@mantine/core";
+import { trackButtonClick } from "utils/utils";
 
 const DownloadButton: React.FC<{ label?: string } & ButtonProps<"a">> = (
   props
@@ -18,6 +19,13 @@ const DownloadButton: React.FC<{ label?: string } & ButtonProps<"a">> = (
         alignSelf: "center",
       }}
       {...rest}
+      onClick={() => {
+        try {
+          // @ts-ignore
+          window.gtag("event", "download");
+          trackButtonClick("Download");
+        } catch (e) {}
+      }}
     >
       {label}
     </Button>

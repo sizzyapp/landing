@@ -12,6 +12,7 @@ import {
 import image from "assets/logo.png";
 import { HEADER_HEIGHT } from "components/Header";
 import DownloadButton from "components/DownloadButton";
+import { trackButtonClick } from "utils/utils";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -127,6 +128,7 @@ export function Hero() {
                     behavior: "smooth",
                     block: "start",
                   });
+                  trackButtonClick("Convince Me");
                 }}
               >
                 Convince Me
