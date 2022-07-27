@@ -1,9 +1,9 @@
 import { Center, Container, Stack, Title } from "@mantine/core";
 import Benefit from "components/Benefit";
-import saveTestingTime from "assets/new/save-testing-time.png";
-import presentations from "assets/new/presentations.png";
-import projects from "assets/new/projects.png";
-import misc from "assets/misc.png";
+import saveTestingTime from "assets/save-testing-time.jpg";
+import presentations from "assets/presentations.jpg";
+import projects from "assets/projects.jpg";
+import misc from "assets/misc.jpeg";
 import inspectcss from "assets/inspectcss.gif";
 
 const Benefits: React.FC = () => {
