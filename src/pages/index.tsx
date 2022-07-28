@@ -21,7 +21,7 @@ const Home: NextPage = () => {
             { link: "https://portal.sizzy.co/pricing", label: "Pricing" },
             { link: "https://docs.sizzy.co", label: "Docs" },
             { link: "https://glink.so/sizzy/roadmap", label: "Roadmap" },
-            { link: "https://sizzy.co/use-cases", label: "Use cases" },
+            // { link: "https://sizzy.co/use-cases", label: "Use cases" },
             { link: "https://portal.sizzy.co/login", label: "Login" },
             { link: "https://glink.so/sizzy", label: "Changelog" },
           ]}
