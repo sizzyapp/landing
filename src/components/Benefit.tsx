@@ -1,5 +1,4 @@
 import {
-  Box,
   Center,
   Container,
   createStyles,
@@ -8,8 +7,8 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
 import DownloadButton from "components/DownloadButton";
+import Quote from "components/Quote";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -69,42 +68,7 @@ const Benefit: React.FC<{
                 {description}
               </Text>
             </Stack>
-            <Stack sx={{ position: "relative" }}>
-              <Box
-                sx={(theme) => ({
-                  color: theme.colors.purple[0],
-                  position: "absolute",
-                  top: -20,
-                  left: 0,
-                  zIndex: -1,
-                })}
-              >
-                <RiDoubleQuotesL size={90} />
-              </Box>
-              <Box
-                sx={(theme) => ({
-                  color: theme.colors.purple[0],
-                  position: "absolute",
-                  bottom: -20,
-                  right: 0,
-                  zIndex: -1,
-                })}
-              >
-                <RiDoubleQuotesR size={90} />
-              </Box>
-              <Text color="dimmed">
-                <i>{quote.content}</i>
-              </Text>
-              <Text
-                color="dimmed"
-                sx={(theme) => ({
-                  fontSize: theme.fontSizes.sm,
-                  textAlign: "right",
-                })}
-              >
-                <b>{quote.author}</b>
-              </Text>
-            </Stack>
+            <Quote {...quote} />
           </Stack>
         </Container>
 
