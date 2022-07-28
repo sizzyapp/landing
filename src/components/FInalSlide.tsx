@@ -32,9 +32,7 @@ const FInalSlide: React.FC = () => {
             sx={{
               alignSelf: "start",
             }}
-          >
-            Download Now
-          </DownloadButton>
+          />
         </Stack>
       </Center>
     </Container>

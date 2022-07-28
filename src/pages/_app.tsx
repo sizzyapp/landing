@@ -22,7 +22,37 @@ export default function App(props: AppProps) {
   return (
     <>
       <Head>
-        <title>Sizzy</title>
+        <title>Sizzy — The last developer tool you need.</title>
+        <meta
+          name="title"
+          content="Sizzy — The last developer tool you need."
+        />
+        <meta
+          name="description"
+          content="Develop, debug and test your website with ease and speed. Intuitive and quick development tools help you focus on your product and ideas."
+        />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://sizzy.co/" />
+        <meta
+          property="og:title"
+          content="Sizzy — The last developer tool you need."
+        />
+        <meta
+          property="og:description"
+          content="Develop, debug and test your website with ease and speed. Intuitive and quick development tools help you focus on your product and ideas."
+        />
+
+        <meta property="twitter:url" content="https://sizzy.co/" />
+        <meta
+          property="twitter:title"
+          content="Sizzy — The last developer tool you need."
+        />
+        <meta
+          property="twitter:description"
+          content="Develop, debug and test your website with ease and speed. Intuitive and quick development tools help you focus on your product and ideas."
+        />
+
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
