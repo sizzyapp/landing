@@ -4,7 +4,7 @@ import { trackButtonClick } from "utils/utils";
 const DownloadButton: React.FC<{ label?: string } & ButtonProps<"a">> = (
   props
 ) => {
-  const { label = "Download Now", ...rest } = props;
+  const { label = "Download Sizzy", ...rest } = props;
   const { colors } = useMantineTheme();
 
   return (
