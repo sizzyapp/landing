@@ -77,8 +77,8 @@ const useStyles = createStyles((theme) => ({
     },
     [theme.fn.smallerThan("sm")]: {
       margin: theme.spacing.sm,
-      marginLeft: theme.spacing.xl,
-      marginRight: theme.spacing.xl,
+      marginLeft: "auto",
+      marginRight: "auto",
       maxWidth: 200,
     },
   },
