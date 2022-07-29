@@ -10,48 +10,17 @@ import {
 import DownloadButton from "components/DownloadButton";
 import Quote from "components/Quote";
 
-const useStyles = createStyles((theme) => ({
-  inner: {
-    paddingTop: theme.spacing.xl * 4,
-    paddingBottom: theme.spacing.xl * 4,
+const useStyles = createStyles((theme) => ({}));
 
-    [theme.fn.smallerThan("lg")]: {
-      paddingTop: theme.spacing.xl * 2,
-      paddingBottom: theme.spacing.xl * 2,
-    },
-    [theme.fn.smallerThan("sm")]: {
-      paddingTop: theme.spacing.xl,
-      paddingBottom: theme.spacing.xl,
-    },
-  },
-}));
-
-const Benefit: React.FC<{
+const Feature: React.FC<{
   title: string;
   description: string;
-  quote?: {
-    content: string;
-    author: string;
-  };
-  image: string;
+  image?: string;
   actionText?: string;
-}> = ({ title, description, image, quote, actionText }) => {
-  const { classes } = useStyles();
-
+}> = ({ title, description, image, actionText }) => {
   return (
-    <Center
-      sx={{
-        minHeight: "95vh",
-      }}
-    >
-      <Stack
-        className={classes.inner}
-        sx={(theme) => ({
-          paddingTop: theme.spacing.xl * 4,
-          paddingBottom: theme.spacing.xl * 4,
-        })}
-        spacing="xl"
-      >
+    <Center>
+      <Stack spacing="xl">
         <Container>
           <Stack sx={{ flex: 2 }} spacing="xl">
             <Stack>
@@ -69,7 +38,6 @@ const Benefit: React.FC<{
                 {description}
               </Text>
             </Stack>
-            {quote && <Quote {...quote} />}
           </Stack>
         </Container>
 
@@ -91,4 +59,4 @@ const Benefit: React.FC<{
   );
 };
 
-export default Benefit;
+export default Feature;
