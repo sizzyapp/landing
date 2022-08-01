@@ -57,7 +57,7 @@ const Feature: React.FC<
             sx={{ borderRadius: 8 }}
             component="video"
             controls={true}
-            src={video}
+            src={video.replace(".mov", ".mp4")}
           />
         )}
         {actionText && (
