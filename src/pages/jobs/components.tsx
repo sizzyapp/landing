@@ -1,35 +1,29 @@
-import { Badge, Box, Text } from '@chakra-ui/react';
-import * as L from 'layout-styled-components';
-import NextLink from 'next/link';
-import React from 'react';
+import NextLink from "next/link";
+import React from "react";
+import { Card, Stack, Text, Badge, Title } from "@mantine/core";
 
 export const JobCard = ({ post }) => {
   return (
     <NextLink href={`/jobs/${post.slug}`}>
-      <Box
-        borderRadius={4}
-        cursor="pointer"
-        shadow="sm"
-        transition="all 100ms linear"
-        bg="rgba(0,0,0,0.05)"
-        _hover={{
-          shadow: 'lg',
-          bg: 'rgba(0,0,0,0.05)',
-        }}
-        p={3}
+      <Card
+        sx={(theme) => ({
+          backgroundColor: theme.colors.gray[0],
+          cursor: "pointer",
+          borderRadius: theme.radius.md,
+          boxShadow: theme.shadows.sm,
+          transition: "all 100ms linear",
+          ":hover": {
+            backgroundColor: theme.colors.gray[1],
+            boxShadow: theme.shadows.lg,
+          },
+        })}
       >
-        <L.Vertical spacing={5}>
-          <Text fontWeight="bold" fontSize={18}>
-            {post.title}
-          </Text>
-          <Badge colorScheme="purple">
-            {post.jobtype}
-          </Badge>
-          <Text fontSize={15} color="gray.600">
-            {post.description}
-          </Text>
-        </L.Vertical>
-      </Box>
+        <Stack spacing="xs" align="start">
+          <Title order={4}>{post.title}</Title>
+          <Badge>{post.jobtype}</Badge>
+          <Text color="dimmed">{post.description}</Text>
+        </Stack>
+      </Card>
     </NextLink>
   );
 };
