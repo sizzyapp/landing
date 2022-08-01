@@ -56,10 +56,9 @@ const Privacy = () => {
                 website and in the Sizzy app. Both sizzy.co
                 (&ldquo;Website&rdquo;) and the Sizzy app (&ldquo;Sizzy&rdquo;)
                 are services (&ldquo;Services&rdquo;) of Kristijan Ristovski
-                &ldquo;Kitze&rdquo; residing in 80-463 Gdańsk (Poland), ul.
-                Stanisława Skarżyńskiego 3A/19, registered in the Polish Central
-                Register and Information on Economic Activity, tax id no.
-                PL5842776821, who is{" "}
+                &ldquo;Kitze&rdquo;, registered in the Polish Central Register
+                and Information on Economic Activity, tax id no. PL5842776821,
+                who is{" "}
               </span>
               <strong>
                 the controller responsible for the processing of personal data
