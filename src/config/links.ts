@@ -15,11 +15,11 @@ export let headerLinks: LinkType[] = [
     isExternal: true,
   },
   { link: "https://docs.sizzy.co", label: "Docs", isExternal: true },
-  {
+  /*{
     link: "https://glink.so/sizzy/roadmap",
     label: "Roadmap",
     isExternal: true,
-  },
+  },*/
   { link: "https://portal.sizzy.co/login", label: "Login", isExternal: true },
   { link: "https://glink.so/sizzy", label: "Changelog", isExternal: true },
 ];

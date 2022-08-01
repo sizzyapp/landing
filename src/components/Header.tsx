@@ -127,7 +127,7 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
     <Header height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
         <NextLink href="/">
-          <Group sx={{ cursor: "pointer" }} spacing={10}>
+          <Group sx={{ cursor: "pointer", flexWrap: "nowrap" }} spacing={10}>
             <Image sx={{ width: 30, height: 30 }} src="/logo.png" />
             <Title order={3} sx={(t) => ({ color: t.colors.dark[4] })}>
               Sizzy
