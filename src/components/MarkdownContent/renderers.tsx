@@ -1,25 +1,19 @@
-import React from 'react';
+import React from "react";
+import { MdCheck } from "react-icons/md";
+
+import { customComponents } from "./custom-components";
+import ZoomImage from "./ZoomImage";
+import { codeRenderer } from "./code-renderer";
 import {
+  Anchor,
   Code,
-  Heading,
-  Link,
   List,
-  ListIcon,
   ListItem,
-} from '@chakra-ui/react';
-import { MdCheck } from 'react-icons/md';
-
-import { customComponents } from './custom-components';
-import ZoomImage from './ZoomImage';
-import * as A from 'styles/shared-components';
-import { codeRenderer } from './code-renderer';
-
-const headingMap = {
-  1: 'xl',
-  2: 'lg',
-  3: 'md',
-  4: 'sm',
-};
+  Title,
+  Box,
+  Text,
+  Blockquote,
+} from "@mantine/core";
 
 const customLinks = {
   sub: () => {},
@@ -37,54 +31,59 @@ export const renderers = {
   break: () => <br />,
   paragraph: ({ children }) => (
     <>
-      <p className={'paragraph'}>{children}</p>
+      <Text className={"paragraph"}>{children}</Text>
       &nbsp;
     </>
   ),
   heading: ({ children, level }) => {
     return (
-      <Heading marginBottom={4} color="gray.700" size={headingMap[level]}>
+      <Title
+        sx={(theme) => ({
+          marginBottom: theme.spacing.md,
+          color: theme.colors.gray[7],
+        })}
+        order={level}
+      >
         {children}
-      </Heading>
+      </Title>
     );
   },
   image: (props) => <ZoomImage borderRadius={6} {...props} />,
   referenceImage: (props) => (
-    <ZoomImage borderRadius={6} {...props} style={{ width: '100%' }} />
+    <ZoomImage borderRadius={6} {...props} style={{ width: "100%" }} />
   ),
   link: (props) => {
     const customLink = customLinks[props.href];
     if (customLink) {
       return customLink(props);
     }
-    return <Link {...props} target="_blank" rel="noopener noreferrer" />;
+    return <Anchor {...props} target="_blank" rel="noopener noreferrer" />;
   },
   inlineCode: ({ children }) => (
-    <Code backgroundColor="gray.100" fontSize="inherit">
+    <Code
+      sx={(theme) => ({
+        backgroundColor: theme.colors.gray[0],
+      })}
+    >
       {children}
     </Code>
   ),
   list: (props) => <List mb={5} {...props} />,
   listItem: ({ children, ...props }) => (
-    <ListItem {...props}>
-      <ListIcon as={MdCheck} color="purple.500" />
+    <ListItem
+      {...props}
+      icon={
+        <Box
+          sx={(theme) => ({
+            color: theme.colors.purple[5],
+          })}
+        >
+          <MdCheck />
+        </Box>
+      }
+    >
       {children}
     </ListItem>
   ),
-  blockquote: ({ children }) => (
-    <A.Horizontal
-      className="blockquote"
-      borderRadius={8}
-      centerV
-      spacing={5}
-      p={5}
-      mb={5}
-      fontSize={14}
-      fontStyle="italic"
-      bg="gray.50"
-      color="gray.600"
-    >
-      {children}
-    </A.Horizontal>
-  ),
+  blockquote: ({ children }) => <Blockquote>{children}</Blockquote>,
 };

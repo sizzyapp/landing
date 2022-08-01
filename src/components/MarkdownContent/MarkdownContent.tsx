@@ -1,9 +1,9 @@
 import React from "react";
-import * as A from "styles/shared-components";
 import Twemoji from "react-twemoji";
 import { RealReactFC } from "types";
 import * as S from "./styles";
 import { renderers } from "./renderers";
+import { Stack } from "@mantine/core";
 
 const MarkdownContent: RealReactFC<{ clamp?: boolean }> = ({
   children,
@@ -11,7 +11,7 @@ const MarkdownContent: RealReactFC<{ clamp?: boolean }> = ({
 }) => {
   if (!children) return null;
   return (
-    <A.Vertical fullW fullH flex={1} position="relative">
+    <Stack sx={{ flex: 1, position: "relative" }}>
       <Twemoji>
         <S.Markdown
           {...{
@@ -24,7 +24,7 @@ const MarkdownContent: RealReactFC<{ clamp?: boolean }> = ({
         />
       </Twemoji>
       {clamp && <S.Overflow />}
-    </A.Vertical>
+    </Stack>
   );
 };
 

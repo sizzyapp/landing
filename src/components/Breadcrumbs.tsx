@@ -2,21 +2,20 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import NextLink from "next/link";
 import React from "react";
 import { RealReactFC } from "types";
+import { Anchor, Breadcrumbs } from "@mantine/core";
 
-const Breadcrumbs: RealReactFC<{
+const BreadcrumbsComponent: RealReactFC<{
   breadcrumbs: { label: string; href: string }[];
 }> = ({ breadcrumbs }) => {
   return (
-    <Breadcrumb>
+    <Breadcrumbs>
       {breadcrumbs.map(({ label, href }) => (
-        <BreadcrumbItem>
-          <NextLink passHref={true} href={href}>
-            <BreadcrumbLink href="#">{label}</BreadcrumbLink>
-          </NextLink>
-        </BreadcrumbItem>
+        <NextLink passHref={true} href={href}>
+          <Anchor>{label}</Anchor>
+        </NextLink>
       ))}
-    </Breadcrumb>
+    </Breadcrumbs>
   );
 };
 
-export default Breadcrumbs;
+export default BreadcrumbsComponent;

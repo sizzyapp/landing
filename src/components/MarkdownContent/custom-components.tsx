@@ -1,5 +1,5 @@
-import React from 'react';
-import { Divider } from '@chakra-ui/react';
+import React from "react";
+import { Divider } from "@mantine/core";
 
 export const customComponents = {
   divider: () => <Divider />,

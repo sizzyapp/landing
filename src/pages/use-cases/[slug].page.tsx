@@ -1,4 +1,4 @@
-import Breadcrumbs from "components/Breadcrumbs";
+import BreadcrumbsComponent from "components/Breadcrumbs";
 
 import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 import MetaTags from "components/MetaTags";
@@ -27,7 +27,7 @@ const UseCaseArticlePage = ({ post }) => {
         })}
       />
       <L.Vertical spacing={50}>
-        <Breadcrumbs
+        <BreadcrumbsComponent
           breadcrumbs={[
             { label: "Use Cases", href: "/use-cases" },
             {
