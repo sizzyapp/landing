@@ -9,7 +9,6 @@ import {
   Text,
   Center,
 } from "@mantine/core";
-import image from "assets/logo.png";
 import { HEADER_HEIGHT } from "components/Header";
 import DownloadButton from "components/DownloadButton";
 import { trackButtonClick } from "utils/utils";
@@ -104,7 +103,7 @@ export function Hero() {
         }}
       >
         <Group spacing={60} className={classes.inner}>
-          <Image src={image.src} className={classes.image} />
+          <Image src="/logo.png" className={classes.image} />
           <div className={classes.content}>
             <Title className={classes.title}>
               <span className={classes.highlight}>Ship</span> your websites
