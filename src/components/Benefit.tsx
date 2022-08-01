@@ -29,12 +29,12 @@ const useStyles = createStyles((theme) => ({
 const Benefit: React.FC<{
   title: string;
   description: string;
-  quote: {
+  quote?: {
     content: string;
     author: string;
   };
   image: string;
-  actionText: string;
+  actionText?: string;
 }> = ({ title, description, image, quote, actionText }) => {
   const { classes } = useStyles();
 
@@ -56,6 +56,7 @@ const Benefit: React.FC<{
           <Stack sx={{ flex: 2 }} spacing="xl">
             <Stack>
               <Title
+                color="purple"
                 sx={(theme) => ({
                   color: theme.colors.purple[4],
                 })}
@@ -68,7 +69,7 @@ const Benefit: React.FC<{
                 {description}
               </Text>
             </Stack>
-            <Quote {...quote} />
+            {quote && <Quote {...quote} />}
           </Stack>
         </Container>
 
@@ -82,7 +83,9 @@ const Benefit: React.FC<{
             boxShadow: theme.shadows.lg,
           })}
         />
-        <DownloadButton size="lg" label={actionText} variant="light" />
+        {actionText && (
+          <DownloadButton size="lg" label={actionText} variant="light" />
+        )}
       </Stack>
     </Center>
   );

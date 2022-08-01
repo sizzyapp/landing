@@ -1,3 +1,5 @@
+import { headerLinks } from "config/links";
+import NextLink from "next/link";
 import React, { useState } from "react";
 import {
   createStyles,
@@ -10,6 +12,7 @@ import {
   Title,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
+import { RealReactFC } from "types";
 import { trackButtonClick } from "utils/utils";
 
 export const HEADER_HEIGHT = 60;
@@ -93,16 +96,12 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface HeaderResponsiveProps {
-  links: { link: string; label: string }[];
-}
-
-export function ResponsiveHeader({ links }: HeaderResponsiveProps) {
+export const ResponsiveHeader: RealReactFC<{}> = () => {
   const [opened, toggleOpened] = useBooleanToggle(false);
   const [active, setActive] = useState<string>();
   const { classes, cx } = useStyles();
 
-  const items = links.map((link) => (
+  const items = headerLinks.map((link) => (
     <a
       target="_blank"
       rel="noreferrer"
@@ -124,7 +123,14 @@ export function ResponsiveHeader({ links }: HeaderResponsiveProps) {
   return (
     <Header height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
-        <Title>Sizzy</Title>
+        <NextLink href="/">
+          <Title
+            order={3}
+            sx={(t) => ({ cursor: "pointer", color: t.colors.dark[4] })}
+          >
+            Sizzy
+          </Title>
+        </NextLink>
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
@@ -146,4 +152,4 @@ export function ResponsiveHeader({ links }: HeaderResponsiveProps) {
       </Container>
     </Header>
   );
-}
+};

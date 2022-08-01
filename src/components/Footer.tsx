@@ -57,8 +57,7 @@ export function FooterSimple({ links }: FooterSimpleProps) {
         <Stack>
           <Title>Sizzy </Title>
           <Text color="dimmed" size="sm">
-            © {new Date().getFullYear()} Kristijan Ristovski Kitze. All rights
-            reserved.
+            © {new Date().getFullYear()} Zekit. All rights reserved.
           </Text>
         </Stack>
         <Group className={classes.links}>{items}</Group>

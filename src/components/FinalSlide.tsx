@@ -1,7 +1,7 @@
 import { Center, Container, Stack, Text } from "@mantine/core";
 import DownloadButton from "components/DownloadButton";
 
-const FInalSlide: React.FC = () => {
+const FinalSlide: React.FC = () => {
   return (
     <Container
       sx={(theme) => ({
@@ -39,4 +39,4 @@ const FInalSlide: React.FC = () => {
   );
 };
 
-export default FInalSlide;
+export default FinalSlide;

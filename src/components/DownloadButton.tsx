@@ -11,11 +11,11 @@ const DownloadButton: React.FC<{ label?: string } & ButtonProps<"a">> = (
     <Button
       size="md"
       variant="gradient"
-      gradient={{ from: colors.purple[4], to: colors.pink[6] }}
-      radius="xl"
       target="_blank"
       href="https://portal.sizzy.co/download"
       component="a"
+      gradient={{ from: colors.purple[4], to: colors.pink[6] }}
+      radius="xl"
       sx={{
         alignSelf: "center",
       }}
