@@ -73,12 +73,17 @@ export const Feature = defineDocumentType(() => ({
     slug: {
       type: "string",
       description: "The slug of the feature",
-      required: true,
+      required: false,
     },
     image: {
       type: "string",
       description: "The image",
-      required: true,
+      required: false,
+    },
+    video: {
+      type: "string",
+      description: "The video",
+      required: false,
     },
     description: {
       type: "string",

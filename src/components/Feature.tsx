@@ -1,4 +1,5 @@
 import {
+  Box,
   Center,
   Container,
   createStyles,
@@ -8,16 +9,14 @@ import {
   Title,
 } from "@mantine/core";
 import DownloadButton from "components/DownloadButton";
-import Quote from "components/Quote";
 
-const useStyles = createStyles((theme) => ({}));
+import { Feature as FeatureType } from "contentlayer/generated";
 
-const Feature: React.FC<{
-  title: string;
-  description: string;
-  image?: string;
-  actionText?: string;
-}> = ({ title, description, image, actionText }) => {
+const Feature: React.FC<
+  FeatureType & {
+    actionText?: string;
+  }
+> = ({ title, description, video, image, actionText }) => {
   return (
     <Center>
       <Stack spacing="xl">
@@ -41,16 +40,26 @@ const Feature: React.FC<{
           </Stack>
         </Container>
 
-        <Image
-          width="100%"
-          src={image}
-          sx={(theme) => ({
-            flex: 3,
-            borderRadius: theme.radius.md,
-            overflow: "hidden",
-            boxShadow: theme.shadows.lg,
-          })}
-        />
+        {image && (
+          <Image
+            width="100%"
+            src={image}
+            sx={(theme) => ({
+              flex: 3,
+              borderRadius: theme.radius.md,
+              overflow: "hidden",
+              boxShadow: theme.shadows.lg,
+            })}
+          />
+        )}
+        {video && (
+          <Box
+            sx={{ borderRadius: 8 }}
+            component="video"
+            controls={true}
+            src={video}
+          />
+        )}
         {actionText && (
           <DownloadButton size="lg" label={actionText} variant="light" />
         )}

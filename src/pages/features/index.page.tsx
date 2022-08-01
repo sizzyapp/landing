@@ -1,10 +1,9 @@
-import { Box } from "@chakra-ui/react";
+import { Stack } from "@mantine/core";
 import Feature from "components/Feature";
 import MetaTags from "components/MetaTags";
 import { allFeatures } from "contentlayer/generated";
 import { WrapperLayout } from "pages/page-layout";
 import React from "react";
-import { autoGrid } from "styled-mixins";
 
 const FeaturesPage: React.FC = () => {
   return (
@@ -14,11 +13,11 @@ const FeaturesPage: React.FC = () => {
         title="Sizzy Features"
         description="Sizzy Features"
       />
-      <Box {...autoGrid(300, 10)}>
+      <Stack spacing={5}>
         {allFeatures.map((feature) => (
           <Feature {...feature} />
         ))}
-      </Box>
+      </Stack>
     </WrapperLayout>
   );
 };
