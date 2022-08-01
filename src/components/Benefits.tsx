@@ -3,7 +3,7 @@ import Benefit from "components/Benefit";
 
 const Benefits: React.FC = () => {
   return (
-    <Container size="xl" className="sizzy-red-1" id="benefits">
+    <Container size="xl" id="benefits">
       <Center>
         <Stack>
           <Title

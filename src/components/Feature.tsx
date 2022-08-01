@@ -9,6 +9,7 @@ import {
   Title,
 } from "@mantine/core";
 import DownloadButton from "components/DownloadButton";
+import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 
 import { Feature as FeatureType } from "contentlayer/generated";
 
@@ -34,7 +35,7 @@ const Feature: React.FC<
               <Text
                 sx={(theme) => ({ fontSize: theme.fontSizes.lg, opacity: 0.8 })}
               >
-                {description}
+                <MarkdownContent>{description}</MarkdownContent>
               </Text>
             </Stack>
           </Stack>
