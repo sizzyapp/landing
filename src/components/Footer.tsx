@@ -1,14 +1,15 @@
-import React from "react";
 import {
-  createStyles,
-  Container,
-  Group,
   Anchor,
-  Title,
-  Text,
+  Container,
+  createStyles,
+  Group,
   Stack,
+  Text,
+  Title,
 } from "@mantine/core";
 import Link from "next/link";
+import React from "react";
+import { LinkType } from "types";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -38,7 +39,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface FooterSimpleProps {
-  links: { link: string; label: string }[];
+  links: LinkType[];
 }
 
 export function FooterSimple({ links }: FooterSimpleProps) {

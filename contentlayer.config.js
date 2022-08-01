@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import slugify from "slugify";
 
 export const UseCase = defineDocumentType(() => ({
   name: "UseCase",
@@ -95,6 +96,10 @@ export const Feature = defineDocumentType(() => ({
     url: {
       type: "string",
       resolve: (feature) => `/features/${feature.slug}`,
+    },
+    slug: {
+      type: "string",
+      resolve: (feature) => feature.slug || slugify(feature.title),
     },
   },
 }));
