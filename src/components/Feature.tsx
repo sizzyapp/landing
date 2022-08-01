@@ -19,53 +19,51 @@ const Feature: React.FC<
   }
 > = ({ title, description, video, image, actionText }) => {
   return (
-    <Center>
-      <Stack spacing="xl">
-        <Container>
-          <Stack sx={{ flex: 2 }} spacing="xl">
-            <Stack>
-              <Title
-                color="purple"
-                sx={(theme) => ({
-                  color: theme.colors.purple[4],
-                })}
-              >
-                {title}
-              </Title>
-              <Text
-                sx={(theme) => ({ fontSize: theme.fontSizes.lg, opacity: 0.8 })}
-              >
-                <MarkdownContent>{description}</MarkdownContent>
-              </Text>
-            </Stack>
+    <Stack>
+      <Container>
+        <Stack spacing="xl">
+          <Stack>
+            <Title
+              color="purple"
+              sx={(theme) => ({
+                color: theme.colors.purple[4],
+              })}
+            >
+              {title}
+            </Title>
+            <Text
+              sx={(theme) => ({ fontSize: theme.fontSizes.lg, opacity: 0.8 })}
+            >
+              <MarkdownContent>{description}</MarkdownContent>
+            </Text>
           </Stack>
-        </Container>
+        </Stack>
+      </Container>
 
-        {image && (
-          <Image
-            width="100%"
-            src={image}
-            sx={(theme) => ({
-              flex: 3,
-              borderRadius: theme.radius.md,
-              overflow: "hidden",
-              boxShadow: theme.shadows.lg,
-            })}
-          />
-        )}
-        {video && (
-          <Box
-            sx={{ borderRadius: 8 }}
-            component="video"
-            controls={true}
-            src={video.replace(".mov", ".mp4")}
-          />
-        )}
-        {actionText && (
-          <DownloadButton size="lg" label={actionText} variant="light" />
-        )}
-      </Stack>
-    </Center>
+      {image && (
+        <Image
+          width="100%"
+          src={image}
+          sx={(theme) => ({
+            flex: 3,
+            borderRadius: theme.radius.md,
+            overflow: "hidden",
+            boxShadow: theme.shadows.lg,
+          })}
+        />
+      )}
+      {video && (
+        <Box
+          sx={{ borderRadius: 8 }}
+          component="video"
+          controls={true}
+          src={video.replace(".mov", ".mp4")}
+        />
+      )}
+      {actionText && (
+        <DownloadButton size="lg" label={actionText} variant="light" />
+      )}
+    </Stack>
   );
 };
 
