@@ -13,7 +13,7 @@ const FeaturesPage: React.FC = () => {
         title="Sizzy Features"
         description="Sizzy Features"
       />
-      <Stack spacing={5}>
+      <Stack spacing={100}>
         {allFeatures.map((feature) => (
           <Feature {...feature} />
         ))}
