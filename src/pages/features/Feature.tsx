@@ -44,7 +44,7 @@ const Feature: React.FC<{
           </Title>
           <Text
             sx={(theme) => ({
-              fontSize: 22,
+              fontSize: theme.fontSizes.lg,
               opacity: 0.8,
             })}
           >

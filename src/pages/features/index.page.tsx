@@ -26,7 +26,7 @@ const FeaturesPage: React.FC = () => {
           <Box
             className="sizzy-red-1"
             sx={{
-              ...autoGrid(357, 25),
+              ...autoGrid(300, 25),
               margin: "auto",
             }}
           >
