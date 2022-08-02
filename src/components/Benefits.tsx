@@ -26,7 +26,7 @@ A set of well-thought tools and features allow you to develop and test for all u
                 "Recently migrated a site from global sass to css modules and just having the current production page and the development one next to each other with click & scroll sync is seriously a killer feature within @sizzyapp. Can really recommend it!",
             }}
             image={
-              "https://res.cloudinary.com/kitze/image/upload/v1659344615/Sizzy%20Landing/Benefits/projects.jpg"
+              "https://res.cloudinary.com/kitze/image/upload/v1659344615/Sizzy%20Landing/Benefits/save-testing-time.jpg"
             }
             actionText="Save Time"
           />
