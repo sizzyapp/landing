@@ -1,9 +1,9 @@
+import { Group } from "@mantine/core";
 import BreadcrumbsComponent from "components/Breadcrumbs";
 
 import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 import MetaTags from "components/MetaTags";
 import { allUseCases } from "contentlayer/generated";
-import * as L from "layout-styled-components";
 import { WrapperLayout } from "pages/page-layout";
 import React from "react";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
@@ -26,7 +26,7 @@ const UseCaseArticlePage = ({ post }) => {
           ctaBg: "#ffffff",
         })}
       />
-      <L.Vertical spacing={50}>
+      <Group spacing={50}>
         <BreadcrumbsComponent
           breadcrumbs={[
             { label: "Use Cases", href: "/use-cases" },
@@ -37,7 +37,7 @@ const UseCaseArticlePage = ({ post }) => {
           ]}
         />
         <MarkdownContent>{body.raw}</MarkdownContent>
-      </L.Vertical>
+      </Group>
     </WrapperLayout>
   );
 };

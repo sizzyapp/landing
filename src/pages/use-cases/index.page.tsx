@@ -1,8 +1,7 @@
+import { Header, Box, Group } from "@mantine/core";
 import React from "react";
-import { Box, Heading } from "@chakra-ui/react";
 import MetaTags from "components/MetaTags";
 import { allUseCases } from "contentlayer/generated";
-import * as L from "layout-styled-components";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 import { UseCaseCard } from "./components";
 import { WrapperLayout } from "pages/page-layout";
@@ -27,16 +26,16 @@ const UseCasesPage: RealReactFC<{ allUseCases: typeof allUseCases }> = ({
           ctaBg: "#ffffff",
         })}
       />
-      <L.Vertical spacing={20}>
-        <Heading color="gray.700" size="lg">
+      <Group spacing={20}>
+        <Header height={1} sx={(t) => ({ color: t.colors.gray[7] })}>
           Use cases
-        </Heading>
-        <Box {...autoGrid(300, 5)}>
+        </Header>
+        <Box sx={autoGrid(300, 15)}>
           {allUseCases.map((post) => (
             <UseCaseCard post={post} key={post.slug} />
           ))}
         </Box>
-      </L.Vertical>
+      </Group>
     </WrapperLayout>
   );
 };

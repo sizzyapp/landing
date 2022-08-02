@@ -1,12 +1,13 @@
+import { AppShell, Box, Container, Stack, Title } from "@mantine/core";
+import { ResponsiveHeader } from "components/Header";
 import MetaTags from "components/MetaTags";
 import { allJobs } from "contentlayer/generated";
-import React from "react";
 import pluralize from "pluralize";
+import React from "react";
+import { autoGrid } from "styled-mixins";
 import { RealReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 import { JobCard } from "./components";
-import { AppShell, Container, SimpleGrid, Stack, Title } from "@mantine/core";
-import { ResponsiveHeader } from "components/Header";
 
 const JobsPage: RealReactFC<{ allJobs: typeof allJobs }> = ({ allJobs }) => {
   const image = getMetaImage({
@@ -32,11 +33,11 @@ const JobsPage: RealReactFC<{ allJobs: typeof allJobs }> = ({ allJobs }) => {
         />
         <Stack spacing="md">
           <Title order={1}>Jobs</Title>
-          <SimpleGrid spacing={5} cols={2}>
+          <Box {...autoGrid(300, 5)}>
             {allJobs.map((post) => (
               <JobCard post={post} key={post.title} />
             ))}
-          </SimpleGrid>
+          </Box>
         </Stack>
       </Container>
     </AppShell>

@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "next start"
+    "start": "next start",
+    "clear-modules": "rm -rf node_modules && yarn"
   },
   "dependencies": {
     "@mantine/core": "^4.2.12",
@@ -13,7 +14,6 @@
     "@mantine/next": "^4.2.12",
     "contentlayer": "^0.2.6",
     "framer-motion": "^6.5.1",
-    "layout-styled-components": "^0.1.13",
     "next": "^12.2.3",
     "next-contentlayer": "^0.2.6",
     "pluralize": "^8.0.0",
@@ -24,7 +24,8 @@
     "react-markdown": "^4.3.1",
     "react-medium-image-zoom": "^4.4.3",
     "react-twemoji": "^0.5.0",
-    "slugify": "^1.6.5"
+    "slugify": "^1.6.5",
+    "styled-mixins": "^0.1.10"
   },
   "devDependencies": {
     "@types/node": "18.0.4",

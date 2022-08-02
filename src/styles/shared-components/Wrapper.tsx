@@ -6,8 +6,8 @@ export interface MyComponentStylesParams {}
 
 const useStyles = createStyles((theme, {}: MyComponentStylesParams) => ({
   root: {
-    maxWidth: 1030,
     width: "100%",
+    maxWidth: 1030,
     margin: "0 auto",
     paddingLeft: 50,
     paddingRight: 50,

@@ -54,7 +54,7 @@ const Feature: React.FC<
       )}
       {video && (
         <Box
-          sx={{ borderRadius: 8 }}
+          sx={{ borderRadius: 8, width: "100%" }}
           component="video"
           controls={true}
           src={video.replace(".mov", ".mp4")}
