@@ -71,6 +71,10 @@ export const Feature = defineDocumentType(() => ({
       description: "The title of the feature",
       required: true,
     },
+    layout: {
+      type: "string",
+      required: false,
+    },
     slug: {
       type: "string",
       description: "The slug of the feature",
