@@ -8,7 +8,16 @@ const MagicGrid: RealReactFC<{ width?: number; gap?: number }> = ({
   width = 300,
   gap = 15,
 }) => {
-  return <Box sx={autoGrid(width, gap)}>{children}</Box>;
+  return (
+    <Box
+      sx={{
+        width: "100%",
+        ...autoGrid(width, gap),
+      }}
+    >
+      {children}
+    </Box>
+  );
 };
 
 export default MagicGrid;
