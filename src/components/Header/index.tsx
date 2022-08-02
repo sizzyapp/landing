@@ -25,7 +25,7 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
   const [opened, { open, close }] = useDisclosure(false);
   const { classes } = useStyles();
 
-  const { pathname, route } = useRouter();
+  const { route } = useRouter();
 
   const items = headerLinks.map((link) => (
     <HeaderLink
