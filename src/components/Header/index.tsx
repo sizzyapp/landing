@@ -23,10 +23,9 @@ export const HEADER_HEIGHT = 60;
 
 export const ResponsiveHeader: RealReactFC<{}> = () => {
   const [opened, { open, close }] = useDisclosure(false);
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
 
   const { pathname, route } = useRouter();
-  console.log("pathname", pathname, route);
 
   const items = headerLinks.map((link) => (
     <HeaderLink
