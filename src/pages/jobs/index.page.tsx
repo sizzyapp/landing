@@ -36,7 +36,7 @@ const JobsPage: RealReactFC<{ allJobs: typeof allJobs }> = ({ allJobs }) => {
           <Title order={1}>Jobs</Title>
           <MagicGrid>
             {allJobs.map((post) => (
-              <NextLink key={post.title} href={`/jobs/${post.slug}`}>
+              <NextLink passHref key={post.title} href={`/jobs/${post.slug}`}>
                 <Card
                   title={post.title}
                   description={post.description}

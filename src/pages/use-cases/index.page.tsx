@@ -1,10 +1,11 @@
-import { Group, Header, Stack, Title } from "@mantine/core";
+import { AppShell, Stack, Title } from "@mantine/core";
 import Card from "components/Card";
 import MagicGrid from "components/MagicGrid";
 import MetaTags from "components/MetaTags";
 import { allUseCases } from "contentlayer/generated";
-import { WrapperLayout } from "pages/page-layout";
+import { defaultAppShellProps } from "pages/index.page";
 import React from "react";
+import Wrapper from "styles/shared-components/Wrapper";
 import { RealReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 
@@ -12,7 +13,7 @@ const UseCasesPage: RealReactFC<{ allUseCases: typeof allUseCases }> = ({
   allUseCases,
 }) => {
   return (
-    <WrapperLayout showCookieBanner={false}>
+    <AppShell {...defaultAppShellProps}>
       <MetaTags
         title="Use cases for Sizzy"
         url={`https://sizzy.co/use-cases`}
@@ -26,19 +27,21 @@ const UseCasesPage: RealReactFC<{ allUseCases: typeof allUseCases }> = ({
           ctaBg: "#ffffff",
         })}
       />
-      <Stack spacing="md">
-        <Title order={1}>Use Cases</Title>
-        <MagicGrid>
-          {allUseCases.map((post) => (
-            <Card
-              title={post.title}
-              description={post.description}
-              key={post.slug}
-            />
-          ))}
-        </MagicGrid>
-      </Stack>
-    </WrapperLayout>
+      <Wrapper>
+        <Stack spacing="md">
+          <Title order={1}>Use Cases</Title>
+          <MagicGrid>
+            {allUseCases.map((post) => (
+              <Card
+                title={post.title}
+                description={post.description}
+                key={post.slug}
+              />
+            ))}
+          </MagicGrid>
+        </Stack>
+      </Wrapper>
+    </AppShell>
   );
 };
 

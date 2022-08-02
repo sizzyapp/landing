@@ -7,17 +7,24 @@ import FinalSlide from "components/FinalSlide";
 import { FooterSimple } from "components/Footer";
 import { headerLinks, footerLinks } from "config/links";
 
+export const defaultAppShellProps = {
+  sx: {
+    "&:selection": {
+      backgroundColor: "red",
+    },
+  },
+  styles: {
+    main: {
+      paddingTop: 15,
+    },
+  },
+  header: <ResponsiveHeader />,
+  footer: <FooterSimple links={footerLinks} />,
+};
+
 const Home: NextPage = () => {
   return (
-    <AppShell
-      sx={{
-        "&:selection": {
-          backgroundColor: "red",
-        },
-      }}
-      header={<ResponsiveHeader />}
-      footer={<FooterSimple links={footerLinks} />}
-    >
+    <AppShell {...defaultAppShellProps}>
       <Hero />
       <Benefits />
       <FinalSlide />
