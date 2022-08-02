@@ -3,6 +3,7 @@ import BreadcrumbsComponent from "components/Breadcrumbs";
 
 import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 import MetaTags from "components/MetaTags";
+import Shell from "components/Shell";
 import { allUseCases } from "contentlayer/generated";
 import { WrapperLayout } from "pages/page-layout";
 import React from "react";
@@ -12,7 +13,7 @@ const UseCaseArticlePage = ({ post }) => {
   const { title, body, slug, description } = post;
 
   return (
-    <WrapperLayout>
+    <Shell>
       <MetaTags
         title={title}
         description={description}
@@ -38,7 +39,7 @@ const UseCaseArticlePage = ({ post }) => {
         />
         <MarkdownContent>{body.raw}</MarkdownContent>
       </Group>
-    </WrapperLayout>
+    </Shell>
   );
 };
 

@@ -1,8 +1,8 @@
-import { AppShell, Container, Stack, Title } from "@mantine/core";
+import { Container, Stack, Title } from "@mantine/core";
 import Card from "components/Card";
-import { ResponsiveHeader } from "components/Header";
 import MagicGrid from "components/MagicGrid";
 import MetaTags from "components/MetaTags";
+import Shell from "components/Shell";
 import { allJobs } from "contentlayer/generated";
 import NextLink from "next/link";
 import pluralize from "pluralize";
@@ -24,7 +24,7 @@ const JobsPage: RealReactFC<{ allJobs: typeof allJobs }> = ({ allJobs }) => {
   let description = `${jl === 0 ? "No" : jl} open ${pluralize("position", jl)}`;
 
   return (
-    <AppShell header={<ResponsiveHeader />}>
+    <Shell>
       <Container>
         <MetaTags
           url={`https://sizzy.co/jobs`}
@@ -47,7 +47,7 @@ const JobsPage: RealReactFC<{ allJobs: typeof allJobs }> = ({ allJobs }) => {
           </MagicGrid>
         </Stack>
       </Container>
-    </AppShell>
+    </Shell>
   );
 };
 

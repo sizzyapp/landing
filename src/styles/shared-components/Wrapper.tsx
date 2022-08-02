@@ -1,6 +1,5 @@
+import { createStyles, Stack } from "@mantine/core";
 import React from "react";
-
-import { createStyles, Group } from "@mantine/core";
 
 export interface MyComponentStylesParams {}
 
@@ -24,7 +23,7 @@ const useStyles = createStyles((theme, {}: MyComponentStylesParams) => ({
 
 const Wrapper = ({ children }) => {
   const { classes } = useStyles({});
-  return <Group className={classes.root}>{children}</Group>;
+  return <Stack className={classes.root}>{children}</Stack>;
 };
 
 export default Wrapper;

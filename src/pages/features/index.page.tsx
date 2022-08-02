@@ -1,13 +1,13 @@
 import { Stack } from "@mantine/core";
 import Feature from "components/Feature";
 import MetaTags from "components/MetaTags";
+import Shell from "components/Shell";
 import { allFeatures } from "contentlayer/generated";
-import { WrapperLayout } from "pages/page-layout";
 import React from "react";
 
 const FeaturesPage: React.FC = () => {
   return (
-    <WrapperLayout>
+    <Shell>
       <MetaTags
         url={`https://sizzy.co/jobs`}
         title="Sizzy Features"
@@ -18,7 +18,7 @@ const FeaturesPage: React.FC = () => {
           <Feature {...feature} />
         ))}
       </Stack>
-    </WrapperLayout>
+    </Shell>
   );
 };
 

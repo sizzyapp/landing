@@ -15,6 +15,7 @@
     "@mantine/core": "^5.0.2",
     "@mantine/hooks": "^5.0.2",
     "@mantine/next": "^5.0.2",
+    "conditional-wrap": "^1.0.2",
     "contentlayer": "^0.2.6",
     "next": "^12.2.3",
     "next-contentlayer": "^0.2.6",

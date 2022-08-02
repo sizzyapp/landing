@@ -67,7 +67,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  image: {
+  logo: {
     flex: 1,
     maxWidth: 300,
     [theme.fn.smallerThan("md")]: {
@@ -103,7 +103,7 @@ export function Hero() {
         }}
       >
         <Group spacing={60} className={`${classes.inner} sizzy-red-3`}>
-          <Image src="/logo.png" className={`${classes.image} sizzy-teal-2`} />
+          <Image src="/logo.png" className={`${classes.logo} sizzy-teal-2`} />
           <div className={`${classes.content} sizzy-blue-5`}>
             <Title id="sizzy-text" className={classes.title}>
               <span className={`${classes.highlight}`}>Ship</span> your websites

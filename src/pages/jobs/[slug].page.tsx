@@ -1,25 +1,18 @@
+import { Badge, Button, Container, Stack, Title } from "@mantine/core";
+import BreadcrumbsComponent from "components/Breadcrumbs";
 import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 import MetaTags from "components/MetaTags";
-import { Job, allJobs } from "contentlayer/generated";
+import Shell from "components/Shell";
+import { allJobs, Job } from "contentlayer/generated";
 import React from "react";
 import { RealReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
-import BreadcrumbsComponent from "components/Breadcrumbs";
-import { ResponsiveHeader } from "components/Header";
-import {
-  AppShell,
-  Container,
-  Stack,
-  Title,
-  Badge,
-  Button,
-} from "@mantine/core";
 
 const JobPage: RealReactFC<{ job: Job }> = ({ job }) => {
   const { title, body, slug, jobtype } = job;
 
   return (
-    <AppShell header={<ResponsiveHeader />}>
+    <Shell>
       <Container>
         <MetaTags
           title={title}
@@ -67,7 +60,7 @@ const JobPage: RealReactFC<{ job: Job }> = ({ job }) => {
           </Stack>
         </Stack>
       </Container>
-    </AppShell>
+    </Shell>
   );
 };
 

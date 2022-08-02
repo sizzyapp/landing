@@ -1265,6 +1265,11 @@ comment-json@^4.2.2:
     has-own-prop "^2.0.0"
     repeat-string "^1.6.1"
 
+conditional-wrap@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/conditional-wrap/-/conditional-wrap-1.0.2.tgz#a993fd402e7747d83d1e36c675175f89852c25e5"
+  integrity sha512-jaL1qJC7JImOXiWC4/OxrSMjbPSZG+tWj2VmUtdBOOQhJj0gbFoDCF2Y0F5xLgQUpg+CDSymssaTX+Vn+1yM3Q==
+
 contentlayer@^0.2.6:
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/contentlayer/-/contentlayer-0.2.6.tgz#6cdd25ee22b32cb25dff97825771c458181ef2bb"
