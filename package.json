@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "clear-modules": "rm -rf node_modules && yarn"
+    "clear-modules": "rm -rf node_modules && yarn",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",

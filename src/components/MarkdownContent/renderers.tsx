@@ -8,7 +8,6 @@ import {
   Anchor,
   Code,
   List,
-  ListItem,
   Title,
   Box,
   Text,
@@ -48,7 +47,7 @@ export const renderers = {
       </Title>
     );
   },
-  image: (props) => <ZoomImage borderRadius={6} {...props} />,
+  image: (props) => <ZoomImage sx={{ borderRadius: 6 }} {...props} />,
   referenceImage: (props) => (
     <ZoomImage borderRadius={6} {...props} style={{ width: "100%" }} />
   ),
@@ -68,22 +67,11 @@ export const renderers = {
       {children}
     </Code>
   ),
-  list: (props) => <List mb={5} {...props} />,
+  list: (props) => <List sx={{ marginBottom: 5 }} {...props} />,
   listItem: ({ children, ...props }) => (
-    <ListItem
-      {...props}
-      icon={
-        <Box
-          sx={(theme) => ({
-            color: theme.colors.purple[5],
-          })}
-        >
-          <MdCheck />
-        </Box>
-      }
-    >
+    <List.Item icon={<MdCheck />} {...props}>
       {children}
-    </ListItem>
+    </List.Item>
   ),
   blockquote: ({ children }) => <Blockquote>{children}</Blockquote>,
 };

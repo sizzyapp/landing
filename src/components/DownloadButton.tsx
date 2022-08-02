@@ -1,9 +1,9 @@
 import { Button, useMantineTheme, ButtonProps } from "@mantine/core";
 import { trackButtonClick } from "utils/utils";
 
-const DownloadButton: React.FC<{ label?: string } & ButtonProps<"a">> = (
-  props
-) => {
+type T = ButtonProps & React.ComponentPropsWithoutRef<"a"> & { label?: string };
+
+const DownloadButton: React.FC<T> = (props) => {
   const { label = "Download Sizzy", ...rest } = props;
   const { colors } = useMantineTheme();
 
