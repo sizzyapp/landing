@@ -54,7 +54,7 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
             </Title>
           </Group>
         </NextLink>
-        <Group spacing={5} className={classes.links}>
+        <Group spacing={0} className={classes.links}>
           {items}
           <HeaderMenu
             title="Learn"
