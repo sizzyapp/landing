@@ -1,18 +1,18 @@
+import {
+  Burger,
+  Container,
+  createStyles,
+  Group,
+  Header,
+  Image,
+  Paper,
+  Title,
+  Transition,
+} from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { headerLinks } from "config/links";
 import NextLink from "next/link";
 import React, { useState } from "react";
-import {
-  createStyles,
-  Header,
-  Container,
-  Group,
-  Burger,
-  Paper,
-  Transition,
-  Title,
-  Image,
-} from "@mantine/core";
-import { useBooleanToggle } from "@mantine/hooks";
 import { RealReactFC } from "types";
 import { trackButtonClick } from "utils/utils";
 
@@ -99,7 +99,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export const ResponsiveHeader: RealReactFC<{}> = () => {
-  const [opened, toggleOpened] = useBooleanToggle(false);
+  const [opened, { open, close }] = useDisclosure(false);
   const [active, setActive] = useState<string>();
   const { classes, cx } = useStyles();
 
@@ -116,7 +116,7 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
       })}
       onClick={(event) => {
         setActive(link.link);
-        toggleOpened(false);
+        close();
         trackButtonClick(link.label);
       }}
     >
@@ -148,7 +148,7 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
 
         <Burger
           opened={opened}
-          onClick={() => toggleOpened()}
+          onClick={open}
           className={classes.burger}
           size="sm"
         />

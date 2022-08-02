@@ -1,4 +1,4 @@
-import { AppShell, Box, Container, Stack, Title } from "@mantine/core";
+import { AppShell, Container, Stack, Title } from "@mantine/core";
 import Card from "components/Card";
 import { ResponsiveHeader } from "components/Header";
 import MagicGrid from "components/MagicGrid";
@@ -7,10 +7,8 @@ import { allJobs } from "contentlayer/generated";
 import NextLink from "next/link";
 import pluralize from "pluralize";
 import React from "react";
-import { autoGrid } from "styled-mixins";
 import { RealReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
-import { JobCard } from "./components";
 
 const JobsPage: RealReactFC<{ allJobs: typeof allJobs }> = ({ allJobs }) => {
   const image = getMetaImage({

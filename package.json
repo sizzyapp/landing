@@ -9,11 +9,12 @@
     "clear-modules": "rm -rf node_modules && yarn"
   },
   "dependencies": {
-    "@mantine/core": "^4.2.12",
-    "@mantine/hooks": "^4.2.12",
-    "@mantine/next": "^4.2.12",
+    "@emotion/react": "^11.10.0",
+    "@emotion/server": "^11.10.0",
+    "@mantine/core": "^5.0.2",
+    "@mantine/hooks": "^5.0.2",
+    "@mantine/next": "^5.0.2",
     "contentlayer": "^0.2.6",
-    "framer-motion": "^6.5.1",
     "next": "^12.2.3",
     "next-contentlayer": "^0.2.6",
     "pluralize": "^8.0.0",
