@@ -5,14 +5,13 @@ import {
   Group,
   Header,
   Image,
-  Paper,
+  Menu,
   Title,
-  Transition,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import HeaderLink from "components/HeaderLink";
 import { HeaderMenu } from "components/HeaderMenu";
-import { headerLinks } from "config/links";
+import { headerLinks, mobileLinks, popupLinks } from "config/links";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -26,15 +25,6 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
   const { classes } = useStyles();
 
   const { route } = useRouter();
-
-  const items = headerLinks.map((link) => (
-    <HeaderLink
-      activeRoute={route}
-      link={link}
-      key={link.link}
-      closeMenu={close}
-    />
-  ));
 
   return (
     <Header height={HEADER_HEIGHT} className={classes.root}>
@@ -55,27 +45,15 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
           </Group>
         </NextLink>
         <Group spacing={5} className={classes.links}>
-          {items}
-          <HeaderMenu
-            title="Learn"
-            links={[
-              {
-                link: "https://docs.sizzy.co",
-                label: "Docs",
-                isExternal: true,
-              },
-              {
-                link: "https://glink.so/sizzy/roadmap",
-                label: "Roadmap",
-                isExternal: true,
-              },
-              {
-                link: "https://glink.so/sizzy",
-                label: "Changelog",
-                isExternal: true,
-              },
-            ]}
-          />
+          {headerLinks.map((link) => (
+            <HeaderLink
+              key={link.link}
+              activeRoute={route}
+              link={link}
+              closeMenu={close}
+            />
+          ))}
+          <HeaderMenu title="Learn" links={popupLinks} />
         </Group>
 
         <NextLink href="https://portal.sizzy.co/login" passHref>
@@ -91,20 +69,28 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
           </Button>
         </NextLink>
 
-        <Burger
-          opened={opened}
-          onClick={open}
-          className={classes.burger}
-          size="sm"
-        />
+        <Menu
+          onChange={(o) => (o === true ? open() : close())}
+          shadow="md"
+          width="100%"
+        >
+          <Menu.Target>
+            <Burger
+              opened={opened}
+              onClick={open}
+              className={classes.burger}
+              size="sm"
+            />
+          </Menu.Target>
 
-        <Transition transition="pop-top-right" duration={200} mounted={opened}>
-          {(styles) => (
-            <Paper className={classes.dropdown} withBorder style={styles}>
-              {items}
-            </Paper>
-          )}
-        </Transition>
+          <Menu.Dropdown>
+            {mobileLinks.map((link) => (
+              <NextLink passHref href={link.link}>
+                <Menu.Item component="a">{link.label}</Menu.Item>
+              </NextLink>
+            ))}
+          </Menu.Dropdown>
+        </Menu>
       </Container>
     </Header>
   );
