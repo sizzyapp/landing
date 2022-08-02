@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Heading } from "@chakra-ui/react";
 import MetaTags from "components/MetaTags";
-import { LayoutProps } from "components/Layout";
 import { allUseCases } from "contentlayer/generated";
 import * as L from "layout-styled-components";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
@@ -10,9 +9,9 @@ import { WrapperLayout } from "pages/page-layout";
 import { autoGrid } from "styled-mixins";
 import { RealReactFC } from "types";
 
-const UseCasesPage: RealReactFC<
-  LayoutProps & { allUseCases: typeof allUseCases }
-> = ({ allUseCases }) => {
+const UseCasesPage: RealReactFC<{ allUseCases: typeof allUseCases }> = ({
+  allUseCases,
+}) => {
   return (
     <WrapperLayout showCookieBanner={false}>
       <MetaTags

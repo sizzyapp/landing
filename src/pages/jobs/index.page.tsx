@@ -1,5 +1,4 @@
 import MetaTags from "components/MetaTags";
-import { LayoutProps } from "components/Layout";
 import { allJobs } from "contentlayer/generated";
 import React from "react";
 import pluralize from "pluralize";
@@ -9,9 +8,7 @@ import { JobCard } from "./components";
 import { AppShell, Container, SimpleGrid, Stack, Title } from "@mantine/core";
 import { ResponsiveHeader } from "components/Header";
 
-const JobsPage: RealReactFC<LayoutProps & { allJobs: typeof allJobs }> = ({
-  allJobs,
-}) => {
+const JobsPage: RealReactFC<{ allJobs: typeof allJobs }> = ({ allJobs }) => {
   const image = getMetaImage({
     preset: "netlify",
     logo: sizzyLogoUrl,

@@ -8,12 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.2.4",
-    "@emotion/styled": "^11.9.3",
     "@mantine/core": "^4.2.12",
     "@mantine/hooks": "^4.2.12",
     "@mantine/next": "^4.2.12",
-    "chakra-layout-components": "^0.2.1",
     "contentlayer": "^0.2.6",
     "framer-motion": "^6.5.1",
     "layout-styled-components": "^0.1.13",

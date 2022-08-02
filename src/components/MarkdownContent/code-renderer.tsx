@@ -1,23 +1,26 @@
-import React from 'react';
-import { Box } from '@chakra-ui/react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import prismTheme from 'prism-react-renderer/themes/shadesOfPurple';
+import React from "react";
+import { Box } from "@mantine/core";
+import Highlight, { defaultProps } from "prism-react-renderer";
+import prismTheme from "prism-react-renderer/themes/shadesOfPurple";
 
 export const codeRenderer = ({ value, language }) => {
   return (
     <Highlight
       {...defaultProps}
       code={value}
-      language={language || 'javascript'}
+      language={language || "javascript"}
       theme={prismTheme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <Box
-          borderRadius={10}
-          my={5}
-          as="pre"
-          fontSize="sm"
-          p={5}
+          sx={(theme) => ({
+            borderRadius: 10,
+            fontSize: theme.fontSizes.sm,
+            padding: 5,
+            marginTop: 5,
+            marginBottom: 5,
+          })}
+          component="pre"
           className={className}
           style={style}
         >

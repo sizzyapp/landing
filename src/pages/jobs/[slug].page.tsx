@@ -1,8 +1,8 @@
 import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 import MetaTags from "components/MetaTags";
-import { allJobs } from "contentlayer/generated";
-import { WrapperLayout } from "pages/page-layout";
+import { Job, allJobs } from "contentlayer/generated";
 import React from "react";
+import { RealReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 import BreadcrumbsComponent from "components/Breadcrumbs";
 import { ResponsiveHeader } from "components/Header";
@@ -15,8 +15,8 @@ import {
   Button,
 } from "@mantine/core";
 
-const UseCaseArticlePage = ({ post }) => {
-  const { title, body, slug, jobtype } = post;
+const JobPage: RealReactFC<{ job: Job }> = ({ job }) => {
+  const { title, body, slug, jobtype } = job;
 
   return (
     <AppShell header={<ResponsiveHeader />}>
@@ -71,25 +71,21 @@ const UseCaseArticlePage = ({ post }) => {
   );
 };
 
-export default UseCaseArticlePage;
+export default JobPage;
 
 export async function getStaticProps({ params }) {
-  const posts = allJobs;
-  const post = posts.find((p) => p.slug === params.slug);
+  const job = allJobs.find((p) => p.slug === params.slug);
 
   return {
     props: {
-      post,
-      posts,
+      job,
     },
   };
 }
 
 export async function getStaticPaths() {
-  const posts = allJobs;
-
   return {
-    paths: posts.map((post) => ({
+    paths: allJobs.map((post) => ({
       params: {
         slug: post.slug.toString(),
       },

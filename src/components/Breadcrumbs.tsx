@@ -1,8 +1,7 @@
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
+import { Anchor, Breadcrumbs } from "@mantine/core";
 import NextLink from "next/link";
 import React from "react";
 import { RealReactFC } from "types";
-import { Anchor, Breadcrumbs } from "@mantine/core";
 
 const BreadcrumbsComponent: RealReactFC<{
   breadcrumbs: { label: string; href: string }[];
