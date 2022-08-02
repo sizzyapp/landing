@@ -1,7 +1,10 @@
 import { AppShell, Box, Container, Stack, Title } from "@mantine/core";
+import Card from "components/Card";
 import { ResponsiveHeader } from "components/Header";
+import MagicGrid from "components/MagicGrid";
 import MetaTags from "components/MetaTags";
 import { allJobs } from "contentlayer/generated";
+import NextLink from "next/link";
 import pluralize from "pluralize";
 import React from "react";
 import { autoGrid } from "styled-mixins";
@@ -33,11 +36,17 @@ const JobsPage: RealReactFC<{ allJobs: typeof allJobs }> = ({ allJobs }) => {
         />
         <Stack spacing="md">
           <Title order={1}>Jobs</Title>
-          <Box {...autoGrid(300, 5)}>
+          <MagicGrid>
             {allJobs.map((post) => (
-              <JobCard post={post} key={post.title} />
+              <NextLink key={post.title} href={`/jobs/${post.slug}`}>
+                <Card
+                  title={post.title}
+                  description={post.description}
+                  badge={post.jobtype}
+                />
+              </NextLink>
             ))}
-          </Box>
+          </MagicGrid>
         </Stack>
       </Container>
     </AppShell>

@@ -1,12 +1,12 @@
-import { Header, Box, Group } from "@mantine/core";
-import React from "react";
+import { Group, Header, Stack, Title } from "@mantine/core";
+import Card from "components/Card";
+import MagicGrid from "components/MagicGrid";
 import MetaTags from "components/MetaTags";
 import { allUseCases } from "contentlayer/generated";
-import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
-import { UseCaseCard } from "./components";
 import { WrapperLayout } from "pages/page-layout";
-import { autoGrid } from "styled-mixins";
+import React from "react";
 import { RealReactFC } from "types";
+import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 
 const UseCasesPage: RealReactFC<{ allUseCases: typeof allUseCases }> = ({
   allUseCases,
@@ -26,16 +26,18 @@ const UseCasesPage: RealReactFC<{ allUseCases: typeof allUseCases }> = ({
           ctaBg: "#ffffff",
         })}
       />
-      <Group spacing={20}>
-        <Header height={1} sx={(t) => ({ color: t.colors.gray[7] })}>
-          Use cases
-        </Header>
-        <Box sx={autoGrid(300, 15)}>
+      <Stack spacing="md">
+        <Title order={1}>Use Cases</Title>
+        <MagicGrid>
           {allUseCases.map((post) => (
-            <UseCaseCard post={post} key={post.slug} />
+            <Card
+              title={post.title}
+              description={post.description}
+              key={post.slug}
+            />
           ))}
-        </Box>
-      </Group>
+        </MagicGrid>
+      </Stack>
     </WrapperLayout>
   );
 };

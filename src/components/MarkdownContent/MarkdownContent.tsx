@@ -1,19 +1,23 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import Twemoji from "react-twemoji";
 import { RealReactFC } from "types";
 import * as S from "./styles";
 import { renderers } from "./renderers";
 import { Stack } from "@mantine/core";
+import { useStyles } from "./styles";
 
 const MarkdownContent: RealReactFC<{ clamp?: boolean }> = ({
   children,
   clamp,
 }) => {
   if (!children) return null;
+  const { classes } = useStyles({ clamp });
   return (
     <Stack sx={{ flex: 1, position: "relative" }}>
       <Twemoji>
-        <S.Markdown
+        <ReactMarkdown
+          className={classes.markdown}
           {...{
             //@ts-ignore
             renderers: renderers,
@@ -23,7 +27,7 @@ const MarkdownContent: RealReactFC<{ clamp?: boolean }> = ({
           }}
         />
       </Twemoji>
-      {clamp && <S.Overflow />}
+      {clamp && <div className={classes.overflow} />}
     </Stack>
   );
 };
