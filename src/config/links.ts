@@ -1,5 +1,29 @@
 import { LinkType } from "types";
 
+let docs = {
+  link: "https://docs.sizzy.co",
+  label: "Docs",
+  isExternal: true,
+};
+
+let roadmap = {
+  link: "https://glink.so/sizzy/roadmap",
+  label: "Roadmap",
+  isExternal: true,
+};
+
+let changelog = {
+  link: "https://glink.so/sizzy",
+  label: "Changelog",
+  isExternal: true,
+};
+
+let login = {
+  link: "https://portal.sizzy.co/login",
+  label: "Login",
+  isExternal: true,
+};
+
 export let headerLinks: LinkType[] = [
   {
     link: "/use-cases",
@@ -19,6 +43,9 @@ export let headerLinks: LinkType[] = [
     isExternal: true,
   },
 ];
+
+export let popupLinks = [docs, roadmap, changelog];
+export const mobileLinks = [...headerLinks, ...popupLinks, login];
 
 export let footerLinks: LinkType[] = [
   { link: "/privacy", label: "Privacy" },
