@@ -1,4 +1,5 @@
 import {
+  Anchor,
   Burger,
   Button,
   Container,
@@ -18,6 +19,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { RealReactFC } from "types";
 import { useStyles } from "./styles";
+import HeaderButton from "components/HeaderButton";
 
 export const HEADER_HEIGHT = 60;
 
@@ -39,20 +41,22 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
   return (
     <Header height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
-        <NextLink href="/">
-          <Group
-            sx={{
-              cursor: "pointer",
-              flexWrap: "nowrap",
-              justifyContent: "space-around",
-            }}
-            spacing={10}
-          >
-            <Image sx={{ width: 30, height: 30 }} src="/logo.png" />
-            <Title order={3} sx={(t) => ({ color: t.colors.dark[4] })}>
-              Sizzy
-            </Title>
-          </Group>
+        <NextLink href="/" passHref>
+          <Anchor variant="text">
+            <Group
+              sx={{
+                cursor: "pointer",
+                flexWrap: "nowrap",
+                justifyContent: "space-around",
+              }}
+              spacing={10}
+            >
+              <Image sx={{ width: 30, height: 30 }} src="/logo.png" />
+              <Title order={3} sx={(t) => ({ color: t.colors.dark[4] })}>
+                Sizzy
+              </Title>
+            </Group>
+          </Anchor>
         </NextLink>
         <Group spacing={0} className={classes.links}>
           {items}
