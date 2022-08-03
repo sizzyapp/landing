@@ -45,7 +45,7 @@ interface FooterSimpleProps {
 export function FooterSimple({ links }: FooterSimpleProps) {
   const { classes } = useStyles();
   const items = links.map((link) => (
-    <Link href={link.link} passHref>
+    <Link key={link.link} href={link.link} passHref>
       <Anchor color="dimmed" key={link.label} size="sm">
         {link.label}
       </Anchor>

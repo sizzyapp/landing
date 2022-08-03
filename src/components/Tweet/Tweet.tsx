@@ -1,26 +1,15 @@
-import { Anchor, Card, Group, Image, Stack, Text } from "@mantine/core";
+import { Anchor, Card, Group, Image, Stack, Text, Box } from "@mantine/core";
+import { RealReactFC } from "types";
 import { TransformedTweet } from "types/tweet";
 import { LikeIcon, ReplyIcon, RetweetIcon, TwitterLogo } from "./Icons";
-import { ActionIcons, Avatar } from "./Styles";
+import { ActionIcons } from "./Styles";
 
-interface Props {
+const Tweet: RealReactFC<{
   tweet: TransformedTweet;
-}
-
-const Tweet = (props: Props) => {
-  const { tweet } = props;
-
+}> = ({ tweet }) => {
   if (!tweet) return null;
 
-  const {
-    author,
-    media,
-    created_at,
-    public_metrics,
-    id,
-    text,
-    referenced_tweets,
-  } = tweet;
+  const { author, public_metrics, id, text } = tweet;
 
   const authorUrl = `https://twitter.com/${author.username}`;
   const likeUrl = `https://twitter.com/intent/like?tweet_id=${id}`;
@@ -49,59 +38,80 @@ const Tweet = (props: Props) => {
     </Group>
   );
 
-  let avatarAndName = (
-    <Group>
-      <Group spacing={5}>
-        <Avatar href={authorUrl} target="_blank" rel="noopener noreferrer">
-          <Image
-            sx={{
-              height: avatarSize,
-              width: avatarSize,
-              borderRadius: "100%",
-              overflow: "hidden",
-            }}
-            alt={author.username}
-            height={avatarSize}
-            width={avatarSize}
-            src={author.profile_image_url.replace("_normal", "")}
-          />
-        </Avatar>
-        <Stack spacing={0}>
-          <Text
-            sx={(t) => ({
-              fontSize: 17,
-              fontWeight: "bold",
-              color: t.colors.gray[8],
-            })}
-            title={author.name}
-          >
-            {author.name}
-          </Text>
-          <Text sx={(t) => ({ fontSize: 15, color: t.colors.gray[7] })}>
-            @{author.username}
-          </Text>
-        </Stack>
-      </Group>
-      <Anchor
-        sx={{ marginLeft: "auto" }}
-        href={tweetUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+  let nameAndUsername = (
+    <Stack spacing={0}>
+      <Text
+        sx={(t) => ({
+          fontSize: 17,
+          lineHeight: "17px",
+          fontWeight: "bold",
+          color: t.colors.gray[8],
+        })}
+        title={author.name}
       >
-        <TwitterLogo />
-      </Anchor>
-    </Group>
+        {author.name}
+      </Text>
+      <Text sx={(t) => ({ fontSize: 15, color: t.colors.gray[7] })}>
+        @{author.username}
+      </Text>
+    </Stack>
+  );
+  let avatar = (
+    <Image
+      sx={{
+        height: avatarSize,
+        width: avatarSize,
+        borderRadius: "100%",
+        overflow: "hidden",
+      }}
+      alt={author.username}
+      height={avatarSize}
+      width={avatarSize}
+      src={author.profile_image_url.replace("_normal", "")}
+    />
+  );
+  let avatarAndName = (
+    <Anchor
+      underline={false}
+      href={authorUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Group spacing={10}>
+        <Group spacing={5}>
+          {avatar}
+          {nameAndUsername}
+        </Group>
+        <Anchor
+          sx={{ marginLeft: "auto" }}
+          href={tweetUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <TwitterLogo />
+        </Anchor>
+      </Group>
+    </Anchor>
   );
 
   return (
     <Card shadow="md">
-      {avatarAndName}
+      <Stack sx={{ height: "100%" }} spacing={10}>
+        {avatarAndName}
 
-      <Text sx={(t) => ({ flex: 1, color: t.colors.gray[7] })}>
-        {formattedText}
-      </Text>
+        <Text
+          sx={(t) => ({
+            flex: 1,
+            fontSize: 15,
+            lineHeight: "23px",
+            color: t.colors.gray[9],
+          })}
+        >
+          {formattedText}
+        </Text>
 
-      <Stack spacing={5}>{icons}</Stack>
+        <Stack spacing={5}>{icons}</Stack>
+      </Stack>
     </Card>
   );
 };

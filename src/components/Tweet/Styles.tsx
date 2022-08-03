@@ -23,9 +23,7 @@ export const TweetWrapper = styled("div")`
 `;
 
 export const Avatar = styled("a")`
-  display: flex;
-  height: 46px;
-  width: 46px;
+  text-decoration: none;
 `;
 
 export const Name = styled("a")`
