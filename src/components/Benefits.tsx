@@ -28,7 +28,7 @@ A set of well-thought tools and features allow you to develop and test for all u
             image={
               "https://res.cloudinary.com/kitze/image/upload/v1659344615/Sizzy%20Landing/Benefits/save-testing-time.jpg"
             }
-            actionText="Save Time"
+            actionText="Get started"
           />
           <Benefit
             title="Pretty Presentations"
@@ -41,7 +41,7 @@ A set of well-thought tools and features allow you to develop and test for all u
             image={
               "https://res.cloudinary.com/kitze/image/upload/v1659344615/Sizzy%20Landing/Benefits/presentations.jpg"
             }
-            actionText="Create Beautiful Presentations"
+            actionText="Get started"
           />
           <Benefit
             title="Smooth Context Switching"
@@ -55,7 +55,7 @@ We understand the pain of context-switching when you are working on multiple pro
             image={
               "https://res.cloudinary.com/kitze/image/upload/v1659344615/Sizzy%20Landing/Benefits/projects.jpg"
             }
-            actionText="Start Managing Your Projects"
+            actionText="Get started"
           />
           <Benefit
             title="Better Ways to Investigate Visual Bugs"
@@ -68,7 +68,7 @@ We understand the pain of context-switching when you are working on multiple pro
             image={
               "https://res.cloudinary.com/kitze/image/upload/v1659344615/Sizzy%20Landing/Benefits/inspectcss.gif"
             }
-            actionText="Debug Your Styles"
+            actionText="Get started"
           />
           <Benefit
             title="A Modern Workflow"
@@ -81,7 +81,7 @@ We understand the pain of context-switching when you are working on multiple pro
             image={
               "https://res.cloudinary.com/kitze/image/upload/v1659344615/Sizzy%20Landing/Benefits/misc.jpg"
             }
-            actionText="Improve Your Workflow"
+            actionText="Get started"
           />
         </Stack>
       </Center>

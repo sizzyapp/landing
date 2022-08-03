@@ -1,10 +1,11 @@
 import { Button, useMantineTheme, ButtonProps } from "@mantine/core";
 import { trackButtonClick } from "utils/utils";
 
-type T = ButtonProps & React.ComponentPropsWithoutRef<"a"> & { label?: string };
+type T = ButtonProps &
+  React.ComponentPropsWithoutRef<"a"> & { label?: string; center?: boolean };
 
 const DownloadButton: React.FC<T> = (props) => {
-  const { label = "Download Sizzy", ...rest } = props;
+  const { label = "Download Sizzy", center = true, ...rest } = props;
   const { colors } = useMantineTheme();
 
   return (
@@ -17,7 +18,7 @@ const DownloadButton: React.FC<T> = (props) => {
       gradient={{ from: colors.purple[4], to: colors.pink[6] }}
       radius="xl"
       sx={{
-        alignSelf: "center",
+        alignSelf: center ? "center" : "flex-start",
       }}
       {...rest}
       onClick={() => {
