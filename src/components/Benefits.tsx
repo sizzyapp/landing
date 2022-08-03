@@ -5,7 +5,7 @@ const Benefits: React.FC = () => {
   return (
     <Container size="xl" id="benefits">
       <Center>
-        <Stack>
+        <Stack spacing="lg">
           <Title
             sx={{
               textAlign: "center",

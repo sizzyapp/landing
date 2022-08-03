@@ -17,7 +17,7 @@ const FeaturesPage: React.FC = () => {
         description="Sizzy Features"
       />
       <Stack spacing="xl">
-        <Stack spacing="lg">
+        <Stack spacing="xl">
           {filteredFeatures.map((feature) => (
             <Feature feature={feature} />
           ))}

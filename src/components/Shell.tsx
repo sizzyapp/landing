@@ -7,10 +7,9 @@ import { footerLinks } from "config/links";
 import React from "react";
 import { RealReactFC } from "types";
 
-const Shell: RealReactFC<AppShellProps & { wrapper?: boolean }> = ({
-  children,
-  wrapper = true,
-}) => {
+const Shell: RealReactFC<
+  AppShellProps & { wrapper?: boolean; padding?: number }
+> = ({ children, wrapper = true, padding }) => {
   return (
     <AppShell
       header={<ResponsiveHeader />}
@@ -21,6 +20,7 @@ const Shell: RealReactFC<AppShellProps & { wrapper?: boolean }> = ({
           [theme.fn.smallerThan("sm")]: {
             padding: 20,
           },
+          ...(padding !== undefined && { padding }),
         },
       })}
       sx={{

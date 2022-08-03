@@ -31,26 +31,29 @@ const Feature: React.FC<{
       condition={wrapper}
       wrap={(c) => <Wrapper padding={false}>{c}</Wrapper>}
     >
-      <Stack spacing={5}>
-        <Stack spacing="sm">
-          <Title
-            color="purple"
-            sx={(theme) => ({
-              color: theme.colors.purple[4],
-            })}
-          >
-            {title}
-          </Title>
-          <Text
-            sx={(theme) => ({
-              fontSize: theme.fontSizes.lg,
-              color: theme.colors.gray[8],
-            })}
-          >
-            <MarkdownContent>{description}</MarkdownContent>
-          </Text>
+      <Stack spacing="xl">
+        <Stack align="start" spacing="sm">
+          <Stack spacing="xs">
+            <Title
+              sx={(theme) => ({
+                color: theme.colors.purple[4],
+              })}
+            >
+              {title}
+            </Title>
+            <Text
+              sx={(theme) => ({
+                fontSize: theme.fontSizes.lg,
+                color: theme.colors.gray[8],
+              })}
+            >
+              <MarkdownContent>{description}</MarkdownContent>
+            </Text>
+          </Stack>
           <NextLink href={`/features/${slug}`} passHref>
-            <Button component="a">Learn more</Button>
+            <Button variant="light" component="a">
+              Learn more
+            </Button>
           </NextLink>
         </Stack>
 
