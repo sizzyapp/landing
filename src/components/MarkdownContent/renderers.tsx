@@ -30,8 +30,7 @@ export const renderers = {
   break: () => <br />,
   paragraph: ({ children }) => (
     <>
-      <Text className={"paragraph"}>{children}</Text>
-      &nbsp;
+      <p className={"paragraph"}>{children}</p>
     </>
   ),
   heading: ({ children, level }) => {
