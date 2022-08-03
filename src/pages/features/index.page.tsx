@@ -1,9 +1,9 @@
-import { Box, Grid, SimpleGrid, Stack } from "@mantine/core";
-import Wrapper from "components/Wrapper";
-import Feature from "pages/features/Feature";
+import { Box, Stack } from "@mantine/core";
 import MetaTags from "components/MetaTags";
 import Shell from "components/Shell";
+import Wrapper from "components/Wrapper";
 import { allFeatures } from "contentlayer/generated";
+import Feature from "pages/features/Feature";
 import React from "react";
 import { autoGrid } from "styled-mixins";
 
@@ -30,9 +30,9 @@ const FeaturesPage: React.FC = () => {
               margin: "auto",
             }}
           >
-            <Feature slug="snippets" />
-            <Feature slug="notes" />
-            <Feature slug="tasks" />
+            <Feature findBySlug="snippets" />
+            <Feature findBySlug="notes" />
+            <Feature findBySlug="tasks" />
           </Box>
         </Wrapper>
       </Stack>

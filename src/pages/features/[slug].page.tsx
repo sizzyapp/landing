@@ -1,23 +1,25 @@
-import { Group, Stack } from "@mantine/core";
+import { Stack } from "@mantine/core";
 import BreadcrumbsComponent from "components/Breadcrumbs";
 import DownloadButton from "components/DownloadButton";
 
 import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 import MetaTags from "components/MetaTags";
 import Shell from "components/Shell";
-import { allUseCases } from "contentlayer/generated";
+import { allFeatures, Feature } from "contentlayer/generated";
+import FeatureMedia from "pages/features/FeatureMedia";
 import React from "react";
+import { RealReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 
-const UseCaseArticlePage = ({ post }) => {
-  const { title, body, slug, description } = post;
+const FeaturePage: RealReactFC<{ feature: Feature }> = ({ feature }) => {
+  const { title, slug, description, image, video } = feature;
 
   return (
     <Shell>
       <MetaTags
         title={title}
         description={description}
-        url={`https://sizzy.co/use-cases/${slug}`}
+        url={`https://sizzy.co/feature/${slug}`}
         image={getMetaImage({
           preset: "netlify",
           logo: sizzyLogoUrl,
@@ -30,41 +32,39 @@ const UseCaseArticlePage = ({ post }) => {
       <Stack spacing={30}>
         <BreadcrumbsComponent
           breadcrumbs={[
-            { label: "Use Cases", href: "/use-cases" },
+            { label: "Features", href: "/features" },
             {
               label: title,
-              href: `/use-cases/${slug}`,
+              href: `/features/${slug}`,
             },
           ]}
         />
-        <MarkdownContent>{body.raw}</MarkdownContent>
+        <Stack>
+          <MarkdownContent>{description}</MarkdownContent>
+          <FeatureMedia image={image} video={video} />
+        </Stack>
         <DownloadButton center={false} size="lg" variant="light" />
       </Stack>
     </Shell>
   );
 };
 
-export default UseCaseArticlePage;
+export default FeaturePage;
 
 export async function getStaticProps({ params }) {
-  const posts = allUseCases;
-  const post = posts.find((p) => p.slug === params.slug);
-
+  const feature = allFeatures.find((p) => p.slug === params.slug);
   return {
     props: {
-      post,
-      posts,
+      feature,
     },
   };
 }
 
 export async function getStaticPaths() {
-  const posts = allUseCases;
-
   return {
-    paths: posts.map((post) => ({
+    paths: allFeatures.map((feature) => ({
       params: {
-        slug: post.slug.toString(),
+        slug: feature.slug,
       },
     })),
     fallback: false,

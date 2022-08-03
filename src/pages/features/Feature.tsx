@@ -1,32 +1,31 @@
-import { Box, createStyles, Group, Stack, Text, Title } from "@mantine/core";
+import {
+  Box,
+  Button,
+  createStyles,
+  Group,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
 import DownloadButton from "components/DownloadButton";
 import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 import Wrapper from "components/Wrapper";
 import Conditional from "conditional-wrap";
 
 import { allFeatures, Feature as FeatureType } from "contentlayer/generated";
-
-const useStyles = createStyles((theme) => ({
-  image: {
-    objectFit: "cover",
-    objectPosition: "left",
-    flex: 3,
-    borderRadius: theme.radius.md,
-    overflow: "hidden",
-    boxShadow: theme.shadows.lg,
-  },
-}));
+import NextLink from "next/link";
+import FeatureMedia from "pages/features/FeatureMedia";
 
 const Feature: React.FC<{
   feature?: FeatureType;
   actionText?: string;
-  slug?: string;
+  findBySlug?: string;
   wrapper?: boolean;
-}> = ({ feature, slug, actionText, wrapper = true }) => {
-  const foundFeature = feature || allFeatures.find((f) => f.slug === slug);
+}> = ({ feature, findBySlug, actionText, wrapper = true }) => {
+  const foundFeature =
+    feature || allFeatures.find((f) => f.slug === findBySlug);
   if (!foundFeature) return null;
-  const { classes } = useStyles();
-  const { title, description, image, video } = foundFeature;
+  const { title, slug, description, image, video } = foundFeature;
   return (
     <Conditional
       condition={wrapper}
@@ -45,23 +44,18 @@ const Feature: React.FC<{
           <Text
             sx={(theme) => ({
               fontSize: theme.fontSizes.lg,
-              opacity: 0.8,
+              color: theme.colors.gray[8],
             })}
           >
             <MarkdownContent>{description}</MarkdownContent>
           </Text>
+          <NextLink href={`/features/${slug}`} passHref>
+            <Button component="a">Learn more</Button>
+          </NextLink>
         </Stack>
 
-        {image && <img className={classes.image} width="100%" src={image} />}
-        {video && (
-          <Box
-            sx={{ borderRadius: 15, width: "100%", flex: 1 }}
-            component="video"
-            controls={true}
-            muted={true}
-            src={video.replace(".mov", ".mp4")}
-          />
-        )}
+        <FeatureMedia image={image} video={video} />
+
         {actionText && (
           <DownloadButton size="lg" label={actionText} variant="light" />
         )}
