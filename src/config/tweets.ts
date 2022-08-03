@@ -245,7 +245,7 @@ export const tweets = {
         quote_count: 3,
       },
       author_id: "389681470",
-      text: 'Just bought a lifetime license to @thekitze\'s https://t.co/9wRLgqtDJn because it seems like a MUCH better dev browser than Chrome/Brave/etc. for typical development. Especially looking forward to "sessions" allowing me to easily be logged in as different users simultaneously :)',
+      text: 'Just bought a lifetime license to @thekitze\'s sizzy.co because it seems like a MUCH better dev browser than Chrome/Brave/etc. for typical development. Especially looking forward to "sessions" allowing me to easily be logged in as different users simultaneously :)',
       id: "1436466768634003456",
       created_at: "2021-09-10T23:09:00.000Z",
     },

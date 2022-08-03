@@ -31,7 +31,7 @@ const CustomersPage = ({ tweets = [] }) => {
 
           <Text>Hear what our users have to say about us</Text>
 
-          <MagicGrid>
+          <MagicGrid gap={20}>
             {map(sortedTweets, (t) => (
               <Tweet tweet={t} />
             ))}

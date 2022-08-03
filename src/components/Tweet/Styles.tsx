@@ -47,23 +47,13 @@ export const Body = styled("p")`
   white-space: pre-wrap;
 `;
 
-export const ImageGrid = styled("div")`
-  display: inline-grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  -moz-column-gap: 0.5rem;
-  column-gap: 0.5rem;
-  row-grap: 0.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-export const SingleImageWrapper = styled("div")`
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
 export const ActionIcons = styled("a")`
   display: flex;
   align-items: center;
   margin-right: 25px;
+  gap: 5px;
+  color: black;
+  opacity: 0.6;
+  text-decoration: none;
+  font-size: 14px;
 `;
