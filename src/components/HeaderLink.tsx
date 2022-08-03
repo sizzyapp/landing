@@ -66,6 +66,7 @@ const HeaderLink: RealReactFC<{
       )}
     >
       <HeaderButton
+        size="sm"
         component="a"
         {...(link.isExternal && {
           target: "_blank",

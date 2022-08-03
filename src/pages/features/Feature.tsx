@@ -31,7 +31,7 @@ const Feature: React.FC<{
       condition={wrapper}
       wrap={(c) => <Wrapper padding={false}>{c}</Wrapper>}
     >
-      <Stack spacing="xl">
+      <Stack spacing="lg">
         <Stack align="start" spacing="sm">
           <Stack spacing="xs">
             <Title
