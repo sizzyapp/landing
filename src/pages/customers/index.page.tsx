@@ -49,6 +49,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       1255104219381665793, 1205154192236699648,
     ];
     const tweets = await getTweets(tweetIds);
+    console.log("tweets", tweets);
     return { props: { tweets } };
   } catch (error) {
     console.log(error);

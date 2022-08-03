@@ -7,27 +7,27 @@ const Testimonials = () => {
     <MagicGrid gap={10}>
       <Customer
         postedAt=""
-        body="Sizzy saved my cate from a tree"
+        body="Sizzy is super helpful"
         author={{ name: "john" }}
       />
       <Customer
         postedAt=""
-        body="Sizzy saved my cate from a tree"
+        body="Sizzy is super helpful"
         author={{ name: "john" }}
       />
       <Customer
         postedAt=""
-        body="Sizzy saved my cate from a tree"
+        body="Sizzy is super helpful"
         author={{ name: "john" }}
       />
       <Customer
         postedAt=""
-        body="Sizzy saved my cate from a tree"
+        body="Sizzy is super helpful"
         author={{ name: "john" }}
       />
       <Customer
         postedAt=""
-        body="Sizzy saved my cate from a tree"
+        body="Sizzy is super helpful"
         author={{ name: "john" }}
       />
     </MagicGrid>

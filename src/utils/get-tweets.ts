@@ -4,16 +4,23 @@ import { RawTweetType, TransformedTweet, TweetData } from "../types/tweet";
 type ID = string | number;
 
 export const getTweets = async (ids: ID[]) => {
+  let expansions =
+    "author_id,attachments.media_keys,referenced_tweets.id,referenced_tweets.id.author_id";
+  let tweetFields =
+    "attachments,author_id,public_metrics,created_at,id,in_reply_to_user_id,referenced_tweets,text";
+  let userFields = "id,name,profile_image_url,protected,url,username,verified";
+  let mediaFields =
+    "duration_ms,height,media_key,preview_image_url,type,url,width,public_metrics";
+
   const queryParams = qs.stringify({
     ids: ids.map((i) => i.toString()).join(","),
-    expansions:
-      "author_id,attachments.media_keys,referenced_tweets.id,referenced_tweets.id.author_id",
-    "tweet.fields":
-      "attachments,author_id,public_metrics,created_at,id,in_reply_to_user_id,referenced_tweets,text",
-    "user.fields": "id,name,profile_image_url,protected,url,username,verified",
-    "media.fields":
-      "duration_ms,height,media_key,preview_image_url,type,url,width,public_metrics",
+    expansions: expansions,
+    "tweet.fields": tweetFields,
+    "user.fields": userFields,
+    "media.fields": mediaFields,
   });
+
+  console.log("queryParams", queryParams);
 
   const response = await fetch(
     `https://api.twitter.com/2/tweets?${queryParams}`,
@@ -25,6 +32,8 @@ export const getTweets = async (ids: ID[]) => {
   );
 
   const tweets = (await response.json()) as RawTweetType;
+
+  console.log("tweets", tweets);
 
   const getAuthorInfo = (author_id: string) => {
     return tweets.includes.users.find((user) => user.id === author_id)!;
