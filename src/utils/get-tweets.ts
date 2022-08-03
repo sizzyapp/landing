@@ -1,6 +1,6 @@
 import qs from "qs";
 import { RawTweetType, TransformedTweet, TweetData } from "../types/tweet";
-
+import fs from "fs";
 type ID = string | number;
 
 export const getTweets = async (ids: ID[]) => {
@@ -12,15 +12,16 @@ export const getTweets = async (ids: ID[]) => {
   let mediaFields =
     "duration_ms,height,media_key,preview_image_url,type,url,width,public_metrics";
 
+  let idStrings = ids
+    .map((i) => i.toString())
+    .filter((i) => i.trim().length !== 0);
   const queryParams = qs.stringify({
-    ids: ids.map((i) => i.toString()).join(","),
+    ids: idStrings.join(","),
     expansions: expansions,
     "tweet.fields": tweetFields,
     "user.fields": userFields,
     "media.fields": mediaFields,
   });
-
-  console.log("queryParams", queryParams);
 
   const response = await fetch(
     `https://api.twitter.com/2/tweets?${queryParams}`,
@@ -32,8 +33,6 @@ export const getTweets = async (ids: ID[]) => {
   );
 
   const tweets = (await response.json()) as RawTweetType;
-
-  console.log("tweets", tweets);
 
   const getAuthorInfo = (author_id: string) => {
     return tweets.includes.users.find((user) => user.id === author_id)!;
@@ -55,7 +54,7 @@ export const getTweets = async (ids: ID[]) => {
     );
   };
 
-  return tweets.data.reduce(
+  let processedTweets = tweets.data.reduce(
     (allTweets: Record<string, TransformedTweet>, tweet: TweetData) => {
       const tweetWithAuthor = {
         ...tweet,
@@ -74,4 +73,9 @@ export const getTweets = async (ids: ID[]) => {
     },
     {} as Record<string, TransformedTweet>
   );
+
+  // console.log("tweets", JSON.stringify(processedTweets, null, 2));
+  // fs.writeFileSync("./tweets.json", JSON.stringify(tweets));
+
+  return processedTweets;
 };

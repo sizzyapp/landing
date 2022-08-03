@@ -12,12 +12,13 @@ export const TweetWrapper = styled("div")`
   padding-right: 1.5rem;
   width: 100%;
 
-  border: solid 1px var(--maximeheckel-colors-emphasis);
-  box-shadow: var(--maximeheckel-shadow-2);
-
   a {
     text-decoration: none;
     color: var(--maximeheckel-colors-typeface-2);
+  }
+
+  svg {
+    margin-right: 5px;
   }
 `;
 
@@ -64,5 +65,5 @@ export const SingleImageWrapper = styled("div")`
 export const ActionIcons = styled("a")`
   display: flex;
   align-items: center;
-  margin-right: 2rem;
+  margin-right: 25px;
 `;

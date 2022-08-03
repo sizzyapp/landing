@@ -19,6 +19,7 @@
     "@mantine/next": "^5.0.2",
     "conditional-wrap": "^1.0.2",
     "contentlayer": "^0.2.6",
+    "lodash": "^4.17.21",
     "next": "^12.2.3",
     "next-contentlayer": "^0.2.6",
     "pluralize": "^8.0.0",

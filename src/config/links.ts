@@ -30,7 +30,7 @@ export let headerLinks: LinkType[] = [
     label: "Use cases",
   },
   { link: "/features", label: "Features" },
-  // { link: "/customers", label: "Customers" },
+  { link: "/customers", label: "Customers" },
   { link: "/jobs", label: "Jobs" },
   { link: "/vs-other-browsers", label: "Comparison" },
   {

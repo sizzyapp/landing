@@ -1,14 +1,13 @@
 import { css } from "@emotion/react";
+import { Anchor, Box } from "@mantine/core";
 import { format } from "date-fns";
 import Image from "next/image";
 import { TransformedTweet } from "types/tweet";
-import { Box, Anchor } from "@mantine/core";
 import { LikeIcon, ReplyIcon, RetweetIcon, TwitterLogo } from "./Icons";
 import {
   ActionIcons,
   Avatar,
   Body,
-  ImageGrid,
   Name,
   SingleImageWrapper,
   TweetWrapper,
@@ -50,9 +49,28 @@ const Tweet = (props: Props) => {
   const quoteTweet =
     referenced_tweets && referenced_tweets.find((t) => t.type === "quoted");
 
+  let images =
+    media && media.length === 1 ? (
+      <SingleImageWrapper>
+        {media.map((m) => (
+          <Image
+            key={m.media_key}
+            alt={text}
+            height={m.height}
+            width={m.width}
+            src={m.url}
+            /*@ts-ignore*/
+            css={css`
+              border-radius: 20px;
+            `}
+          />
+        ))}
+      </SingleImageWrapper>
+    ) : null;
+
   return (
     <TweetWrapper>
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box sx={{ display: "flex", alignItems: "center", boxShadow: "md" }}>
         <Avatar href={authorUrl} target="_blank" rel="noopener noreferrer">
           <Image
             alt={author.username}
@@ -94,7 +112,7 @@ const Tweet = (props: Props) => {
         </Anchor>
       </Box>
       <Body>{formattedText}</Body>
-      {media && media.length > 1 ? (
+      {/*{media && media.length > 1 ? (
         <ImageGrid>
           {media.map((m) => (
             <Image
@@ -107,25 +125,8 @@ const Tweet = (props: Props) => {
             />
           ))}
         </ImageGrid>
-      ) : null}
-      {media && media.length === 1 ? (
-        <SingleImageWrapper>
-          {media.map((m) => (
-            <Image
-              key={m.media_key}
-              alt={text}
-              height={m.height}
-              width={m.width}
-              src={m.url}
-              /*@ts-ignore*/
-              css={css`
-                border-radius: 20px;
-              `}
-            />
-          ))}
-        </SingleImageWrapper>
-      ) : null}
-      {quoteTweet ? <Tweet tweet={{ ...quoteTweet }} /> : null}
+      ) : null}*/}
+      {false && quoteTweet ? <Tweet tweet={{ ...quoteTweet }} /> : null}
       <a href={tweetUrl} target="_blank" rel="noopener noreferrer">
         <time
           title={`Time Posted: ${createdAt.toUTCString()}`}
