@@ -117,13 +117,16 @@ export const Feature = defineDocumentType(() => ({
     },
   },
   computedFields: {
-    url: {
-      type: "string",
-      resolve: (feature) => `/features/${feature.slug}`,
-    },
     slug: {
       type: "string",
       resolve: (feature) => feature.slug || slugify(feature.title),
+    },
+    url: {
+      type: "string",
+      resolve: (feature) => {
+        const slug = feature.slug || slugify(feature.title);
+        return `/features/${slug}`;
+      },
     },
   },
 }));
