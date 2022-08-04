@@ -12,6 +12,7 @@ const QuoteIcon: RealReactFC<{ orientation: "Left" | "Right" }> = ({
     <Box
       sx={(theme) => ({
         color: theme.colors.purple[0],
+        opacity: 0.65,
         position: "absolute",
         [isLeft ? "bottom" : "top"]: -20,
         [isLeft ? "left" : "right"]: 0,
