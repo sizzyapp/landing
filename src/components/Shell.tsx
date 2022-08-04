@@ -6,6 +6,7 @@ import Conditional from "conditional-wrap";
 import { footerLinks } from "config/links";
 import React from "react";
 import { RealReactFC } from "types";
+import { ReactGenieAnimations } from "react-genie-with-emotion";
 
 const Shell: RealReactFC<
   AppShellProps & { wrapper?: boolean; padding?: number }
@@ -35,8 +36,11 @@ const Shell: RealReactFC<
         condition={wrapper}
         wrap={(children) => <Wrapper>{children}</Wrapper>}
       >
-        {/*@ts-ignore*/}
-        {children}
+        <>
+          <ReactGenieAnimations />
+          {/*@ts-ignore*/}
+          {children}
+        </>
       </Conditional>
     </AppShell>
   );
