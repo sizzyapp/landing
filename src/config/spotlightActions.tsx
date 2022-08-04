@@ -22,6 +22,16 @@ export const Spotlight: RealReactFC<{}> = ({ children }) => {
       onTrigger: () => push("/"),
       icon: <FaHome size={18} />,
     },
+    {
+      title: "Privacy",
+      onTrigger: () => push("/privacy"),
+      icon: <FaGlobe size={18} />,
+    },
+    {
+      title: "Terms & Conditions",
+      onTrigger: () => push("/terms"),
+      icon: <FaGlobe size={18} />,
+    },
     ...mobileLinks
       .filter((l) => !l.isExternal)
       .map((l) => ({
