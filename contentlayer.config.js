@@ -72,7 +72,7 @@ export const Testimonial = defineDocumentType(() => ({
     },
     slug: {
       type: "string",
-      required: true,
+      required: false,
     },
     author: {
       type: "string",
