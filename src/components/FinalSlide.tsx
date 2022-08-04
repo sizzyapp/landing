@@ -1,5 +1,6 @@
-import { Center, Container, Stack, Text } from "@mantine/core";
+import { Center, Container, Stack, Text, Title } from "@mantine/core";
 import DownloadButton from "components/DownloadButton";
+import { Vertical } from "styles/layout-components";
 
 const FinalSlide: React.FC = () => {
   return (
@@ -9,32 +10,31 @@ const FinalSlide: React.FC = () => {
         paddingBottom: theme.spacing.xl * 4,
       })}
     >
-      <Center>
-        <Stack>
-          <Text
+      <Vertical spacing="lg" center>
+        <Vertical spacing="xs">
+          <Title
+            align="center"
+            order={3}
             sx={(theme) => ({
               fontSize: theme.fontSizes.xl,
               opacity: 0.8,
             })}
           >
             Still not convinced?
-          </Text>
+          </Title>
           <Text
+            align="center"
             sx={(theme) => ({
               fontSize: theme.fontSizes.xl,
               opacity: 0.8,
             })}
           >
-            {"Don't worry, our app has a dark theme."}
+            {"Don't worry, Sizzy has a dark theme too."}
           </Text>
+        </Vertical>
 
-          <DownloadButton
-            sx={{
-              alignSelf: "start",
-            }}
-          />
-        </Stack>
-      </Center>
+        <DownloadButton />
+      </Vertical>
     </Container>
   );
 };

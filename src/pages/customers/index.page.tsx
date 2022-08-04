@@ -1,4 +1,5 @@
 import { Text, Title } from "@mantine/core";
+import DevtoolsLogos from "components/DevtoolsLogos";
 import MagicGrid from "components/MagicGrid";
 import Quote from "components/Quote";
 import Shell from "components/Shell";
@@ -58,8 +59,13 @@ const CustomersPage = ({ tweets = [] }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
+    const fs = require("fs");
+    const path = require("path");
+    const logosPath = path.join(process.cwd(), "public", "devtools-logos");
+    const logos = fs.readdirSync(logosPath);
+
     const tweets = await getTweets(tweetIds);
-    return { props: { tweets } };
+    return { props: { tweets, logos } };
   } catch (error) {
     console.log(error);
     return { props: { tweets: [] } };

@@ -6,11 +6,12 @@ type commonProps = {
   centerV?: boolean;
   center?: boolean;
   debug?: boolean;
+  fullW?: boolean;
 };
 
 const enableDebug: boolean = false;
 
-const commonProps = ({ debug }: commonProps) => {
+const commonProps = ({ debug, fullW }: commonProps) => {
   const shouldDebug = debug && enableDebug;
   return {
     ...(shouldDebug
@@ -18,6 +19,7 @@ const commonProps = ({ debug }: commonProps) => {
           border: "1px solid red",
         }
       : {}),
+    ...(fullW && { width: "100%" }),
   };
 };
 export const Horizontal: RealReactFC<GroupProps & commonProps> = (props) => {
