@@ -1,14 +1,7 @@
-import {
-  Center,
-  Container,
-  createStyles,
-  Image,
-  Stack,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Center, Container, Image, Stack, Text, Title } from "@mantine/core";
 import DownloadButton from "components/DownloadButton";
 import Quote from "components/Quote";
+import { allTestimonials } from "contentlayer/generated";
 
 const Benefit: React.FC<{
   title: string;
@@ -17,9 +10,14 @@ const Benefit: React.FC<{
     content: string;
     author: string;
   };
+  testimonialSlug?: string;
   image: string;
   actionText?: string;
-}> = ({ title, description, image, quote, actionText }) => {
+}> = ({ title, description, image, testimonialSlug, quote, actionText }) => {
+  const testimonial = testimonialSlug
+    ? allTestimonials.find((t) => t.slug === testimonialSlug)
+    : quote;
+
   return (
     <Center
       sx={{
@@ -44,7 +42,7 @@ const Benefit: React.FC<{
                 {description}
               </Text>
             </Stack>
-            {quote && <Quote {...quote} />}
+            {testimonial && <Quote {...testimonial} />}
           </Stack>
         </Container>
 

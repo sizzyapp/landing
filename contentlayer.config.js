@@ -62,6 +62,26 @@ export const Job = defineDocumentType(() => ({
   },
 }));
 
+export const Testimonial = defineDocumentType(() => ({
+  name: "Testimonial",
+  filePathPattern: `testimonials/*.mdx`,
+  fields: {
+    content: {
+      type: "string",
+      description: "The title of the feature",
+      required: true,
+    },
+    author: {
+      type: "string",
+      required: true,
+    },
+    slug: {
+      type: "string",
+      required: false,
+    },
+  },
+}));
+
 export const Feature = defineDocumentType(() => ({
   name: "Feature",
   filePathPattern: `features/*.mdx`,
@@ -110,5 +130,5 @@ export const Feature = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [UseCase, Job, Feature],
+  documentTypes: [UseCase, Job, Feature, Testimonial],
 });
