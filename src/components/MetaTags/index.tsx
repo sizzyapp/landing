@@ -24,11 +24,6 @@ export const MetaTags: React.FC<{
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
 
-      <link
-        href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap"
-        rel="stylesheet"
-      />
-
       <meta name="title" content={title} />
       <meta name="description" content={description} />
       <meta
