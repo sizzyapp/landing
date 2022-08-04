@@ -9,6 +9,7 @@ import { autoGrid } from "styled-mixins";
 
 const FeaturesPage: React.FC = () => {
   let filteredFeatures = allFeatures.filter((f) => f.layout !== "grid");
+  let gridFeatures = allFeatures.filter((f) => f.layout === "grid");
   return (
     <Shell wrapper={false}>
       <MetaTags
@@ -31,10 +32,9 @@ const FeaturesPage: React.FC = () => {
               margin: "auto",
             }}
           >
-            <Feature findBySlug="snippets" />
-            <Feature findBySlug="notes" />
-            <Feature findBySlug="tasks" />
-            <Feature findBySlug="manage-cache" />
+            {gridFeatures.map((feature) => (
+              <Feature feature={feature} />
+            ))}
           </Box>
         </Wrapper>
       </Stack>
