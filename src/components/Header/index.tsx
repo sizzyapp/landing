@@ -89,7 +89,7 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
 
           <Menu.Dropdown>
             {mobileLinks.map((link) => (
-              <NextLink passHref href={link.link}>
+              <NextLink key={link.link} passHref href={link.link}>
                 <Menu.Item component="a">{link.label}</Menu.Item>
               </NextLink>
             ))}

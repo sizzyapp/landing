@@ -20,6 +20,6 @@ export let mantineTheme: MantineThemeOverride = {
     ],
   },
   spacing: {
-    xl: 80,
+    xl: 50,
   },
 };
