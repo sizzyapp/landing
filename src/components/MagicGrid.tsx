@@ -10,6 +10,7 @@ const MagicGrid: RealReactFC<{ width?: number; gap?: number }> = ({
 }) => {
   return (
     <Box
+      className="sizzy-green-1"
       sx={{
         width: "100%",
         ...autoGrid(width, gap),
