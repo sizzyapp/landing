@@ -5,7 +5,6 @@ export let mantineTheme: MantineThemeOverride = {
   primaryColor: "purple",
   primaryShade: 4,
   colors: {
-    spaceColor: ["#ffffff"],
     purple: [
       "#f4e8ff",
       "#d6c0f4",
