@@ -32,13 +32,17 @@ export const Spotlight: RealReactFC<{}> = ({ children }) => {
       onTrigger: () => push("/terms"),
       icon: <FaGlobe size={18} />,
     },
-    ...mobileLinks
-      .filter((l) => !l.isExternal)
-      .map((l) => ({
-        title: l.label,
-        onTrigger: () => push(l.link),
-        icon: <FaGlobe size={18} />,
-      })),
+    ...mobileLinks.map((l) => ({
+      title: l.label,
+      onTrigger: () => {
+        if (l.isExternal) {
+          window.open(l.link, "_blank");
+        } else {
+          push(l.link);
+        }
+      },
+      icon: <FaGlobe size={18} />,
+    })),
     ...allFeatures.map((f) => ({
       title: `Feature: ${f.title}`,
       description: `${f.description}`,
