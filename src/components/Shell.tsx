@@ -4,9 +4,10 @@ import { ResponsiveHeader } from "components/Header";
 import Wrapper from "components/Wrapper";
 import Conditional from "conditional-wrap";
 import { footerLinks } from "config/links";
+import { Spotlight } from "config/spotlightActions";
 import React from "react";
-import { RealReactFC } from "types";
 import { ReactGenieAnimations } from "react-genie-with-emotion";
+import { RealReactFC } from "types";
 
 const Shell: RealReactFC<
   AppShellProps & { wrapper?: boolean; padding?: number }
@@ -36,11 +37,11 @@ const Shell: RealReactFC<
         condition={wrapper}
         wrap={(children) => <Wrapper>{children}</Wrapper>}
       >
-        <>
+        <Spotlight>
           <ReactGenieAnimations />
           {/*@ts-ignore*/}
           {children}
-        </>
+        </Spotlight>
       </Conditional>
     </AppShell>
   );
