@@ -23,7 +23,7 @@ const commonProps = ({ debug, fullW }: commonProps) => {
   };
 };
 export const Horizontal: RealReactFC<GroupProps & commonProps> = (props) => {
-  const { children, center, centerV, centerH, debug, ...rest } = props;
+  const { children, center, fullW, centerV, centerH, debug, ...rest } = props;
   return (
     <Group
       {...{
@@ -46,7 +46,7 @@ export const Horizontal: RealReactFC<GroupProps & commonProps> = (props) => {
   );
 };
 export const Vertical: RealReactFC<StackProps & commonProps> = (props) => {
-  const { children, center, centerV, centerH, debug, ...rest } = props;
+  const { children, center, fullW, centerV, centerH, debug, ...rest } = props;
 
   return (
     <Stack
