@@ -35,7 +35,7 @@ const Wrapper: RealReactFC<MyComponentStylesParams & { id?: string }> = ({
 }) => {
   const { classes } = useStyles(props);
   return (
-    <Stack id={id} className={`${classes.root} sizzy-green-2`}>
+    <Stack id={id} className={`${classes.root}`}>
       {children}
     </Stack>
   );

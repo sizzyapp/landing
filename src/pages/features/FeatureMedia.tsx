@@ -10,7 +10,7 @@ const FeatureMedia = ({ image, video }) => {
       {image && <img className={classes.image} width="100%" src={image} />}
       {video && (
         <Box
-          sx={{ borderRadius: 15, width: "100%", flex: 1 }}
+          sx={(t) => ({ borderRadius: t.radius.md, width: "100%", flex: 1 })}
           component="video"
           controls={true}
           muted={true}

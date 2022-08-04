@@ -18,9 +18,9 @@ export const Hero = () => {
   return (
     <Container>
       <Center className={classes.wrapper}>
-        <Group spacing={60} className={`${classes.inner} sizzy-red-3`}>
-          <Image src="/logo.png" className={`${classes.logo} sizzy-teal-2`} />
-          <div className={`${classes.content} sizzy-blue-5`}>
+        <Group spacing={60} className={`${classes.inner}`}>
+          <Image src="/logo.png" className={`${classes.logo}`} />
+          <div className={`${classes.content}`}>
             <Title id="sizzy-text" className={classes.title}>
               <span className={`${classes.highlight}`}>Ship</span> your websites
               faster
@@ -29,7 +29,6 @@ export const Hero = () => {
               The last developer tool you need.
             </Text>
             <Text
-              className="sizzy-purple-5"
               mt="sm"
               sx={{
                 opacity: 0.6,
