@@ -34,6 +34,7 @@ const FeaturesPage: React.FC = () => {
             <Feature findBySlug="snippets" />
             <Feature findBySlug="notes" />
             <Feature findBySlug="tasks" />
+            <Feature findBySlug="manage-cache" />
           </Box>
         </Wrapper>
       </Stack>
