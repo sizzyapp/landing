@@ -15,8 +15,8 @@ const UseCaseArticlePage = ({ post }) => {
   return (
     <Shell>
       <MetaTags
-        title={title}
-        description={description}
+        title={`Sizzy - ${title}`}
+        description={`Sizzy use case - ${description}`}
         url={`https://sizzy.co/use-cases/${slug}`}
         image={getMetaImage({
           preset: "netlify",

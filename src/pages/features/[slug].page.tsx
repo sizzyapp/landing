@@ -17,8 +17,8 @@ const FeaturePage: RealReactFC<{ feature: Feature }> = ({ feature }) => {
   return (
     <Shell>
       <MetaTags
-        title={title}
-        description={description}
+        title={`Sizzy - ${title}`}
+        description={`Sizzy feature: ${description}`}
         url={`https://sizzy.co/feature/${slug}`}
         image={getMetaImage({
           preset: "netlify",

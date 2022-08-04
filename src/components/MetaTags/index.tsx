@@ -16,7 +16,7 @@ export const MetaTags: React.FC<{
 }) => {
   return (
     <Head>
-      <title>Sizzy</title>
+      <title>{title}</title>
       <meta charSet="utf-8" />
       <link rel="shortcut icon" href={favicon} />
       <meta

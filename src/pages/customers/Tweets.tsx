@@ -1,18 +1,20 @@
 import MagicGrid from "components/MagicGrid";
 import Tweet from "components/Tweet/Tweet";
-import orderBy from "lodash/orderBy";
+import { orderBy, take } from "lodash";
 import { TransformedTweet } from "types/tweet";
-import map from "lodash/map";
 import React from "react";
 import { RealReactFC } from "types";
 
-const Tweets: RealReactFC<{ tweets: TransformedTweet[] }> = ({ tweets }) => {
+const Tweets: RealReactFC<{ tweets: TransformedTweet[]; limit?: number }> = ({
+  tweets = [],
+  limit = 99,
+}) => {
   const sortedTweets = orderBy(tweets, (t) => t.public_metrics.like_count, [
     "desc",
   ]);
   return (
     <MagicGrid gap={30}>
-      {map(sortedTweets, (t) => (
+      {take(sortedTweets, limit).map((t) => (
         <Tweet tweet={t} />
       ))}
     </MagicGrid>
