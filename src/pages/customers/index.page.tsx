@@ -1,5 +1,4 @@
 import { Text, Title } from "@mantine/core";
-import DevtoolsLogos from "components/DevtoolsLogos";
 import MagicGrid from "components/MagicGrid";
 import Quote from "components/Quote";
 import Shell from "components/Shell";
