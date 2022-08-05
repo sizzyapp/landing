@@ -1,23 +1,17 @@
 import { Center, Container, Image, Stack, Text, Title } from "@mantine/core";
 import DownloadButton from "components/DownloadButton";
+import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 import Quote from "components/Quote";
-import { allTestimonials } from "contentlayer/generated";
+import { allTestimonials, allBenefits } from "contentlayer/generated";
 
 const Benefit: React.FC<{
-  title: string;
-  description: string;
-  quote?: {
-    content: string;
-    author: string;
-  };
-  testimonialSlug?: string;
-  image: string;
-  actionText?: string;
-}> = ({ title, description, image, testimonialSlug, quote, actionText }) => {
-  const testimonial = testimonialSlug
-    ? allTestimonials.find((t) => t.slug === testimonialSlug)
-    : quote;
+  slug;
+}> = ({ slug }) => {
+  let foundBenefit = allBenefits.find((b) => b.slug === slug);
+  if (!foundBenefit) return null;
+  const { title, image, testimonial: testimonialSlug, body } = foundBenefit;
 
+  const testimonial = allTestimonials.find((t) => t.slug === testimonialSlug);
   return (
     <Center
       sx={{
@@ -39,7 +33,7 @@ const Benefit: React.FC<{
               <Text
                 sx={(theme) => ({ fontSize: theme.fontSizes.lg, opacity: 0.8 })}
               >
-                {description}
+                <MarkdownContent>{body.raw}</MarkdownContent>
               </Text>
             </Stack>
             {testimonial && <Quote {...testimonial} />}
@@ -56,9 +50,7 @@ const Benefit: React.FC<{
             boxShadow: theme.shadows.lg,
           })}
         />
-        {actionText && (
-          <DownloadButton size="lg" label={actionText} variant="light" />
-        )}
+        <DownloadButton size="lg" label="Get started" variant="light" />
       </Stack>
     </Center>
   );

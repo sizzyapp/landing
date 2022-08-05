@@ -10,6 +10,7 @@ const HeaderButton = forwardRef<HTMLButtonElement, HeaderButtonType>(
         ref={ref}
         variant="subtle"
         color="gray"
+        size="xs"
         sx={(theme) => ({ color: theme.colors.gray[7] })}
         {...rest}
       >

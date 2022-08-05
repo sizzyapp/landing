@@ -10,12 +10,14 @@ const MagicGrid: RealReactFC<{
 }> = ({ children, width = 300, gap = 15, rowGap = gap }) => {
   return (
     <Box
-      className="sizzy-green-1"
-      sx={{
+      sx={(t) => ({
         width: "100%",
         ...autoGrid(width, gap),
         rowGap,
-      }}
+        [t.fn.smallerThan(420)]: {
+          gridTemplateColumns: "1fr",
+        },
+      })}
     >
       {children}
     </Box>

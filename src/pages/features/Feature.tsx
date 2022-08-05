@@ -1,69 +1,49 @@
-import {
-  Box,
-  Button,
-  createStyles,
-  Group,
-  Stack,
-  Text,
-  Title,
-} from "@mantine/core";
-import DownloadButton from "components/DownloadButton";
+import { Text, Title } from "@mantine/core";
 import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 import Wrapper from "components/Wrapper";
 import Conditional from "conditional-wrap";
 
 import { allFeatures, Feature as FeatureType } from "contentlayer/generated";
-import NextLink from "next/link";
 import FeatureMedia from "pages/features/FeatureMedia";
+import { Vertical } from "styles/layout-components";
 
 const Feature: React.FC<{
   feature?: FeatureType;
-  actionText?: string;
   findBySlug?: string;
   wrapper?: boolean;
-}> = ({ feature, findBySlug, actionText, wrapper = true }) => {
+}> = ({ feature, findBySlug, wrapper = true }) => {
   const foundFeature =
     feature || allFeatures.find((f) => f.slug === findBySlug);
   if (!foundFeature) return null;
-  const { title, slug, description, image, video } = foundFeature;
+  const { title, description, image, video } = foundFeature;
   return (
-    <Conditional
-      condition={wrapper}
-      wrap={(c) => <Wrapper padding={false}>{c}</Wrapper>}
+    <Vertical
+      fullW
+      className="sizzy-purple-3"
+      sx={(t) => ({
+        flex: 1,
+        width: "100%",
+      })}
+      spacing="lg"
     >
-      <Stack spacing="lg">
-        <Stack align="start" spacing="sm">
-          <Stack spacing="xs">
-            <Title
-              sx={(theme) => ({
-                color: theme.colors.purple[4],
-              })}
-            >
-              {title}
-            </Title>
-            <Text
-              sx={(theme) => ({
-                fontSize: theme.fontSizes.lg,
-                color: theme.colors.gray[8],
-              })}
-            >
-              <MarkdownContent>{description}</MarkdownContent>
-            </Text>
-          </Stack>
-          <NextLink href={`/features/${slug}`} passHref>
-            <Button variant="light" component="a">
-              Learn more
-            </Button>
-          </NextLink>
-        </Stack>
+      <Vertical fullW spacing="sm">
+        <Vertical fullW sx={{ flex: 1, width: "100" }} spacing="xs">
+          <Title
+            order={2}
+            sx={(theme) => ({
+              color: theme.colors.purple[4],
+            })}
+          >
+            {title}
+          </Title>
+          <Text size="md" sx={(t) => ({ color: t.colors.gray[8] })}>
+            <MarkdownContent>{description}</MarkdownContent>
+          </Text>
+        </Vertical>
+      </Vertical>
 
-        <FeatureMedia image={image} video={video} />
-
-        {actionText && (
-          <DownloadButton size="lg" label={actionText} variant="light" />
-        )}
-      </Stack>
-    </Conditional>
+      <FeatureMedia image={image} video={video} />
+    </Vertical>
   );
 };
 

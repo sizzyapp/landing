@@ -68,16 +68,41 @@ export const Testimonial = defineDocumentType(() => ({
   fields: {
     content: {
       type: "string",
-      description: "The title of the feature",
-      required: true,
-    },
-    author: {
-      type: "string",
       required: true,
     },
     slug: {
       type: "string",
       required: false,
+    },
+    author: {
+      type: "string",
+      required: true,
+    },
+  },
+}));
+
+export const Benefit = defineDocumentType(() => ({
+  name: "Benefit",
+  filePathPattern: `benefits/*.mdx`,
+  fields: {
+    title: {
+      type: "string",
+      required: false,
+    },
+    testimonial: {
+      type: "string",
+      description: "The testimonial slug",
+      required: false,
+    },
+    image: {
+      type: "string",
+      required: true,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (benefit) => benefit._raw.sourceFileName.replace(/\.mdx$/, ""),
     },
   },
 }));
@@ -133,5 +158,5 @@ export const Feature = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [UseCase, Job, Feature, Testimonial],
+  documentTypes: [UseCase, Job, Feature, Testimonial, Benefit],
 });
