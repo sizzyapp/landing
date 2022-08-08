@@ -1,15 +1,4 @@
-import {
-  Container,
-  Group,
-  SimpleGrid,
-  Stack,
-  Title,
-  Text,
-  Box,
-  Center,
-  Transition,
-  Avatar,
-} from "@mantine/core";
+import { Text, Box, Center, Transition, Avatar } from "@mantine/core";
 import { TeamMember } from "contentlayer/generated";
 
 const TeamMemberAvatar: React.FC<{ member: TeamMember; expand: boolean }> = ({
