@@ -23,14 +23,11 @@ const commonProps = ({ debug, fullW }: commonProps) => {
   };
 };
 export const Horizontal: RealReactFC<GroupProps & commonProps> = (props) => {
-  const { children, center, fullW, centerV, centerH, debug, ...rest } = props;
+  const { children, center, fullW, centerV, centerH, debug, sx, ...rest } =
+    props;
   return (
     <Group
       {...{
-        ...(center && {
-          align: "center",
-          justify: "center",
-        }),
         ...(centerV && {
           align: "center",
         }),
@@ -38,7 +35,15 @@ export const Horizontal: RealReactFC<GroupProps & commonProps> = (props) => {
           justify: "center",
         }),
       }}
-      sx={commonProps(props)}
+      sx={{
+        ...commonProps(props),
+        ...sx,
+        ...(center && {
+          justifyContent: "center",
+          alignItems: "center",
+          alignContent: "center",
+        }),
+      }}
       {...rest}
     >
       {children}
@@ -46,15 +51,20 @@ export const Horizontal: RealReactFC<GroupProps & commonProps> = (props) => {
   );
 };
 export const Vertical: RealReactFC<StackProps & commonProps> = (props) => {
-  const { children, center, fullW, centerV, centerH, debug, ...rest } = props;
+  const { children, center, fullW, centerV, centerH, debug, sx, ...rest } =
+    props;
 
   return (
     <Stack
-      sx={commonProps(props)}
-      {...(center && {
-        align: "center",
-        justify: "center",
-      })}
+      sx={{
+        ...commonProps(props),
+        ...sx,
+        ...(center && {
+          alignItems: "center",
+          alignContent: "center",
+          justifyContent: "center",
+        }),
+      }}
       {...(centerV && {
         align: "center",
       })}

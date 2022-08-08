@@ -1,26 +1,22 @@
 import { createStyles } from "@mantine/core";
 import { HEADER_HEIGHT } from "components/Header";
+import { fontSize } from "styles/mixin";
 
 export const useStyles = createStyles((theme) => ({
   inner: {
     display: "flex",
     justifyContent: "space-between",
-    paddingTop: theme.spacing.xl * 4,
-    paddingBottom: theme.spacing.xl * 4,
+    paddingTop: theme.spacing.xl,
+    paddingBottom: theme.spacing.xl,
 
     [theme.fn.smallerThan("md")]: {
-      paddingTop: theme.spacing.xl * 2,
-      paddingBottom: theme.spacing.xl * 2,
-    },
-    [theme.fn.smallerThan("sm")]: {
-      paddingTop: 0,
-      paddingBottom: theme.spacing.xl * 2,
+      paddingTop: theme.spacing.sm,
+      paddingBottom: theme.spacing.sm,
     },
   },
 
   content: {
-    maxWidth: 480,
-    marginRight: theme.spacing.xl * 3,
+    maxWidth: 700,
 
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
@@ -49,31 +45,30 @@ export const useStyles = createStyles((theme) => ({
     },
   },
 
-  control: {
-    [theme.fn.smallerThan("xs")]: {
-      flex: 1,
-    },
-  },
-
   wrapper: {
-    height: `calc(100vh - ${HEADER_HEIGHT}px)`,
-    [theme.fn.smallerThan("sm")]: {
-      height: "auto",
+    minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
+  },
+  description: {
+    color: theme.colors.gray[7],
+    ...fontSize(20, 8),
+    [theme.fn.smallerThan("md")]: {
+      size: "sm",
+      ...fontSize(16, 8),
     },
   },
 
   logo: {
     flex: 1,
-    maxWidth: 300,
+    maxWidth: 150,
     [theme.fn.smallerThan("md")]: {
       margin: theme.spacing.md,
-      maxWidth: 250,
+      maxWidth: 150,
     },
     [theme.fn.smallerThan("sm")]: {
       margin: theme.spacing.sm,
       marginLeft: "auto",
       marginRight: "auto",
-      maxWidth: 200,
+      maxWidth: 100,
     },
   },
 

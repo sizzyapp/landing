@@ -10,7 +10,7 @@ const DownloadButton: React.FC<T> = (props) => {
 
   return (
     <Button
-      size="md"
+      size="xl"
       variant="gradient"
       target="_blank"
       href="https://portal.sizzy.co/download"
@@ -19,6 +19,8 @@ const DownloadButton: React.FC<T> = (props) => {
       radius="xl"
       sx={{
         alignSelf: center ? "center" : "flex-start",
+        // flexShrink: 0,
+        // height: "auto",
       }}
       {...rest}
       onClick={() => {
