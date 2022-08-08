@@ -12,7 +12,12 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import HeaderLink from "components/HeaderLink";
 import { HeaderMenu } from "components/HeaderMenu";
-import { headerLinks, mobileLinks, popupLinks } from "config/links";
+import {
+  headerLinks,
+  mobileLinks,
+  learnPopupLinks,
+  companyLinks,
+} from "config/links";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -57,7 +62,8 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
               closeMenu={close}
             />
           ))}
-          <HeaderMenu title="Learn" links={popupLinks} />
+          <HeaderMenu title="Learn" links={learnPopupLinks} />
+          <HeaderMenu title="Company" links={companyLinks} />
         </Group>
 
         <NextLink href="https://portal.sizzy.co/login" passHref>

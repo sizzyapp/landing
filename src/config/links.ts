@@ -18,6 +18,9 @@ let changelog = {
   isExternal: true,
 };
 
+let jobs = { link: "/jobs", label: "Jobs" };
+let about = { link: "/about", label: "About" };
+
 let login = {
   link: "https://portal.sizzy.co/login",
   label: "Login",
@@ -31,7 +34,6 @@ export let headerLinks: LinkType[] = [
   },
   { link: "/features", label: "Features" },
   { link: "/customers", label: "Customers" },
-  { link: "/jobs", label: "Jobs" },
   { link: "/vs-other-browsers", label: "Comparison" },
   {
     link: "https://portal.sizzy.co/download",
@@ -45,8 +47,14 @@ export let headerLinks: LinkType[] = [
   },
 ];
 
-export let popupLinks = [docs, roadmap, changelog];
-export const mobileLinks = [...headerLinks, ...popupLinks, login];
+export let learnPopupLinks = [docs, roadmap, changelog];
+export let companyLinks = [about, jobs];
+export const mobileLinks = [
+  ...headerLinks,
+  ...learnPopupLinks,
+  ...companyLinks,
+  login,
+];
 
 export let footerLinks: LinkType[] = [
   { link: "/privacy", label: "Privacy" },
