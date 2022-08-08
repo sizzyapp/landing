@@ -5,7 +5,7 @@ type T = ButtonProps &
   React.ComponentPropsWithoutRef<"a"> & { label?: string; center?: boolean };
 
 const DownloadButton: React.FC<T> = (props) => {
-  const { label = "Download Sizzy", center = true, ...rest } = props;
+  const { label = "Download for free", center = true, ...rest } = props;
   const { colors } = useMantineTheme();
 
   return (

@@ -1,4 +1,5 @@
 import { Container, Image, Text, Title } from "@mantine/core";
+import BadassTitle, { Highlight } from "components/BadassTitle";
 import DownloadButton from "components/DownloadButton";
 import SocialProof from "components/Hero/SocialProof";
 import React from "react";
@@ -28,10 +29,9 @@ export const Hero: RealReactFC<{ tweets: TransformedTweet[] }> = ({
             center
             className={`${classes.content} sizzy-green-3`}
           >
-            <Title align="center" id="sizzy-text" className={classes.title}>
-              The <span className={`${classes.highlight}`}>all-in-one</span>{" "}
-              toolkit for web development
-            </Title>
+            <BadassTitle>
+              The <Highlight>all-in-one</Highlight> toolkit for web development
+            </BadassTitle>
             <Text className={classes.description} align="center">
               <b>Before Sizzy:</b> web development is stressing you out,
               responsive design is hard, you have an overwhelming amount of

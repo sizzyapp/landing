@@ -3,6 +3,7 @@ import DevtoolsLogos from "components/DevtoolsLogos";
 import FinalSlide from "components/FinalSlide";
 import { Hero } from "components/Hero/hero";
 import Shell from "components/Shell";
+import SpecializedTools from "components/SpecializedTools";
 import Wrapper from "components/Wrapper";
 import { tweetIds } from "config/tweets";
 import type { NextPage } from "next";
@@ -17,17 +18,20 @@ const Home: NextPage<{ logos?: string[]; tweets: TransformedTweet[] }> = ({
   logos = [],
   tweets = [],
 }) => {
-  console.log("tweets", tweets);
+  let spaceBetweenSections = 150;
   return (
     <Shell padding={0} wrapper={false}>
-      <Hero tweets={tweets} />
-      <Wrapper>
-        <Vertical fullW spacing={100}>
-          <Benefits />
-          <DevtoolsLogos logos={logos} />
-        </Vertical>
-        <FinalSlide />
-      </Wrapper>
+      <Vertical spacing={spaceBetweenSections}>
+        <Hero tweets={tweets} />
+        <Wrapper>
+          <Vertical fullW spacing={spaceBetweenSections}>
+            <SpecializedTools />
+            <Benefits />
+            <DevtoolsLogos logos={logos} />
+          </Vertical>
+          <FinalSlide />
+        </Wrapper>
+      </Vertical>
     </Shell>
   );
 };
