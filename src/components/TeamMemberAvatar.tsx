@@ -10,7 +10,7 @@ import {
   Transition,
   Avatar,
 } from "@mantine/core";
-import { TeamMember } from "config/team";
+import { TeamMember } from "contentlayer/generated";
 
 const TeamMemberAvatar: React.FC<{ member: TeamMember; expand: boolean }> = ({
   member,
