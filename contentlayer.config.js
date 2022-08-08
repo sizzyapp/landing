@@ -1,6 +1,38 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import slugify from "slugify";
 
+export const TeamMember = defineDocumentType(() => ({
+  name: "TeamMember",
+  filePathPattern: "team-members/*.mdx",
+  fields: {
+    name: {
+      type: "string",
+      description: "Name of the person",
+      required: true,
+    },
+    role: {
+      type: "string",
+      description: "Role",
+      required: true,
+    },
+    color: {
+      type: "string",
+      description: "The accent color",
+      required: true,
+    },
+    description: {
+      type: "string",
+      description: "A short intro",
+      required: true,
+    },
+    image: {
+      type: "string",
+      description: "Avatar",
+      required: true,
+    },
+  },
+}));
+
 export const UseCase = defineDocumentType(() => ({
   name: "UseCase",
   filePathPattern: `use-cases/*.mdx`,
@@ -158,5 +190,5 @@ export const Feature = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [UseCase, Job, Feature, Testimonial, Benefit],
+  documentTypes: [UseCase, Job, Feature, Testimonial, Benefit, TeamMember],
 });

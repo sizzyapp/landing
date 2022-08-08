@@ -9,12 +9,11 @@ import {
   Transition,
   Badge,
 } from "@mantine/core";
-import { TeamMember, teamMembers } from "config/team";
 import TeamMemberAvatar from "components/TeamMemberAvatar";
 import { useState } from "react";
-import { memoize } from "lodash";
+import { TeamMember } from "contentlayer/generated";
 
-const Team: React.FC = () => {
+const Team: React.FC<{ members: TeamMember[] }> = ({ members }) => {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
   return (
     <Container>
@@ -57,7 +56,7 @@ const Team: React.FC = () => {
           </Stack>
         </Box>
         <Group spacing={10}>
-          {teamMembers.map((member) => (
+          {members.map((member) => (
             <Box
               sx={{ maxWidth: 150 }}
               key={member.name}
