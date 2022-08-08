@@ -10,19 +10,20 @@ export const TeamMember = defineDocumentType(() => ({
       description: "Name of the person",
       required: true,
     },
-    role: {
-      type: "string",
+    roles: {
+      type: "list",
+      of: { type: "string" },
       description: "Role",
-      required: true,
-    },
-    color: {
-      type: "string",
-      description: "The accent color",
       required: true,
     },
     description: {
       type: "string",
       description: "A short intro",
+      required: true,
+    },
+    country: {
+      type: "string",
+      description: "Avatar",
       required: true,
     },
     image: {
