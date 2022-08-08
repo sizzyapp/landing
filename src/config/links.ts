@@ -49,7 +49,7 @@ export let headerLinks: LinkType[] = [
 
 export let learnPopupLinks = [docs, roadmap, changelog];
 export let companyLinks = [about, jobs];
-export const mobileLinks = [
+export const mobileLinks: LinkType[] = [
   ...headerLinks,
   ...learnPopupLinks,
   ...companyLinks,
