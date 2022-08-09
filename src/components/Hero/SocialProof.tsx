@@ -1,6 +1,7 @@
-import { Anchor, Avatar, Text, ThemeIcon, Tooltip } from "@mantine/core";
+import { Anchor, Avatar, Text, ThemeIcon } from "@mantine/core";
 import { NextLink } from "@mantine/next";
 import Laurel from "components/Hero/Laurel";
+import Tooltip from "components/Tooltip";
 import { uniqBy } from "lodash";
 import { orderTweets } from "pages/customers/Tweets";
 import React from "react";
@@ -17,16 +18,12 @@ const TweetAvatars: RealReactFC<{ tweets: TransformedTweet[] }> = ({
       <Avatar.Group sx={{ width: "100%", maxWidth: 600, flexWrap: "wrap" }}>
         {orderTweets(uniqBy(tweets, (t) => t.author_id)).map((t) => (
           <Tooltip
-            width={300}
-            multiline
-            transition="fade"
             label={
               <Vertical spacing={0}>
                 <b>@{t.author.username}</b>
                 <div>{t.text}</div>
               </Vertical>
             }
-            withArrow
           >
             <Avatar
               size="lg"

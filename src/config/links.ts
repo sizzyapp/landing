@@ -41,9 +41,8 @@ export let headerLinks: LinkType[] = [
     isExternal: true,
   },
   {
-    link: "https://portal.sizzy.co/pricing",
+    link: "/pricing",
     label: "Pricing",
-    isExternal: true,
   },
 ];
 

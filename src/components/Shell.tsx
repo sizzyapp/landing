@@ -1,7 +1,7 @@
 import { AppShell, AppShellProps } from "@mantine/core";
 import { FooterSimple } from "components/Footer";
 import { ResponsiveHeader } from "components/Header";
-import Wrapper from "components/Wrapper";
+import Wrapper, { WrapperProps } from "components/Wrapper";
 import Conditional from "conditional-wrap";
 import { footerLinks } from "config/links";
 import { Spotlight } from "components/Spotlight";
@@ -10,8 +10,12 @@ import { ReactGenieAnimations } from "react-genie-with-emotion";
 import { RealReactFC } from "types";
 
 const Shell: RealReactFC<
-  AppShellProps & { wrapper?: boolean; padding?: number }
-> = ({ children, wrapper = true, padding }) => {
+  AppShellProps & {
+    wrapper?: boolean;
+    wrapperProps?: Partial<WrapperProps>;
+    padding?: number;
+  }
+> = ({ children, wrapperProps, wrapper = true, padding }) => {
   return (
     <AppShell
       header={<ResponsiveHeader />}
@@ -35,7 +39,7 @@ const Shell: RealReactFC<
     >
       <Conditional
         condition={wrapper}
-        wrap={(children) => <Wrapper>{children}</Wrapper>}
+        wrap={(children) => <Wrapper {...wrapperProps}>{children}</Wrapper>}
       >
         <Spotlight>
           <ReactGenieAnimations />

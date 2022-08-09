@@ -29,9 +29,10 @@ const useStyles = createStyles(
   })
 );
 
-const Wrapper: RealReactFC<
-  MyComponentStylesParams & { id?: string } & Partial<VerticalProps>
-> = ({ id, children, ...props }) => {
+export type WrapperProps = MyComponentStylesParams & {
+  id?: string;
+} & Partial<VerticalProps>;
+const Wrapper: RealReactFC<WrapperProps> = ({ id, children, ...props }) => {
   const { classes } = useStyles(props);
   return (
     <Vertical id={id} className={`${classes.root} sizzy-purple-8`} {...props}>

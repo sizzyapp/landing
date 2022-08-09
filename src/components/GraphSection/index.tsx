@@ -70,7 +70,10 @@ const Metric: RealReactFC<{ number: number | string; title: string }> = ({
 }) => {
   return (
     <Vertical spacing={10} center>
-      <Text weight="bold" sx={{ ...fontSize(40) }}>
+      <Text
+        weight="bold"
+        sx={(t) => ({ ...fontSize(40), color: t.colors.gray[8] })}
+      >
         {number}
       </Text>
       <Text sx={{ ...fontSize(20) }}>{title}</Text>
@@ -80,20 +83,18 @@ const Metric: RealReactFC<{ number: number | string; title: string }> = ({
 
 const GraphSection = () => {
   return (
-    <Wrapper center padding={true} id="graph-section" maxWidth={1000}>
-      <Vertical fullW spacing={80} center sx={{ zIndex: 1 }}>
-        <BadassTitle maxWidth="auto">
-          We're working <Highlight>hard</Highlight> to make Sizzy the best
-          developer toolkit ever
-        </BadassTitle>
-        <Graph />
-        <MagicGrid rowGap={40} width={250}>
-          <Metric number="10.000" title="commits" />
-          <Metric number={626} title="releases" />
-          <Metric number="100+" title="shipped features" />
-        </MagicGrid>
-      </Vertical>
-    </Wrapper>
+    <Vertical fullW spacing={80} center sx={{ zIndex: 1 }}>
+      <BadassTitle maxWidth="auto">
+        We're working <Highlight>hard</Highlight> to make Sizzy the best
+        developer toolkit ever
+      </BadassTitle>
+      <Graph />
+      <MagicGrid rowGap={40} width={250}>
+        <Metric number="10.000" title="commits" />
+        <Metric number={626} title="releases" />
+        <Metric number="100+" title="shipped features" />
+      </MagicGrid>
+    </Vertical>
   );
 };
 

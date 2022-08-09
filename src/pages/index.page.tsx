@@ -28,7 +28,9 @@ const Home: NextPage<{ logos?: string[]; tweets: TransformedTweet[] }> = ({
           <Vertical fullW spacing={spaceBetweenSections}>
             <SpecializedTools />
             <Benefits />
-            <Graph />
+            <Wrapper center padding={true} id="graph-section" maxWidth={1000}>
+              <Graph />
+            </Wrapper>
             <DevtoolsLogos logos={logos} />
           </Vertical>
           <FinalSlide />

@@ -5,7 +5,7 @@ import Shell from "components/Shell";
 import { tweetIds } from "config/tweets";
 import { allTestimonials } from "contentlayer/generated";
 import { GetStaticProps } from "next";
-import LogoSection from "pages/customers/LogoSection";
+import CompanyLogos from "pages/customers/CompanyLogos";
 import Tweets from "pages/customers/Tweets";
 import React from "react";
 import { Vertical } from "styles/layout-components";
@@ -53,7 +53,7 @@ const CustomersPage: RealReactFC<{ tweets: TransformedTweet[] }> = ({
     <Shell>
       <Vertical spacing={100}>
         {customerTestimonials}
-        <LogoSection />
+        <CompanyLogos />
         {tweetTestimonials}
       </Vertical>
     </Shell>

@@ -1,4 +1,5 @@
-import { Button, useMantineTheme, ButtonProps } from "@mantine/core";
+import { ButtonProps } from "@mantine/core";
+import GradientButton from "components/GradientButton";
 import { trackButtonClick } from "utils/utils";
 
 type T = ButtonProps &
@@ -6,23 +7,10 @@ type T = ButtonProps &
 
 const DownloadButton: React.FC<T> = (props) => {
   const { label = "Download for free", center = true, ...rest } = props;
-  const { colors } = useMantineTheme();
 
   return (
-    <Button
-      size="xl"
-      variant="gradient"
-      target="_blank"
+    <GradientButton
       href="https://portal.sizzy.co/download"
-      component="a"
-      gradient={{ from: colors.purple[4], to: colors.pink[6] }}
-      radius="xl"
-      sx={{
-        alignSelf: center ? "center" : "flex-start",
-        // flexShrink: 0,
-        // height: "auto",
-      }}
-      {...rest}
       onClick={() => {
         try {
           // @ts-ignore
@@ -30,9 +18,10 @@ const DownloadButton: React.FC<T> = (props) => {
           trackButtonClick("Download");
         } catch (e) {}
       }}
+      {...rest}
     >
       {label}
-    </Button>
+    </GradientButton>
   );
 };
 
