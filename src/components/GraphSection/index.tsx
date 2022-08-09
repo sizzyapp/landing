@@ -81,13 +81,13 @@ const Metric: RealReactFC<{ number: number | string; title: string }> = ({
 const GraphSection = () => {
   return (
     <Wrapper center padding={true} id="graph-section" maxWidth={1000}>
-      <Vertical fullW spacing="xl" center sx={{ zIndex: 1 }}>
+      <Vertical fullW spacing={80} center sx={{ zIndex: 1 }}>
         <BadassTitle maxWidth="auto">
           We're working <Highlight>hard</Highlight> to make Sizzy the best
           developer toolkit ever
         </BadassTitle>
         <Graph />
-        <MagicGrid rowGap={40} width={200}>
+        <MagicGrid rowGap={40} width={250}>
           <Metric number="10.000" title="commits" />
           <Metric number={626} title="releases" />
           <Metric number="100+" title="shipped features" />
