@@ -34,6 +34,19 @@ const TeamMember: React.FC<{ member: TeamMemberType }> = ({ member }) => {
           },
         })}
       >
+        <Box
+          sx={(theme) => ({
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            top: 0,
+            left: 0,
+            borderTop: "6px solid",
+            borderLeft: "6px solid",
+            transform: "rotate(-5deg)",
+            borderColor: theme.colors["purple"][4],
+          })}
+        />
         <AspectRatio ratio={1}>
           <Image src={member.image} />
         </AspectRatio>
@@ -44,7 +57,8 @@ const TeamMember: React.FC<{ member: TeamMemberType }> = ({ member }) => {
             height: "100%",
             top: 0,
             left: 0,
-            border: "1px solid",
+            borderBottom: "6px solid",
+            borderRight: "6px solid",
             transform: "rotate(-5deg)",
             borderColor: theme.colors["purple"][4],
           })}
