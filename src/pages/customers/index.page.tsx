@@ -9,9 +9,13 @@ import LogoSection from "pages/customers/LogoSection";
 import Tweets from "pages/customers/Tweets";
 import React from "react";
 import { Vertical } from "styles/layout-components";
+import { RealReactFC } from "types";
+import { TransformedTweet } from "types/tweet";
 import { getTweets } from "utils/get-tweets";
 
-const CustomersPage = ({ tweets = [] }) => {
+const CustomersPage: RealReactFC<{ tweets: TransformedTweet[] }> = ({
+  tweets = [],
+}) => {
   let customerTestimonials = (
     <Vertical debug spacing="xl">
       <Vertical center debug spacing="sm">

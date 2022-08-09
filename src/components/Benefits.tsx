@@ -1,4 +1,5 @@
 import { Container, Title } from "@mantine/core";
+import BadassTitle, { Highlight } from "components/BadassTitle";
 import Benefit from "components/Benefit";
 import { Vertical } from "styles/layout-components";
 
@@ -6,15 +7,10 @@ const Benefits: React.FC = () => {
   return (
     <Container size="xl" id="benefits">
       <Vertical center spacing="xl">
-        <Title
-          sx={(t) => ({
-            textAlign: "center",
-            fontSize: 52,
-            color: t.colors.gray[8],
-          })}
-        >
-          Benefits
-        </Title>
+        <BadassTitle>
+          The <Highlight>missing</Highlight> tool that web developers were
+          waiting for
+        </BadassTitle>
 
         <Benefit slug="save-testing-time" />
         <Benefit slug="investigate-visual-bugs" />

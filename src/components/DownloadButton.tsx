@@ -5,12 +5,12 @@ type T = ButtonProps &
   React.ComponentPropsWithoutRef<"a"> & { label?: string; center?: boolean };
 
 const DownloadButton: React.FC<T> = (props) => {
-  const { label = "Download Sizzy", center = true, ...rest } = props;
+  const { label = "Download for free", center = true, ...rest } = props;
   const { colors } = useMantineTheme();
 
   return (
     <Button
-      size="md"
+      size="xl"
       variant="gradient"
       target="_blank"
       href="https://portal.sizzy.co/download"
@@ -19,6 +19,8 @@ const DownloadButton: React.FC<T> = (props) => {
       radius="xl"
       sx={{
         alignSelf: center ? "center" : "flex-start",
+        // flexShrink: 0,
+        // height: "auto",
       }}
       {...rest}
       onClick={() => {

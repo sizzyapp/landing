@@ -1,47 +1,55 @@
-import {
-  Button,
-  Center,
-  Container,
-  Group,
-  Image,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Container, Image, Text, Title } from "@mantine/core";
+import BadassTitle, { Highlight } from "components/BadassTitle";
 import DownloadButton from "components/DownloadButton";
+import SocialProof from "components/Hero/SocialProof";
 import React from "react";
-import { trackButtonClick } from "utils/utils";
+import { Vertical } from "styles/layout-components";
+import { RealReactFC } from "types";
+import { TransformedTweet } from "types/tweet";
 
 import { useStyles } from "./styles";
 
-export const Hero = () => {
+export const Hero: RealReactFC<{ tweets: TransformedTweet[] }> = ({
+  tweets,
+}) => {
   const { classes } = useStyles();
   return (
-    <Container>
-      <Center className={classes.wrapper}>
-        <Group spacing={60} className={`${classes.inner}`}>
-          <Image src="/logo.png" className={`${classes.logo}`} />
-          <div className={`${classes.content}`}>
-            <Title id="sizzy-text" className={classes.title}>
-              <span className={`${classes.highlight}`}>Ship</span> your websites
-              faster
-            </Title>
-            <Text mt="md" className={`${classes.subtitle}`}>
-              The last developer tool you need.
+    <Vertical fullW className={`${classes.wrapper} sizzy-red-3`}>
+      <Vertical>
+        <Vertical
+          fullW
+          center
+          spacing="xl"
+          className={`${classes.inner} sizzy-teal-3`}
+        >
+          {/*<Image src="/logo.png" className={`${classes.logo}`} />*/}
+          <Vertical
+            fullW
+            spacing="lg"
+            center
+            className={`${classes.content} sizzy-green-3`}
+          >
+            <BadassTitle>
+              The <Highlight>all-in-one</Highlight> toolkit for web development
+            </BadassTitle>
+            <Text className={classes.description} align="center">
+              <b>Before Sizzy:</b> web development is stressing you out,
+              responsive design is hard, you have an overwhelming amount of
+              opened tabs and apps. <b>After Sizzy:</b> all the tools you need
+              are in one place, responsive design is a breeze, no more context
+              switching.
             </Text>
-            <Text
-              mt="sm"
-              sx={{
-                opacity: 0.6,
-              }}
-            >
-              <b>Develop, debug and test</b> your website with ease and speed.{" "}
-              <b>Intuitive and quick </b> development tools help you focus on
-              your product and ideas.
-            </Text>
+          </Vertical>
 
-            <Group mt={30}>
-              <DownloadButton className={classes.control} />
-              <Button
+          <SocialProof tweets={tweets} />
+
+          <Vertical center spacing={10}>
+            <DownloadButton label="Download for free" />
+            <Text size="sm" sx={(t) => ({ color: t.colors.gray[8] })}>
+              No credit card required
+            </Text>
+          </Vertical>
+          {/*<Button
                 variant="default"
                 radius="xl"
                 size="md"
@@ -56,11 +64,9 @@ export const Hero = () => {
                 }}
               >
                 Convince Me
-              </Button>
-            </Group>
-          </div>
-        </Group>
-      </Center>
-    </Container>
+              </Button>*/}
+        </Vertical>
+      </Vertical>
+    </Vertical>
   );
 };

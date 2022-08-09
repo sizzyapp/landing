@@ -7,16 +7,28 @@ const MagicGrid: RealReactFC<{
   width?: number;
   rowGap?: number;
   gap?: number;
-}> = ({ children, width = 300, gap = 15, rowGap = gap }) => {
+  className?: string;
+  fallBackToOneColumn?: boolean;
+}> = ({
+  children,
+  fallBackToOneColumn = true,
+  className,
+  width = 300,
+  gap = 15,
+  rowGap = gap,
+}) => {
   return (
     <Box
+      className={className}
       sx={(t) => ({
         width: "100%",
         ...autoGrid(width, gap),
         rowGap,
-        [t.fn.smallerThan(420)]: {
-          gridTemplateColumns: "1fr",
-        },
+        ...(fallBackToOneColumn && {
+          [t.fn.smallerThan(420)]: {
+            gridTemplateColumns: "1fr",
+          },
+        }),
       })}
     >
       {children}

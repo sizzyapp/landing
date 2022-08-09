@@ -23,7 +23,12 @@ const DevtoolsLogos: RealReactFC<{ logos: string[] }> = ({ logos }) => {
             ready to go!
           </Text>
         </Vertical>
-        <MagicGrid rowGap={30} gap={80} width={size}>
+        <MagicGrid
+          fallBackToOneColumn={false}
+          rowGap={30}
+          gap={80}
+          width={size}
+        >
           {logos.map((l) => (
             <Image
               sx={{ width: size, height: size }}

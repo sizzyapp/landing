@@ -4,7 +4,7 @@ import { ResponsiveHeader } from "components/Header";
 import Wrapper from "components/Wrapper";
 import Conditional from "conditional-wrap";
 import { footerLinks } from "config/links";
-import { Spotlight } from "config/spotlightActions";
+import { Spotlight } from "components/Spotlight";
 import React from "react";
 import { ReactGenieAnimations } from "react-genie-with-emotion";
 import { RealReactFC } from "types";
