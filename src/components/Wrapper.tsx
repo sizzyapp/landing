@@ -1,5 +1,6 @@
-import { createStyles, Stack } from "@mantine/core";
+import { createStyles } from "@mantine/core";
 import React from "react";
+import { Vertical, VerticalProps } from "styles/layout-components";
 import { RealReactFC } from "types";
 
 export interface MyComponentStylesParams {
@@ -28,16 +29,14 @@ const useStyles = createStyles(
   })
 );
 
-const Wrapper: RealReactFC<MyComponentStylesParams & { id?: string }> = ({
-  id,
-  children,
-  ...props
-}) => {
+const Wrapper: RealReactFC<
+  MyComponentStylesParams & { id?: string } & Partial<VerticalProps>
+> = ({ id, children, ...props }) => {
   const { classes } = useStyles(props);
   return (
-    <Stack id={id} className={`${classes.root}`}>
+    <Vertical id={id} className={`${classes.root} sizzy-purple-8`} {...props}>
       {children}
-    </Stack>
+    </Vertical>
   );
 };
 

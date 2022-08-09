@@ -50,7 +50,8 @@ export const Horizontal: RealReactFC<GroupProps & commonProps> = (props) => {
     </Group>
   );
 };
-export const Vertical: RealReactFC<StackProps & commonProps> = (props) => {
+export type VerticalProps = StackProps & commonProps;
+export const Vertical: RealReactFC<VerticalProps> = (props) => {
   const { children, center, fullW, centerV, centerH, debug, sx, ...rest } =
     props;
 

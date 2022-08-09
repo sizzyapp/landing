@@ -1,6 +1,7 @@
 import Benefits from "components/Benefits";
 import DevtoolsLogos from "components/DevtoolsLogos";
 import FinalSlide from "components/FinalSlide";
+import Graph from "components/GraphSection";
 import { Hero } from "components/Hero/hero";
 import Shell from "components/Shell";
 import SpecializedTools from "components/SpecializedTools";
@@ -27,6 +28,7 @@ const Home: NextPage<{ logos?: string[]; tweets: TransformedTweet[] }> = ({
           <Vertical fullW spacing={spaceBetweenSections}>
             <SpecializedTools />
             <Benefits />
+            <Graph />
             <DevtoolsLogos logos={logos} />
           </Vertical>
           <FinalSlide />
