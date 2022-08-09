@@ -72,7 +72,6 @@ const TeamMember: React.FC<{ member: TeamMemberType }> = ({ member }) => {
         <Group spacing={5}>
           {member.roles.map((role) => (
             <Badge key={role} size="md">
-              {" "}
               {role}
             </Badge>
           ))}

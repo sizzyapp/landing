@@ -33,11 +33,12 @@ export const Hero: RealReactFC<{ tweets: TransformedTweet[] }> = ({
               The <Highlight>all-in-one</Highlight> toolkit for web development
             </BadassTitle>
             <Text className={classes.description} align="center">
-              <b>Before Sizzy:</b> web development is stressing you out,
-              responsive design is hard, you have an overwhelming amount of
-              opened tabs and apps. <b>After Sizzy:</b> all the tools you need
-              are in one place, responsive design is a breeze, no more context
-              switching.
+              <b style={{ fontWeight: 900 }}>Before Sizzy:</b> web development
+              is stressing you out, responsive design is hard, you have an
+              overwhelming amount of opened tabs and apps. <br />
+              <b style={{ fontWeight: 900 }}>After Sizzy:</b> all the tools you
+              need are in one place, responsive design is a breeze, no more
+              context switching.
             </Text>
           </Vertical>
 
