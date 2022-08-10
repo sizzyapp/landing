@@ -1,19 +1,20 @@
+import Shell from "components/Shell";
+import Wrapper from "components/Wrapper";
+import { tweetIds } from "config/tweets";
+import { map } from "lodash";
+import type { NextPage } from "next";
+import { GetStaticProps } from "next";
+import React from "react";
 import Benefits from "sections/BenefitsSection/Benefits";
 import DevtoolsLogos from "sections/DevtoolsLogos";
 import FinalSlide from "sections/FinalSlide";
 import Graph from "sections/GraphSection";
 import { Hero } from "sections/HeroSection/hero";
-import Shell from "components/Shell";
+import MaintainedSection from "sections/MaintainedSection";
 import SpecializedTools from "sections/SpecializedToolsSection";
-import Wrapper from "components/Wrapper";
-import { tweetIds } from "config/tweets";
-import type { NextPage } from "next";
-import { GetStaticProps } from "next";
-import React from "react";
 import { Vertical } from "styles/layout-components";
 import { TransformedTweet } from "types/tweet";
 import { getTweets } from "utils/get-tweets";
-import { map } from "lodash";
 
 const Home: NextPage<{ logos?: string[]; tweets: TransformedTweet[] }> = ({
   logos = [],
@@ -28,8 +29,15 @@ const Home: NextPage<{ logos?: string[]; tweets: TransformedTweet[] }> = ({
           <Vertical fullW spacing={spaceBetweenSections}>
             <SpecializedTools />
             <Benefits />
-            <Wrapper center padding={true} id="graph-section" maxWidth={1000}>
+            <Wrapper
+              spacing="xl"
+              center
+              padding={true}
+              id="graph-section"
+              maxWidth={1000}
+            >
               <Graph />
+              <MaintainedSection />
             </Wrapper>
             <DevtoolsLogos logos={logos} />
           </Vertical>
