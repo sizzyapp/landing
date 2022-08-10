@@ -1,13 +1,13 @@
-import { Container, Image, Text, Title } from "@mantine/core";
+import { Text } from "@mantine/core";
 import BadassTitle, { Highlight } from "components/BadassTitle";
 import DownloadButton from "components/DownloadButton";
-import SocialProof from "sections/HeroSection/SocialProof";
 import React from "react";
+import SocialProof from "sections/HeroSection/SocialProof";
+
+import { useStyles } from "sections/HeroSection/styles";
 import { Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
 import { TransformedTweet } from "types/tweet";
-
-import { useStyles } from "sections/HeroSection/styles";
 
 export const Hero: RealReactFC<{ tweets: TransformedTweet[] }> = ({
   tweets,
@@ -50,22 +50,6 @@ export const Hero: RealReactFC<{ tweets: TransformedTweet[] }> = ({
               No credit card required
             </Text>
           </Vertical>
-          {/*<Button
-                variant="default"
-                radius="xl"
-                size="md"
-                className={classes.control}
-                onClick={() => {
-                  const benefits = document.querySelector("#benefits");
-                  benefits?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
-                  trackButtonClick("Convince Me");
-                }}
-              >
-                Convince Me
-              </Button>*/}
         </Vertical>
       </Vertical>
     </Vertical>

@@ -10,6 +10,7 @@ import DevtoolsLogos from "sections/DevtoolsLogos";
 import FinalSlide from "sections/FinalSlide";
 import Graph from "sections/GraphSection";
 import { Hero } from "sections/HeroSection/hero";
+import MainImageSection from "sections/MainImageSection";
 import MaintainedSection from "sections/MaintainedSection";
 import SpecializedTools from "sections/SpecializedToolsSection";
 import { Vertical } from "styles/layout-components";
@@ -24,7 +25,12 @@ const Home: NextPage<{ logos?: string[]; tweets: TransformedTweet[] }> = ({
   return (
     <Shell padding={0} wrapper={false}>
       <Vertical spacing={spaceBetweenSections}>
-        <Hero tweets={tweets} />
+        <Vertical fullW>
+          <Hero tweets={tweets} />
+          <Wrapper maxWidth={1400}>
+            <MainImageSection />
+          </Wrapper>
+        </Vertical>
         <Wrapper>
           <Vertical fullW spacing={spaceBetweenSections}>
             <SpecializedTools />
