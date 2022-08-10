@@ -7,6 +7,7 @@ import React, { memo, useMemo } from "react";
 import { Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
 import Text from "components/mantine/Text";
+import CountUp from "react-countup";
 
 const item = {
   hidden: { opacity: 0 },
@@ -63,14 +64,14 @@ const Graph = () => {
   );
 };
 
-const Metric: RealReactFC<{ number: number | string; title: string }> = ({
+const Metric: RealReactFC<{ number: number; title: string }> = ({
   number,
   title,
 }) => {
   return (
     <Vertical spacing={10} center>
-      <Text weight="bold" fontSize={20} color="gray.8">
-        {number}
+      <Text weight="bold" fontSize={40} color="gray.8">
+        <CountUp suffix="+" separator="," duration={4} start={0} end={number} />
       </Text>
       <Text fontSize={20}>{title}</Text>
     </Vertical>
@@ -86,9 +87,9 @@ const GraphSection = () => {
       </BadassTitle>
       <Graph />
       <MagicGrid rowGap={40} width={250}>
-        <Metric number="10.000" title="commits" />
+        <Metric number={9752} title="commits" />
         <Metric number={626} title="releases" />
-        <Metric number="100+" title="shipped features" />
+        <Metric number={100} title="shipped features" />
       </MagicGrid>
     </Vertical>
   );

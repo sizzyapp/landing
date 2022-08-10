@@ -28,6 +28,7 @@
     "prism-react-renderer": "^1.3.5",
     "qs": "^6.11.0",
     "react": "18.2.0",
+    "react-countup": "^6.3.0",
     "react-dom": "18.2.0",
     "react-genie": "^0.2.2",
     "react-genie-with-emotion": "^0.1.0",
