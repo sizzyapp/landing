@@ -2,7 +2,7 @@ import { Avatar, Badge, Card, Text } from "@mantine/core";
 import BadassTitle, { Highlight } from "components/BadassTitle";
 import DownloadButton from "components/DownloadButton";
 import { GradientButton } from "components/GradientButton";
-import GraphSection from "components/GraphSection";
+import GraphSection from "sections/GraphSection";
 import MagicGrid from "components/MagicGrid";
 import Shell from "components/Shell";
 import Tooltip from "components/Tooltip";
@@ -47,24 +47,12 @@ const PricingCard: RealReactFC<{ subtitle: string; showMonth?: boolean }> = ({
         >
           {children}
           {showMonth && (
-            <Text
-              sx={(t) => ({
-                color: t.colors.gray[6],
-                display: "inline",
-                ...fontSize(13),
-              })}
-            >
+            <Text span color="gray.6" sx={{ ...fontSize(13) }}>
               /month
             </Text>
           )}
         </Text>
-        <Text
-          align="center"
-          sx={(t) => ({
-            ...fontSize(19),
-            color: t.colors.gray[6],
-          })}
-        >
+        <Text align="center" color="gray.6" sx={{ ...fontSize(19) }}>
           {subtitle}
         </Text>
       </Vertical>

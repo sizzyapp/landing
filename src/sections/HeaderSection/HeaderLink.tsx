@@ -1,5 +1,5 @@
 import { createStyles } from "@mantine/core";
-import HeaderButton from "components/HeaderButton";
+import HeaderButton from "sections/HeaderSection/HeaderButton";
 import Conditional from "conditional-wrap";
 import NextLink from "next/link";
 import React from "react";

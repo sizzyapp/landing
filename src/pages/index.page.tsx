@@ -1,10 +1,10 @@
-import Benefits from "components/Benefits";
-import DevtoolsLogos from "components/DevtoolsLogos";
-import FinalSlide from "components/FinalSlide";
-import Graph from "components/GraphSection";
-import { Hero } from "components/Hero/hero";
+import Benefits from "sections/BenefitsSection/Benefits";
+import DevtoolsLogos from "sections/DevtoolsLogos";
+import FinalSlide from "sections/FinalSlide";
+import Graph from "sections/GraphSection";
+import { Hero } from "sections/HeroSection/hero";
 import Shell from "components/Shell";
-import SpecializedTools from "components/SpecializedTools";
+import SpecializedTools from "sections/SpecializedToolsSection";
 import Wrapper from "components/Wrapper";
 import { tweetIds } from "config/tweets";
 import type { NextPage } from "next";

@@ -10,20 +10,19 @@ import {
   Title,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import HeaderLink from "components/HeaderLink";
-import { HeaderMenu } from "components/HeaderMenu";
 import {
-  headerLinks,
-  mobileLinks,
-  learnPopupLinks,
   companyLinks,
+  headerLinks,
+  learnPopupLinks,
+  mobileLinks,
 } from "config/links";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import { useStyles } from "sections/HeaderSection/Header/styles";
+import HeaderLink from "sections/HeaderSection/HeaderLink";
+import { HeaderMenu } from "sections/HeaderSection/HeaderMenu";
 import { RealReactFC } from "types";
-import { useStyles } from "./styles";
-import HeaderButton from "components/HeaderButton";
 
 export const HEADER_HEIGHT = 60;
 
@@ -46,7 +45,10 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
               }}
               spacing={10}
             >
-              <Image sx={{ width: 30, height: 30 }} src="/logo.png" />
+              <Image
+                sx={{ width: 30, maxWidth: 30, maxHeight: 30, height: 30 }}
+                src="/logo.png"
+              />
               <Title order={3} sx={(t) => ({ color: t.colors.dark[4] })}>
                 Sizzy
               </Title>

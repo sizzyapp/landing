@@ -1,5 +1,5 @@
 import { Menu } from "@mantine/core";
-import HeaderButton from "components/HeaderButton";
+import HeaderButton from "sections/HeaderSection/HeaderButton";
 import NextLink from "next/link";
 import { LinkType, RealReactFC } from "types";
 

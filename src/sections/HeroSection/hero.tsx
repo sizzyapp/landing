@@ -1,13 +1,13 @@
 import { Container, Image, Text, Title } from "@mantine/core";
 import BadassTitle, { Highlight } from "components/BadassTitle";
 import DownloadButton from "components/DownloadButton";
-import SocialProof from "components/Hero/SocialProof";
+import SocialProof from "sections/HeroSection/SocialProof";
 import React from "react";
 import { Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
 import { TransformedTweet } from "types/tweet";
 
-import { useStyles } from "./styles";
+import { useStyles } from "sections/HeroSection/styles";
 
 export const Hero: RealReactFC<{ tweets: TransformedTweet[] }> = ({
   tweets,

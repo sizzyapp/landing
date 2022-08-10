@@ -1,5 +1,5 @@
 import { Box, SimpleGrid, Stack, Text, Title } from "@mantine/core";
-import TeamMember from "components/TeamMember";
+import TeamMember from "pages/about/TeamMember";
 import { TeamMember as TeamMemberType } from "contentlayer/generated";
 import { Vertical } from "styles/layout-components";
 

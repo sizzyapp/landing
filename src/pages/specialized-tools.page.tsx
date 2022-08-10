@@ -1,4 +1,4 @@
-import SpecializedTools from "components/SpecializedTools";
+import SpecializedTools from "sections/SpecializedToolsSection";
 import React from "react";
 
 const SpecializedToolsPage = () => {

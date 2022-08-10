@@ -1,6 +1,6 @@
 import { Anchor, Avatar, Text, ThemeIcon } from "@mantine/core";
 import { NextLink } from "@mantine/next";
-import Laurel from "components/Hero/Laurel";
+import Laurel from "sections/HeroSection/Laurel";
 import Tooltip from "components/Tooltip";
 import { uniqBy } from "lodash";
 import { orderTweets } from "pages/customers/Tweets";

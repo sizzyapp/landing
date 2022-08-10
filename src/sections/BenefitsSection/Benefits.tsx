@@ -1,6 +1,6 @@
 import { Container, Title } from "@mantine/core";
 import BadassTitle, { Highlight } from "components/BadassTitle";
-import Benefit from "components/Benefit";
+import Benefit from "sections/BenefitsSection/Benefit";
 import { Vertical } from "styles/layout-components";
 
 const Benefits: React.FC = () => {

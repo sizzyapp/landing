@@ -1,5 +1,5 @@
 import { createStyles } from "@mantine/core";
-import { HEADER_HEIGHT } from "components/Header/index";
+import { HEADER_HEIGHT } from "sections/HeaderSection/Header/index";
 
 export const useStyles = createStyles((theme) => ({
   root: {

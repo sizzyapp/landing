@@ -1,5 +1,5 @@
 import { createStyles } from "@mantine/core";
-import { HEADER_HEIGHT } from "components/Header";
+import { HEADER_HEIGHT } from "sections/HeaderSection/Header";
 import { fontSize } from "styles/mixin";
 
 export const useStyles = createStyles((theme) => ({

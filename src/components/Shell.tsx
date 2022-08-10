@@ -1,6 +1,6 @@
 import { AppShell, AppShellProps } from "@mantine/core";
-import { FooterSimple } from "components/Footer";
-import { ResponsiveHeader } from "components/Header";
+import { FooterSimple } from "sections/Footer";
+import { ResponsiveHeader } from "sections/HeaderSection/Header";
 import Wrapper, { WrapperProps } from "components/Wrapper";
 import Conditional from "conditional-wrap";
 import { footerLinks } from "config/links";

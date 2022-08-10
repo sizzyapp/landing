@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Shell from "components/Shell";
-import Team from "components/Team";
+import Team from "pages/about/Team";
 import { allTeamMembers, TeamMember } from "contentlayer/generated";
 
 const AboutPage: NextPage<{ allTeamMembers: TeamMember[] }> = ({
