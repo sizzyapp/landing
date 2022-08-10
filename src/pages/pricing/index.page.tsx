@@ -1,4 +1,4 @@
-import { Avatar, Badge, Card, Text } from "@mantine/core";
+import { Avatar, Badge, Card } from "@mantine/core";
 import BadassTitle, { Highlight } from "components/BadassTitle";
 import DownloadButton from "components/DownloadButton";
 import { GradientButton } from "components/GradientButton";
@@ -12,6 +12,7 @@ import React from "react";
 import { Horizontal, Vertical } from "styles/layout-components";
 import { fontSize } from "styles/mixin";
 import { RealReactFC } from "types";
+import Text from "components/mantine/Text";
 
 const Subtitle: RealReactFC<{}> = ({ children }) => (
   <Text
@@ -35,24 +36,18 @@ const PricingCard: RealReactFC<{ subtitle: string; showMonth?: boolean }> = ({
       sx={(t) => ({
         height: 150,
         color: t.colors.gray[7],
-        ...fontSize(25),
       })}
     >
       <Vertical spacing="md" sx={{ height: "100%" }} center>
-        <Text
-          sx={{
-            ...fontSize(40),
-            fontWeight: "bold",
-          }}
-        >
+        <Text weight="bold" fontSize={40}>
           {children}
           {showMonth && (
-            <Text span color="gray.6" sx={{ ...fontSize(13) }}>
+            <Text span color="gray.6" fontSize={13}>
               /month
             </Text>
           )}
         </Text>
-        <Text align="center" color="gray.6" sx={{ ...fontSize(19) }}>
+        <Text align="center" color="gray.6" fontSize={19}>
           {subtitle}
         </Text>
       </Vertical>
@@ -102,10 +97,7 @@ const PricingPage = () => {
             </PricingCard>
           </MagicGrid>
           <Vertical>
-            <Text
-              align="center"
-              sx={(t) => ({ color: t.colors.gray[8], ...fontSize(15, 7) })}
-            >
+            <Text align="center" color="gray.8" fontSize={[15, 7]}>
               Bonus: The more seats you add, the bigger discount you get 🥳
               <br /> You can check the final pricing in the calculator below 👇
             </Text>
@@ -143,11 +135,7 @@ const PricingPage = () => {
               </Tooltip>
             ))}
           </Avatar.Group>
-          <Text
-            sx={(t) => ({ color: t.colors.gray[7] })}
-            size="xl"
-            align="center"
-          >
+          <Text color="gray.7" size="xl" align="center">
             We're a bootstrapped team of four and we plan to develop and support
             Sizzy for years to come. We have many exciting ideas for the ensuing
             years. To fulfill our vision of creating the development workflow of
