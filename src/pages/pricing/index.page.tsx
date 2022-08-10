@@ -15,10 +15,7 @@ import { RealReactFC } from "types";
 import Text from "components/mantine/Text";
 
 const Subtitle: RealReactFC<{}> = ({ children }) => (
-  <Text
-    align="center"
-    sx={(t) => ({ color: t.colors.gray[7], ...fontSize(22, 10) })}
-  >
+  <Text align="center" color="gray.7" fontSize={[22, 10]}>
     {children}
   </Text>
 );

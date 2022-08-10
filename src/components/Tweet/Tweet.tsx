@@ -1,8 +1,9 @@
-import { Anchor, Card, Group, Image, Stack, Text, Box } from "@mantine/core";
+import { Anchor, Card, Group, Image, Stack } from "@mantine/core";
 import { RealReactFC } from "types";
 import { TransformedTweet } from "types/tweet";
 import { LikeIcon, ReplyIcon, RetweetIcon, TwitterLogo } from "./Icons";
 import { ActionIcons } from "./Styles";
+import Text from "components/mantine/Text";
 
 const Tweet: RealReactFC<{
   tweet: TransformedTweet;
@@ -47,11 +48,10 @@ const Tweet: RealReactFC<{
           fontWeight: "bold",
           color: t.colors.gray[8],
         })}
-        title={author.name}
       >
         {author.name}
       </Text>
-      <Text sx={(t) => ({ fontSize: 15, color: t.colors.gray[7] })}>
+      <Text color="gray.7" fontSize={15}>
         @{author.username}
       </Text>
     </Stack>

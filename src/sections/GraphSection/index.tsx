@@ -1,13 +1,12 @@
-import { Box, Text } from "@mantine/core";
+import { Box } from "@mantine/core";
 import BadassTitle, { Highlight } from "components/BadassTitle";
 import MagicGrid from "components/MagicGrid";
-import Wrapper from "components/Wrapper";
 import { motion } from "framer-motion";
 import { sample, times } from "lodash";
 import React, { memo, useMemo } from "react";
 import { Vertical } from "styles/layout-components";
-import { fontSize } from "styles/mixin";
 import { RealReactFC } from "types";
+import Text from "components/mantine/Text";
 
 const item = {
   hidden: { opacity: 0 },
@@ -70,13 +69,10 @@ const Metric: RealReactFC<{ number: number | string; title: string }> = ({
 }) => {
   return (
     <Vertical spacing={10} center>
-      <Text
-        weight="bold"
-        sx={(t) => ({ ...fontSize(40), color: t.colors.gray[8] })}
-      >
+      <Text weight="bold" fontSize={20} color="gray.8">
         {number}
       </Text>
-      <Text sx={{ ...fontSize(20) }}>{title}</Text>
+      <Text fontSize={20}>{title}</Text>
     </Vertical>
   );
 };

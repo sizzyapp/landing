@@ -88,7 +88,7 @@ const SocialProof: RealReactFC<{ tweets: TransformedTweet[] }> = ({
         <Award title="3rd">Product of the month</Award>
       </Horizontal>
       <Vertical center spacing="sm">
-        <Text sx={(t) => ({ color: t.colors.gray[7] })}>
+        <Text color="gray.7">
           <i> Developers love it, and you will too </i>
         </Text>
         <TweetAvatars tweets={tweets} />

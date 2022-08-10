@@ -28,7 +28,7 @@ const CardComponent: RealReactFC<
       <Stack spacing="xs" align="start">
         <Title order={4}>{title}</Title>
         {badge && <Badge>{badge}</Badge>}
-        <Text sx={(t) => ({ color: t.colors.gray[8] })}>{description}</Text>
+        <Text color="gray.8">{description}</Text>
       </Stack>
     </Card>
   );
