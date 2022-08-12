@@ -8,10 +8,9 @@ import React from "react";
 import Benefits from "sections/BenefitsSection/Benefits";
 import DevtoolsLogos from "sections/DevtoolsLogos";
 import FinalSlide from "sections/FinalSlide";
-import Graph from "sections/GraphSection";
+import GraphSection from "sections/GraphSection";
 import { Hero } from "sections/HeroSection/hero";
 import MainImageSection from "sections/MainImageSection/mainImageSection";
-import MaintainedSection from "sections/MaintainedSection";
 import SpecializedTools from "sections/SpecializedToolsSection";
 import { Vertical } from "styles/layout-components";
 import { TransformedTweet } from "types/tweet";
@@ -42,8 +41,7 @@ const Home: NextPage<{ logos?: string[]; tweets: TransformedTweet[] }> = ({
               id="graph-section"
               maxWidth={1000}
             >
-              <Graph />
-              <MaintainedSection />
+              <GraphSection />
             </Wrapper>
             <DevtoolsLogos logos={logos} />
           </Vertical>

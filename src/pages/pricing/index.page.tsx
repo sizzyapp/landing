@@ -1,4 +1,4 @@
-import { Avatar, Badge, Card } from "@mantine/core";
+import { Avatar, Badge, Card, Title } from "@mantine/core";
 import BadassTitle, { Highlight } from "components/BadassTitle";
 import DownloadButton from "components/DownloadButton";
 import { GradientButton } from "components/GradientButton";
@@ -92,11 +92,17 @@ const PricingPage = () => {
               $199
             </PricingCard>
           </MagicGrid>
-          <Vertical>
-            <Text align="center" color="gray.8" fontSize={[15, 7]}>
-              Bonus: The more seats you add, the bigger discount you get 🥳
-              <br /> You can check the final pricing in the calculator below 👇
-            </Text>
+          <Vertical center spacing="md">
+            <Vertical center spacing={3}>
+              <Title sx={(t) => ({ color: t.colors.gray[7] })} order={5}>
+                Part of a team? We got you!
+              </Title>
+              <Text align="center" color="gray.8" fontSize={[15, 7]}>
+                The more seats you add, the bigger discount you get 🥳
+                <br /> You can check the final pricing in the calculator below
+                👇
+              </Text>
+            </Vertical>
             <GradientButton href="https://portal.sizzy.co/pricing">
               Calculate pricing
             </GradientButton>
