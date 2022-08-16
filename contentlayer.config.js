@@ -1,6 +1,25 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import slugify from "slugify";
 
+export const Email = defineDocumentType(() => ({
+  name: "Email",
+  filePathPattern: "emails/*.mdx",
+  fields: {
+    slug: {
+      type: "string",
+      required: true,
+    },
+    recipient: {
+      type: "string",
+      required: true,
+    },
+    subject: {
+      type: "string",
+      required: true,
+    },
+  },
+}));
+
 export const TeamMember = defineDocumentType(() => ({
   name: "TeamMember",
   filePathPattern: "team-members/*.mdx",
@@ -191,5 +210,13 @@ export const Feature = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [UseCase, Job, Feature, Testimonial, Benefit, TeamMember],
+  documentTypes: [
+    UseCase,
+    Job,
+    Feature,
+    Testimonial,
+    Benefit,
+    TeamMember,
+    Email,
+  ],
 });
