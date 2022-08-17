@@ -1,7 +1,5 @@
 import { Text, Title } from "@mantine/core";
 import MarkdownContent from "components/MarkdownContent/MarkdownContent";
-import Wrapper from "components/Wrapper";
-import Conditional from "conditional-wrap";
 
 import { allFeatures, Feature as FeatureType } from "contentlayer/generated";
 import FeatureMedia from "pages/features/FeatureMedia";

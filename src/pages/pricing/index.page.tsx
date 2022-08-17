@@ -1,4 +1,13 @@
-import { Avatar, Badge, Card, Title } from "@mantine/core";
+import {
+  Alert,
+  Anchor,
+  Avatar,
+  Badge,
+  Button,
+  Card,
+  Stack,
+  Title,
+} from "@mantine/core";
 import BadassTitle, { Highlight } from "components/BadassTitle";
 import DownloadButton from "components/DownloadButton";
 import { GradientButton } from "components/GradientButton";
@@ -9,9 +18,15 @@ import Tooltip from "components/Tooltip";
 import { allTeamMembers } from "contentlayer/generated";
 import CompanyLogos from "pages/customers/CompanyLogos";
 import React from "react";
+import { FaRegLightbulb } from "react-icons/fa";
 import GraphSection from "sections/GraphSection";
 import { Horizontal, Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
+import NextLink from "next/link";
+
+const annualMonthlyPrice = "$5";
+const monthlyPrice = "$7";
+const lifetimePrice = "$199";
 
 const Subtitle: RealReactFC<{}> = ({ children }) => (
   <Text align="center" color="gray.7" fontSize={[22, 10]}>
@@ -83,13 +98,15 @@ const PricingPage = () => {
             </Subtitle>
           </Vertical>
           <MagicGrid width={200}>
-            <PricingCard subtitle="if paid annually">$5</PricingCard>
-            <PricingCard subtitle="if paid monthly">$7</PricingCard>
+            <PricingCard subtitle="if paid annually">
+              {annualMonthlyPrice}
+            </PricingCard>
+            <PricingCard subtitle="if paid monthly">{monthlyPrice}</PricingCard>
             <PricingCard
               showMonth={false}
               subtitle="one-time lifetime purchase"
             >
-              $199
+              {lifetimePrice}
             </PricingCard>
           </MagicGrid>
           <Vertical center spacing="md">
@@ -107,6 +124,25 @@ const PricingPage = () => {
               Calculate pricing
             </GradientButton>
           </Vertical>
+          <Alert title="#PRO TIP" icon={<FaRegLightbulb />} variant="outline">
+            <Title order={3}>Ask your company to pay for this.</Title>
+            <Stack
+              align="start"
+              spacing="sm"
+              sx={(t) => ({ fontSize: t.fontSizes.lg })}
+            >
+              <Text>
+                Most companies don't mind buying a Sizzy subscription since it's
+                more than worth the {annualMonthlyPrice}/mo to save several
+                hours of development time.
+              </Text>
+              <NextLink href="/expense" passHref>
+                <Button component="a" variant="light">
+                  Use the template
+                </Button>
+              </NextLink>
+            </Stack>
+          </Alert>
         </Vertical>
 
         <Vertical sx={{ maxWidth: 800 }} spacing="lg" center fullW>
@@ -142,7 +178,7 @@ const PricingPage = () => {
             Sizzy for years to come. We have many exciting ideas for the ensuing
             years. To fulfill our vision of creating the development workflow of
             the future, we want to pay the bills using our customers' money and
-            not some VC money that doesn't care about the users. <br /> <br />{" "}
+            not some VC money that doesn't care about the users. <br /> <br />
             Let's make this happen together! 🙌
           </Text>
         </Vertical>
