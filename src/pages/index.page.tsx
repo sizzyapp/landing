@@ -31,7 +31,7 @@ const Home: NextPage<{ logos?: string[]; tweets: TransformedTweet[] }> = ({
           {/*</Wrapper>*/}
         </Vertical>
         <Wrapper>
-          <Vertical fullW spacing={spaceBetweenSections}>
+          <Vertical fullW spacing={spaceBetweenSections} id="content-section">
             <SpecializedTools />
             <Benefits />
             <Wrapper

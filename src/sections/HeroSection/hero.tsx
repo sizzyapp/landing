@@ -1,20 +1,21 @@
-import { Text } from "@mantine/core";
+import { Button, Text } from "@mantine/core";
 import BadassTitle, { Highlight } from "components/BadassTitle";
 import DownloadButton from "components/DownloadButton";
 import React from "react";
 import SocialProof from "sections/HeroSection/SocialProof";
 
 import { useStyles } from "sections/HeroSection/styles";
-import { Vertical } from "styles/layout-components";
+import { Horizontal, Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
 import { TransformedTweet } from "types/tweet";
+import { trackButtonClick } from "utils/utils";
 
 export const Hero: RealReactFC<{ tweets: TransformedTweet[] }> = ({
   tweets,
 }) => {
   const { classes } = useStyles();
   return (
-    <Vertical fullW className={`${classes.wrapper} sizzy-red-3`}>
+    <Vertical center fullW className={`${classes.wrapper} sizzy-red-3`}>
       <Vertical>
         <Vertical
           fullW
@@ -44,12 +45,26 @@ export const Hero: RealReactFC<{ tweets: TransformedTweet[] }> = ({
 
           <SocialProof tweets={tweets} />
 
-          <Vertical center spacing={10}>
-            <DownloadButton label="Download for free" />
-            <Text size="sm" sx={(t) => ({ color: t.colors.gray[8] })}>
-              No credit card required
-            </Text>
-          </Vertical>
+          <Horizontal align="start" position="center">
+            <Vertical center spacing={10}>
+              <DownloadButton label="Download for free" size="lg" />
+              <Text size="sm" sx={(t) => ({ color: t.colors.gray[8] })}>
+                No credit card required
+              </Text>
+            </Vertical>
+            <Button
+              onClick={() => {
+                const section = document.querySelector("#content-section");
+                section.scrollIntoView({ behavior: "smooth" });
+                trackButtonClick("Convince Me");
+              }}
+              radius="xl"
+              variant="outline"
+              size="lg"
+            >
+              Convince Me
+            </Button>
+          </Horizontal>
         </Vertical>
       </Vertical>
     </Vertical>
