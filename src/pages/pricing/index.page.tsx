@@ -24,9 +24,9 @@ import { Horizontal, Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
 import NextLink from "next/link";
 
-const annualMonthlyPrice = "$5";
-const monthlyPrice = "$7";
-const lifetimePrice = "$199";
+const annualMonthlyPrice = "$12";
+const monthlyPrice = "$15";
+const lifetimePrice = "$499";
 
 const Subtitle: RealReactFC<{}> = ({ children }) => (
   <Text align="center" color="gray.7" fontSize={[22, 10]}>
