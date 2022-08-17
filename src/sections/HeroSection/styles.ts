@@ -50,7 +50,7 @@ export const useStyles = createStyles((theme) => ({
   },
   description: {
     color: theme.colors.gray[7],
-    ...fontSize(20, 8),
+    ...fontSize(22, 8),
     [theme.fn.smallerThan("md")]: {
       size: "sm",
       ...fontSize(16, 8),
