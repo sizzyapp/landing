@@ -1,4 +1,4 @@
-import { Anchor, Avatar, Box, Image, Text } from "@mantine/core";
+import { Anchor, Avatar, Image, Text } from "@mantine/core";
 import { NextLink } from "@mantine/next";
 import Laurel from "sections/HeroSection/Laurel";
 import Tooltip from "components/Tooltip";
@@ -16,7 +16,7 @@ const TweetAvatars: RealReactFC<{ tweets: TransformedTweet[] }> = ({
     <Anchor className="sizzy-pink-3" component={NextLink} href="/customers">
       <Avatar.Group
         spacing="xs"
-        sx={{ width: "100%", maxWidth: 350, flexWrap: "wrap" }}
+        sx={{ width: "100%", maxWidth: 670, flexWrap: "wrap" }}
       >
         {orderTweets(uniqBy(tweets, (t) => t.author_id)).map((t) => (
           <Tooltip
@@ -69,28 +69,23 @@ const SocialProof: RealReactFC<{ tweets: TransformedTweet[] }> = ({
   tweets,
 }) => {
   return (
-    <Horizontal className="sizzy-teal-4" spacing="xl" fullW center>
-      <Anchor
-        underline={false}
-        href="https://www.producthunt.com/products/sizzy"
-      >
-        <Vertical className="sizzy-red-3" center>
-          <Image
-            width={125}
-            src="https://res.cloudinary.com/kitze/image/upload/v1660728127/Sizzy%20Landing/product-hunt-logo-horizontal-orange.png"
-          />
-          <Award title="#1">Product of the day</Award>
-          <Award title="#1">Product of the week</Award>
-          <Award title="#3">Product of the month</Award>
-        </Vertical>
-      </Anchor>
-      <Vertical center spacing="sm">
+    <Vertical className="sizzy-teal-4" spacing="lg" fullW center>
+      <Horizontal className="sizzy-red-3" center>
+        <Image
+          width={125}
+          src="https://res.cloudinary.com/kitze/image/upload/v1660728127/Sizzy%20Landing/product-hunt-logo-horizontal-orange.png"
+        />
+        <Award title="#1">Product of the day</Award>
+        <Award title="#1">Product of the week</Award>
+        <Award title="#3">Product of the month</Award>
+      </Horizontal>
+      <Vertical center spacing={5}>
+        <TweetAvatars tweets={tweets} />
         <Text color="gray.7" size="lg" weight={700}>
           <i> Developers love it, and you will too </i>
         </Text>
-        <TweetAvatars tweets={tweets} />
       </Vertical>
-    </Horizontal>
+    </Vertical>
   );
 };
 
