@@ -47,6 +47,10 @@ const PricingCard: RealReactFC<{ subtitle: string; showMonth?: boolean }> = ({
       sx={(t) => ({
         height: 150,
         color: t.colors.gray[7],
+        transition: "all 0.2s ease-in-out",
+        ":hover": {
+          color: t.colors.purple[4],
+        },
       })}
     >
       <Vertical spacing="md" sx={{ height: "100%" }} center>
@@ -80,8 +84,9 @@ const PricingPage = () => {
             Completely <Highlight>free</Highlight> for 14 days
           </BadassTitle>
           <Subtitle>
-            Take Sizzy for a free spin for 14 days - no payment information
-            required.
+            Start a free 14 days trial so you can see how much time and
+            frustration Sizzy saves you. <br />
+            <b>No payment information required.</b>
           </Subtitle>
           <DownloadButton />
         </Vertical>
