@@ -1,6 +1,5 @@
 import {
   Alert,
-  Anchor,
   Avatar,
   Badge,
   Button,
@@ -47,10 +46,6 @@ const PricingCard: RealReactFC<{ subtitle: string; showMonth?: boolean }> = ({
       sx={(t) => ({
         height: 150,
         color: t.colors.gray[7],
-        transition: "all 0.2s ease-in-out",
-        ":hover": {
-          color: t.colors.purple[4],
-        },
       })}
     >
       <Vertical spacing="md" sx={{ height: "100%" }} center>
