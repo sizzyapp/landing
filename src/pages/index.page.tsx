@@ -26,9 +26,9 @@ const Home: NextPage<{ logos?: string[]; tweets: TransformedTweet[] }> = ({
       <Vertical spacing={spaceBetweenSections}>
         <Vertical fullW>
           <Hero tweets={tweets} />
-          <Wrapper padding={true} maxWidth={1400}>
-            <MainImageSection />
-          </Wrapper>
+          {/*<Wrapper padding={true} maxWidth={1400}>*/}
+          {/*  <MainImageSection />*/}
+          {/*</Wrapper>*/}
         </Vertical>
         <Wrapper>
           <Vertical fullW spacing={spaceBetweenSections}>
