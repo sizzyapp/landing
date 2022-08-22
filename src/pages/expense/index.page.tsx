@@ -8,7 +8,7 @@ import { allEmails, Email } from "contentlayer/generated";
 import NextLink from "next/link";
 
 const messageText =
-  "Hey boss! I just found out about a new developer tool, and I think it'll significantly boost my productivity. Can I send you the details?";
+  "Hey 👋! I just found out about a new developer tool, and I think it'll significantly boost my productivity. Can I send you the details?";
 
 const ExpensePage: NextPage<{
   managerEmail: Email;
