@@ -1,4 +1,4 @@
-import { Stack, Group, StackProps, GroupProps } from "@mantine/core";
+import { Group, GroupProps, Stack, StackProps } from "@mantine/core";
 import { RealReactFC } from "types";
 
 type commonProps = {
@@ -35,15 +35,17 @@ export const Horizontal: RealReactFC<GroupProps & commonProps> = (props) => {
           justify: "center",
         }),
       }}
-      sx={{
-        ...commonProps(props),
-        ...sx,
-        ...(center && {
-          justifyContent: "center",
-          alignItems: "center",
-          alignContent: "center",
-        }),
-      }}
+      sx={[
+        {
+          ...commonProps(props),
+          ...(center && {
+            justifyContent: "center",
+            alignItems: "center",
+            alignContent: "center",
+          }),
+        },
+        sx,
+      ]}
       {...rest}
     >
       {children}

@@ -155,7 +155,6 @@ export const Feature = defineDocumentType(() => ({
     },
     slug: {
       type: "string",
-      description: "The slug of the feature",
       required: false,
     },
     image: {
@@ -177,7 +176,16 @@ export const Feature = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: "string",
-      resolve: (feature) => feature.slug || slugify(feature.title),
+      resolve: (feature) => {
+        console.log("feature.slug", feature.slug);
+        let slugified = slugify(feature.title, {
+          lower: true,
+          trim: true,
+          strict: true,
+        });
+        console.log("slugified", slugified);
+        return feature.slug || slugified;
+      },
     },
     url: {
       type: "string",

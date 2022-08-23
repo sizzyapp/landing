@@ -1,48 +1,49 @@
-import { Box, Stack } from "@mantine/core";
-import MagicGrid from "components/MagicGrid";
+import { useListState } from "@mantine/hooks";
+import Text from "components/mantine/Text";
 import MetaTags from "components/MetaTags";
 import Shell from "components/Shell";
 import Wrapper from "components/Wrapper";
+import { useInSizzy } from "config/sizzy";
 import { allFeatures } from "contentlayer/generated";
-import Feature from "pages/features/Feature";
+import { FeatureNavigator } from "pages/features/FeatureNavigator";
+import FeaturesList from "pages/features/FeaturesList";
 import React from "react";
-import { autoGrid } from "styled-mixins";
-import { Vertical } from "styles/layout-components";
+
+export const FeaturesContext = React.createContext<any>({});
 
 const FeaturesPage: React.FC = () => {
-  let filteredFeatures = allFeatures.filter((f) => f.layout !== "grid");
-  let gridFeatures = allFeatures.filter((f) => f.layout === "grid");
-  return (
-    <Shell wrapper={false}>
-      <MetaTags
-        url={`https://sizzy.co/jobs`}
-        title="Sizzy Features"
-        description="Sizzy Features"
-      />
+  const isInSizzy = useInSizzy();
 
-      <Wrapper maxWidth={1600}>
-        <Vertical className="sizzy-teal-2" spacing="xl">
-          <MagicGrid gap={30} width={500}>
-            {filteredFeatures.map((feature) => (
-              <Feature feature={feature} />
-            ))}
-          </MagicGrid>
-          <Wrapper id="final-features" padding={false} maxWidth={1500}>
-            <Box
-              className="sizzy-red-1"
-              sx={{
-                ...autoGrid(300, 25),
-                margin: "auto",
-              }}
-            >
-              {gridFeatures.map((feature) => (
-                <Feature feature={feature} />
-              ))}
-            </Box>
-          </Wrapper>
-        </Vertical>
-      </Wrapper>
-    </Shell>
+  const [shownFeatures, handlers] = useListState([]);
+
+  let register = (slug: string) => {
+    if (shownFeatures.filter((f) => f !== slug)) {
+      handlers.append(slug);
+    }
+  };
+
+  return (
+    <FeaturesContext.Provider value={{ register }}>
+      <Shell headerProps={{ shadow: false, blurry: false }} wrapper={false}>
+        <FeatureNavigator />
+
+        <MetaTags
+          url={`https://sizzy.co/jobs`}
+          title="Sizzy Features"
+          description="Sizzy Features"
+        />
+
+        {isInSizzy && (
+          <Text fontSize={20}>
+            {shownFeatures.length} / {allFeatures.length}
+          </Text>
+        )}
+
+        <Wrapper maxWidth={1600}>
+          <FeaturesList />
+        </Wrapper>
+      </Shell>
+    </FeaturesContext.Provider>
   );
 };
 

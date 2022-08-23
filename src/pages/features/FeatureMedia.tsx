@@ -5,12 +5,23 @@ import { useStyles } from "./styles";
 const FeatureMedia = ({ image, video }) => {
   const { classes } = useStyles();
 
+  const commonStyles = (t) => ({
+    width: "100%",
+    borderRadius: t.radius.md,
+  });
   return (
     <>
-      {image && <img className={classes.image} width="100%" src={image} />}
+      {image && (
+        <Box
+          component="img"
+          className={classes.image}
+          src={image}
+          sx={commonStyles}
+        />
+      )}
       {video && (
         <Box
-          sx={(t) => ({ borderRadius: t.radius.md, width: "100%", flex: 1 })}
+          sx={commonStyles}
           component="video"
           controls={true}
           muted={true}

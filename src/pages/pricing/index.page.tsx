@@ -5,6 +5,7 @@ import { GradientButton } from "components/GradientButton";
 import MagicGrid from "components/MagicGrid";
 import Text from "components/mantine/Text";
 import Shell from "components/Shell";
+import { Subtitle } from "components/Subtitle";
 import Tooltip from "components/Tooltip";
 import { allTeamMembers } from "contentlayer/generated";
 import CompanyLogos from "pages/customers/CompanyLogos";
@@ -12,12 +13,6 @@ import React from "react";
 import GraphSection from "sections/GraphSection";
 import { Horizontal, Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
-
-const Subtitle: RealReactFC<{}> = ({ children }) => (
-  <Text align="center" color="gray.7" fontSize={[22, 10]}>
-    {children}
-  </Text>
-);
 
 const PricingCard: RealReactFC<{ subtitle: string; showMonth?: boolean }> = ({
   children,
