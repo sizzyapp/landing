@@ -31,7 +31,7 @@ export const Hero: RealReactFC<{ tweets: TransformedTweet[] }> = ({
             className={`${classes.content} sizzy-green-3`}
           >
             <BadassTitle>
-              The <Highlight>all-in-one</Highlight> toolkit for web development
+              <Highlight>The</Highlight> browser for web developers
             </BadassTitle>
             <Text className={classes.description} align="center">
               <b style={{ fontWeight: 900 }}>Before Sizzy:</b> web development
