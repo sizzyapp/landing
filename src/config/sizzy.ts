@@ -1,6 +1,6 @@
-//@ts-ignore
 import { useEffect, useState } from "react";
 
+//@ts-ignore
 export const isInSizzy = typeof window !== "undefined" && !!window.__sizzy;
 
 export const useInSizzy = () => {

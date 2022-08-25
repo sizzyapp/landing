@@ -1,5 +1,6 @@
 import { Group, GroupProps, Stack, StackProps } from "@mantine/core";
 import { RealReactFC } from "types";
+import { isArray } from "lodash";
 
 type commonProps = {
   centerH?: boolean;
@@ -44,7 +45,7 @@ export const Horizontal: RealReactFC<GroupProps & commonProps> = (props) => {
             alignContent: "center",
           }),
         },
-        sx,
+        ...(isArray(sx) ? sx : [sx]),
       ]}
       {...rest}
     >
