@@ -20,6 +20,26 @@ export const Email = defineDocumentType(() => ({
   },
 }));
 
+export const BlogPost = defineDocumentType(() => ({
+  name: "BlogPost",
+  filePathPattern: "blog/*.mdx",
+  fields: {
+    slug: {
+      type: "string",
+      required: true,
+    },
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+      required: true,
+    }
+  },
+}));
+
+
 export const TeamMember = defineDocumentType(() => ({
   name: "TeamMember",
   filePathPattern: "team-members/*.mdx",
@@ -39,6 +59,9 @@ export const TeamMember = defineDocumentType(() => ({
       type: "string",
       description: "A short intro",
       required: true,
+    },
+    color: {
+      type: 'string'
     },
     country: {
       type: "string",
@@ -218,5 +241,6 @@ export default makeSource({
     Benefit,
     TeamMember,
     Email,
+    BlogPost
   ],
 });
