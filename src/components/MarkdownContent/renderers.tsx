@@ -1,18 +1,10 @@
+import {Anchor, Blockquote, Code, Divider, List, Title,} from "@mantine/core";
 import React from "react";
-import { MdCheck } from "react-icons/md";
+import {MdCheck} from "react-icons/md";
+import {codeRenderer} from "./code-renderer";
 
-import { customComponents } from "./custom-components";
+import {customComponents} from "./custom-components";
 import ZoomImage from "./ZoomImage";
-import { codeRenderer } from "./code-renderer";
-import {
-  Anchor,
-  Code,
-  List,
-  Title,
-  Box,
-  Text,
-  Blockquote,
-} from "@mantine/core";
 
 const customLinks = {
   sub: () => {},
@@ -46,6 +38,7 @@ export const renderers = {
       </Title>
     );
   },
+  hr: Divider,
   image: (props) => <ZoomImage sx={{ borderRadius: 6 }} {...props} />,
   referenceImage: (props) => (
     <ZoomImage borderRadius={6} {...props} style={{ width: "100%" }} />
