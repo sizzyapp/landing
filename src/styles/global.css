@@ -13,3 +13,10 @@ p + p {
     margin-inline-end: 0px;
 }
 
+
+hr {
+    border: none;
+    height: 1px !important;
+    width: 100%;
+    background-color: #d2d2d2;
+}

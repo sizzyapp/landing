@@ -12,6 +12,11 @@ let roadmap = {
   isExternal: true,
 };
 
+let blog = {
+  link: "/blog",
+  label: "Blog",
+};
+
 let changelog = {
   link: "https://glink.so/sizzy",
   label: "Changelog",
@@ -46,7 +51,7 @@ export let headerLinks: LinkType[] = [
   },
 ];
 
-export let learnPopupLinks = [docs, roadmap, changelog];
+export let learnPopupLinks = [docs, roadmap, changelog, blog];
 export let companyLinks = [about, jobs];
 export const mobileLinks: LinkType[] = [
   ...headerLinks,
