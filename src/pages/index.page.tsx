@@ -1,20 +1,19 @@
 import Shell from "components/Shell";
 import Wrapper from "components/Wrapper";
-import { tweetIds } from "config/tweets";
-import { map } from "lodash";
-import type { NextPage } from "next";
-import { GetStaticProps } from "next";
+import {tweetIds} from "config/tweets";
+import {map} from "lodash";
+import type {NextPage} from "next";
+import {GetStaticProps} from "next";
 import React from "react";
 import Benefits from "sections/BenefitsSection/Benefits";
 import DevtoolsLogos from "sections/DevtoolsLogos";
 import FinalSlide from "sections/FinalSlide";
 import GraphSection from "sections/GraphSection";
-import { Hero } from "sections/HeroSection/hero";
-import MainImageSection from "sections/MainImageSection/mainImageSection";
+import {Hero} from "sections/HeroSection/hero";
 import SpecializedTools from "sections/SpecializedToolsSection";
-import { Vertical } from "styles/layout-components";
-import { TransformedTweet } from "types/tweet";
-import { getTweets } from "utils/get-tweets";
+import {Vertical} from "styles/layout-components";
+import {TransformedTweet} from "types/tweet";
+import {getTweets} from "utils/get-tweets";
 
 const Home: NextPage<{ logos?: string[]; tweets: TransformedTweet[] }> = ({
   logos = [],

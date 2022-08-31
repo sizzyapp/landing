@@ -16,7 +16,7 @@ export const Hero: RealReactFC<{ tweets: TransformedTweet[] }> = ({
   const { classes } = useStyles();
   return (
     <Vertical center fullW className={`${classes.wrapper} sizzy-red-3`}>
-      <Vertical>
+      <Vertical fullW>
         <Vertical
           fullW
           center
@@ -28,19 +28,23 @@ export const Hero: RealReactFC<{ tweets: TransformedTweet[] }> = ({
             fullW
             spacing="lg"
             center
-            className={`${classes.content} sizzy-green-3`}
           >
-            <BadassTitle>
-              <Highlight>The</Highlight> browser for web developers
+            <BadassTitle maxWidth={800}>
+             <Highlight>The</Highlight> browser for web developers
             </BadassTitle>
-            <Text className={classes.description} align="center">
-              <b style={{ fontWeight: 900 }}>Before Sizzy:</b> web development
-              is stressing you out, responsive design is hard, you have an
-              overwhelming amount of opened tabs and apps. <br />
-              <b style={{ fontWeight: 900 }}>After Sizzy:</b> all the tools you
-              need are in one place, responsive design is a breeze, no more
-              context switching.
-            </Text>
+           <Vertical center className={classes.content} spacing="sm">
+             <Text className={classes.description} align="center">
+               <b style={{ fontWeight: 900 }}>Before Sizzy:</b> web development
+               is stressing you out, responsive design is hard, you have an
+               overwhelming amount of opened tabs and apps.
+
+             </Text>
+             <Text className={classes.description} align="center">
+               <b style={{ fontWeight: 900 }}>After Sizzy:</b> all the tools you
+               need are in one place, responsive design is a breeze, no more
+               context switching.
+             </Text>
+           </Vertical>
           </Vertical>
 
           <SocialProof tweets={tweets} />

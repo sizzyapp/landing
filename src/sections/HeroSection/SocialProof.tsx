@@ -81,8 +81,8 @@ const SocialProof: RealReactFC<{ tweets: TransformedTweet[] }> = ({
       </Horizontal>
       <Vertical center spacing={5}>
         <TweetAvatars tweets={tweets} />
-        <Text color="gray.7" size="lg" weight={700}>
-          <i> Developers love it, and you will too </i>
+        <Text color="gray.7" size="lg" >
+          <i> Developers love it, and you will too!</i>
         </Text>
       </Vertical>
     </Vertical>

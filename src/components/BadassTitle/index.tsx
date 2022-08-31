@@ -14,7 +14,7 @@ const BadassTitle: RealReactFC<{
 }> = ({ children, sx, maxWidth }) => {
   const { classes } = useStyles({ maxWidth });
   return (
-    <Title sx={sx} align="center" id="sizzy-text" className={classes.title}>
+    <Title align="center" id="sizzy-text" className={classes.title} sx={sx}>
       {children}
     </Title>
   );
