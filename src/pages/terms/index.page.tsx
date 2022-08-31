@@ -21,7 +21,7 @@ const TermsAndConditions = () => {
         <div id="root" style={{ maxWidth: 900, width: '100%', margin: 'auto' }}>
           <h2>Terms & Conditions</h2>
           <div style={{ fontSize: 14, opacity: 0.5 }}>
-            Last updated on 14 November 2019
+            Last updated on 31 August 2022
           </div>
           <br />
           <p className="c16 c7">
@@ -33,10 +33,7 @@ const TermsAndConditions = () => {
               all use of the sizzy.co website and the Sizzy app. Both sizzy.co
               (&ldquo;Website&rdquo;) and the Sizzy app (&ldquo;Sizzy&rdquo;)
               are services (&ldquo;Services&rdquo;) of Kristijan Ristovski
-              &ldquo;Kitze&rdquo; residing in 80-463 Gda&#324;sk (Poland), ul.{' '}
-            </span>
-            <span className="c3">
-              Stanis&#322;awa Skar&#380;y&#324;skiego 3A/19,
+              &ldquo;Kitze&rdquo;
             </span>
             <span className="c0">
               &nbsp;registered in the Polish Central Register and Information on
@@ -113,13 +110,13 @@ const TermsAndConditions = () => {
               <li className="c5 c6">
                 <span className="c0">
                   In order to use Sizzy, you must choose and buy a subscription
-                  plan and activate your License Key. This way, you enter into a
+                  plan, log in with your email and password, and choose a subscription to active Sizzy with. This way, you enter into a
                   license agreement with us, as stated in these Terms. Under
                   some provisions, you can change and cancel your subscription.
                 </span>
               </li>
               <li className="c5 c6">
-                <span className="c3">You have a right to a 14</span>
+                <span className="c3">You have a right to a free 14</span>
                 <span className="c3">-day</span>
                 <span className="c0">&nbsp;Trial Period.</span>
               </li>
@@ -167,15 +164,14 @@ const TermsAndConditions = () => {
           </p>
           <ol className="c4 lst-kix_77h5nyd8fago-0 start" start={1}>
             <li className="c5 c6">
-              <span className="c8">Buying and activating Sizzy</span>
+              <span className="c8"><b>Buying and activating Sizzy</b></span>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-1 start" start={1}>
             <li className="c1">
               <span className="c0">
-                In order to use Sizzy, you must purchase a License Key choosing
-                one of the available subscription plans and download Sizzy from
-                the Website.
+                In order to use Sizzy after the free 14-day trial, you must buy
+                one of the available subscription plans.
               </span>
             </li>
             <li className="c1">
@@ -184,7 +180,7 @@ const TermsAndConditions = () => {
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-2 start" start={1}>
             <li className="c5 c9">
-              <span className="c0">the country of your location,</span>
+              <span className="c0">your country,</span>
             </li>
             <li className="c5 c9">
               <span className="c0">your email address,</span>
@@ -202,101 +198,43 @@ const TermsAndConditions = () => {
           <ol className="c4 lst-kix_77h5nyd8fago-1" start={3}>
             <li className="c1">
               <span className="c0">
-                Entering your billing details is obligatory even when using a
+                Entering your billing details is still obligatory even when using a
                 100% discount code. If your discount code is valid, you will not
                 be charged.
               </span>
             </li>
             <li className="c1">
               <span className="c0">
-                After purchasing Sizzy, you should receive:
+                After purchasing a Sizzy subscription, you should receive:
               </span>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-2 start" start={1}>
             <li className="c5 c9">
               <span className="c0">
-                an email with your License Key and download link;{' '}
-              </span>
-            </li>
-            <li className="c5 c9">
-              <span className="c0">
-                an email from Paddle with your purchase confirmation.
+                an email from Paddle with your purchase confirmation
               </span>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-1" start={5}>
             <li className="c1">
               <span className="c0">
-                The License Key can be also found in the Sizzy License Manager
-                or if you are part of a team, you can contact the person who has
-                access to the Sizzy License Manager.
-              </span>
-            </li>
-            <li className="c1">
-              <span className="c0">
-                In order to activate your License, open Sizzy and enter your
-                email address and your License Key. If your subscription
-                includes multiple devices, do so on each device, using the same
-                email address and the same License Key. You can manage your
-                subscription and activated devices in the Sizzy License Manager.
-              </span>
-            </li>
-            <li className="c1">
-              <span className="c0">
-                In order to change devices on which you use Sizzy, you must
-                first deactivate the License Key either via the main menu of
-                Sizzy (Sizzy -&gt; Deactivate license) or via the Sizzy License
-                Manager. Then, the same License Key can be activated on the same
-                device or on another device.
+                In order to activate Sizzy, you need to log in with your
+                email and password. Then you will see a list of your purchased subscriptions, or subscriptions that you're a member of.
+                You must choose which subscription do you want to activate Sizzy with. You can manage your
+                subscriptions and activated devices in the Sizzy Portal.
               </span>
             </li>
           </ol>
           <p className="c5 c7 c11">
             <span className="c8"></span>
           </p>
-          <ol className="c4 lst-kix_77h5nyd8fago-0" start={2}>
-            <li className="c5 c6">
-              <span className="c8">Trial period</span>
-            </li>
-          </ol>
-          <ol className="c4 lst-kix_77h5nyd8fago-1 start" start={1}>
-            <li className="c1">
-              <span className="c0">
-                You have a right to a single 14-day trial period, during which
-                you can exercise your right of withdrawal from the purchase of
-                Sizzy, without giving any reason.
-              </span>
-            </li>
-            <li className="c1">
-              <span className="c3">
-                In order to withdraw from your purchase you must cancel your
-                subscription in the License Manager, or e-mail us to cancel it
-                for you within 14 days{' '}
-              </span>
-              <span className="c3">from the date of your purchase</span>
-              <span className="c0">.</span>
-            </li>
-            <li className="c1">
-              <span className="c0">
-                Your License Key will be deactivated immediately after we
-                receive your notice and you will be given a full refund.
-              </span>
-            </li>
-            <li className="c1">
-              <span className="c0">
-                If you do not exercise your right of withdrawal described above,
-                the subscription will start and you will not be entitled to a
-                refund.
-              </span>
-            </li>
-          </ol>
           <p className="c5 c7 c11">
             <span className="c0"></span>
           </p>
           <ol className="c4 lst-kix_77h5nyd8fago-0" start={3}>
             <li className="c5 c6">
-              <span className="c8">Payment methods and invoicing</span>
+              <b className="c8">Payment methods and invoicing</b>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-1 start" start={1}>
@@ -374,7 +312,7 @@ const TermsAndConditions = () => {
             <li className="c1">
               <span className="c0">
                 You can change your billing method at any time in the Sizzy
-                License Manager.
+                Portal.
               </span>
             </li>
             <li className="c1">
@@ -409,13 +347,13 @@ const TermsAndConditions = () => {
           </p>
           <ol className="c4 lst-kix_77h5nyd8fago-0" start={4}>
             <li className="c5 c6">
-              <span className="c18">License </span>
+              <b className="c18">License </b>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-1 start" start={1}>
             <li className="c1">
               <span className="c3">
-                Once you buy a License Key, we grant you a non-exclusive,{' '}
+                Once you buy a subscription, we grant you a non-exclusive,{' '}
               </span>
               <span className="c3">non-transferable,</span>
               <span className="c0">
@@ -423,58 +361,34 @@ const TermsAndConditions = () => {
                 the Terms. We reserve all rights not expressly granted to you.
                 We are and remain the owner of any intellectual property rights
                 with respect to Sizzy. You shall not acquire any ownership to
-                Sizzy as a result of your purchase of the License Key or use of
+                Sizzy as a result of your purchase of a subscription or use of
                 Sizzy.
-              </span>
-            </li>
-            <li className="c1">
-              <span className="c0">
-                You can install and activate Sizzy on the number of devices that
-                results from your chosen subscription plan:
-              </span>
-            </li>
-          </ol>
-          <ol className="c4 lst-kix_77h5nyd8fago-2 start" start={1}>
-            <li className="c5 c9">
-              <span className="c0">Solo - license for one device;</span>
-            </li>
-            <li className="c5 c9">
-              <span className="c0">Trio - license for three devices;</span>
-            </li>
-            <li className="c5 c9">
-              <span className="c0">Team - license for ten devices;</span>
-            </li>
-            <li className="c5 c9">
-              <span className="c0">
-                Enterprise - license for more than ten devices, subject to our
-                specific agreement.
               </span>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-1" start={3}>
             <li className="c1">
               <span className="c0">
-                The license is granted to you for a definite period and will
+                Unless you bought a lifetime subscription, access to the Sizzy app is granted to you for a definite period and will
                 terminate automatically at the end of the applicable
-                subscription period - after a moth or after a year - unless
+                subscription period - after a month or after a year - unless
                 renewed or activated prior to the end of the applicable
                 subscription period.
               </span>
             </li>
             <li className="c1">
               <span className="c0">
-                We are entitled to terminate your license by blocking the
-                License Key during your subscription period with immediate
+                We are entitled to terminate your access to Sizzy by blocking your account during your subscription period with immediate
                 effect and without prior notice in the event you fail to comply
                 with the Terms, in the event you fail to pay your subscription
-                fee for the License Key within the applicable payment term, or
+                fee within the applicable payment term, or
                 in the event we are required to do so by law or an order of an
                 applicable court.
               </span>
             </li>
             <li className="c1">
               <span className="c0">
-                Upon termination of the license, you shall cease all use of
+                Upon termination of your account, you shall cease all use of
                 Sizzy.
               </span>
             </li>
@@ -495,7 +409,7 @@ const TermsAndConditions = () => {
             <li className="c5 c9">
               <span className="c0">
                 Rent, lease, lend, sell, redistribute, sublicense or otherwise
-                commercially exploit the License Key or Sizzy;
+                commercially exploit your user account or Sizzy;
               </span>
             </li>
             <li className="c5 c9">
@@ -517,7 +431,7 @@ const TermsAndConditions = () => {
               <span className="c3">
                 Copy, adapt, translate, decompile, reverse engineer,
                 disassemble, attempt to derive the source code, modify or create
-                derivative works of Sizzy and the License Key or any parts
+                derivative works of Sizzy or any parts
                 thereof, except to the extent permitted by applicable law
               </span>
               <span className="c3">&nbsp;</span>
@@ -529,7 +443,7 @@ const TermsAndConditions = () => {
                 &nbsp;in any manner or for any purpose that infringes,
                 misappropriates or otherwise violates any intellectual property
                 right or other right of any person or entity, or that violates
-                any applicable law;
+                any applicable law
               </span>
             </li>
             <li className="c5 c9">
@@ -577,9 +491,9 @@ const TermsAndConditions = () => {
           </p>
           <ol className="c4 lst-kix_77h5nyd8fago-0" start={5}>
             <li className="c5 c6">
-              <span className="c8">
+              <b className="c8">
                 Cancelling and changing your subscription
-              </span>
+              </b>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-1 start" start={1}>
@@ -611,7 +525,7 @@ const TermsAndConditions = () => {
               <span className="c3">
                 In order to cancel your ongoing subscription, you must click on
                 the &ldquo;Cancel Subscription&rdquo; button available in the
-                Sizzy License Manager or you can contact us directly via email:{' '}
+                Sizzy Portal or you can contact us directly via email:{' '}
               </span>
               <span className="c3">contact@mg.sizzy.co</span>
               <span className="c0">
@@ -621,9 +535,7 @@ const TermsAndConditions = () => {
             </li>
             <li className="c1">
               <span className="c0">
-                If you cancel your subscription, your License Key will remain
-                valid until the end of your current subscription period and will
-                expire after that date. You will not be automatically charged
+                If you cancel your subscription, your will still be able to use Sizzy until the end of your current subscription period. You will not be automatically charged
                 for the next billing period.
               </span>
             </li>
@@ -633,14 +545,13 @@ const TermsAndConditions = () => {
           </p>
           <ol className="c4 lst-kix_77h5nyd8fago-0" start={6}>
             <li className="c5 c6">
-              <span className="c8">System requirements, updates, support</span>
+              <b className="c8">System requirements, updates, support</b>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-1 start" start={1}>
             <li className="c1">
               <span className="c0">
-                In order to download Sizzy, to purchase and activate the License
-                Key, as well as to receive updates and upgrades, you need a
+                In order to download and activate Sizzy, you need a
                 working Internet connection
               </span>
             </li>
@@ -653,7 +564,7 @@ const TermsAndConditions = () => {
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-2 start" start={1}>
             <li className="c5 c9">
-              <span className="c0">Windows 10;</span>
+              <span className="c0">Windows 10, Windows 11</span>
             </li>
             <li className="c5 c9">
               <span className="c3">mac</span>
@@ -665,7 +576,7 @@ const TermsAndConditions = () => {
           </ol>
           <p className="c5 c11">
             <span className="c0">
-              Sizzy might work on other versions of macOS and Linux, but it is
+              Sizzy might work on other versions of macOS, Windows, and Linux, but it is
               not guaranteed and no technical support will be available for
               them.
             </span>
@@ -704,13 +615,13 @@ const TermsAndConditions = () => {
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-2 start" start={1}>
             <li className="c5 c9">
-              <span className="c0">Stable;</span>
+              <span className="c0">Stable</span>
             </li>
             <li className="c5 c9">
-              <span className="c0">Beta;</span>
+              <span className="c0">Beta</span>
             </li>
             <li className="c5 c9">
-              <span className="c0">Alpha.</span>
+              <span className="c0">Alpha</span>
             </li>
           </ol>
           <p className="c5 c11">
@@ -733,7 +644,7 @@ const TermsAndConditions = () => {
           </p>
           <ol className="c4 lst-kix_77h5nyd8fago-0" start={7}>
             <li className="c5 c6">
-              <span className="c8">Consumer rights</span>
+              <b className="c8">Consumer rights</b>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-1 start" start={1}>
@@ -758,17 +669,7 @@ const TermsAndConditions = () => {
                 possible, but no later than within 30 days.
               </span>
             </li>
-            <li className="c1">
-              <span className="c3">
-                If you activate your License Key within 14 days from the
-                purchase, you grant explicit consent to start using the Services
-                before the deadline to withdraw from the purchase.
-              </span>
-              <span className="c0">
-                &nbsp;After your License Key is activated, you can only use the
-                trial period mentioned in chapter II.
-              </span>
-            </li>
+
             <li className="c1">
               <span className="c0">
                 You have the right to use extrajudicial means of dealing with
@@ -807,7 +708,7 @@ const TermsAndConditions = () => {
           </p>
           <ol className="c4 lst-kix_77h5nyd8fago-0" start={8}>
             <li className="c5 c6">
-              <span className="c8">Newsletter</span>
+              <b className="c8">Newsletter</b>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-1 start" start={1}>
@@ -835,7 +736,7 @@ const TermsAndConditions = () => {
           </p>
           <ol className="c4 lst-kix_77h5nyd8fago-0" start={9}>
             <li className="c5 c6">
-              <span className="c8">Disclaimers and liability limitation</span>
+              <b className="c8">Disclaimers and liability limitation</b>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-1 start" start={1}>
@@ -903,7 +804,7 @@ const TermsAndConditions = () => {
           </p>
           <ol className="c4 lst-kix_77h5nyd8fago-0" start={10}>
             <li className="c5 c6">
-              <span className="c18">Acknowledgments</span>
+              <b className="c18">Acknowledgments</b>
               <span className="c8">&nbsp;</span>
             </li>
           </ol>
@@ -915,7 +816,10 @@ const TermsAndConditions = () => {
               <span className="c0">React.js</span>
             </li>
             <li className="c1">
-              <span className="c0">Styled Components</span>
+              <span className="c0">Emotion</span>
+            </li>
+            <li className="c1">
+              <span className="c0">Chakra UI</span>
             </li>
             <li className="c1">
               <span className="c0">MobX</span>
@@ -924,10 +828,7 @@ const TermsAndConditions = () => {
               <span className="c0">mobx-state-tree</span>
             </li>
             <li className="c1">
-              <span className="c0">create-react-app</span>
-            </li>
-            <li className="c1">
-              <span className="c0">react-app-reired</span>
+              <span className="c0">Next.js</span>
             </li>
           </ul>
           <p className="c5 c7 c14">
@@ -935,7 +836,7 @@ const TermsAndConditions = () => {
           </p>
           <ol className="c4 lst-kix_77h5nyd8fago-0" start={11}>
             <li className="c5 c6">
-              <span className="c8">Use of data</span>
+              <b className="c8">Use of data</b>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-1 start" start={1}>
@@ -958,7 +859,7 @@ const TermsAndConditions = () => {
             <li className="c1">
               <span className="c3">
                 We may process your personal data to the extent necessary to
-                provide the License Key, maintenance and support and to comply
+                provide the activation information, maintenance and support and to comply
                 with our obligations under the Terms. To the extent we will
                 process personal data, we will comply with our obligations under
                 applicable data protection law. Please see our{' '}
@@ -979,7 +880,7 @@ const TermsAndConditions = () => {
           </p>
           <ol className="c4 lst-kix_77h5nyd8fago-0" start={12}>
             <li className="c5 c6">
-              <span className="c8">Third Party Websites</span>
+              <b className="c8">Third Party Websites</b>
             </li>
           </ol>
           <ol className="c4 lst-kix_77h5nyd8fago-1 start" start={1}>
@@ -1014,7 +915,7 @@ const TermsAndConditions = () => {
           </p>
           <ol className="c4 lst-kix_77h5nyd8fago-0" start={13}>
             <li className="c5 c6">
-              <span className="c8">Governing law and disputes</span>
+              <b className="c8">Governing law and disputes</b>
             </li>
           </ol>
           <p className="c5 c14">
