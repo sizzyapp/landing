@@ -9,6 +9,10 @@ import {getMetaImage, sizzyLogoUrl} from "utils/get-meta-image";
 import { useGoogleAnalytics, useOnPageLoad } from "../utils/utils";
 import { useMediaQuery, useWindowScroll } from "@mantine/hooks";
 
+export const SIZZY_TAGLINE = 'The browser for web developers'
+export const SIZZY_TITLE = `Sizzy — ${SIZZY_TAGLINE}`;
+export const SIZZY_DESCRIPTION = `Develop, debug and test your website with ease and speed. Intuitive and quick development tools help you focus on your product and ideas.`;
+
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
 
@@ -24,14 +28,13 @@ export default function App(props: AppProps) {
 
   const mightBeDesktop = useMediaQuery("(min-width: 900px)");
 
-  let tagline = 'The browser for web developers'
-  const title = `Sizzy — ${tagline}`;
+
 
   const socialImage =
       getMetaImage({
         preset: "netlify",
         logo: sizzyLogoUrl,
-        title: title,
+        title: SIZZY_TITLE,
         gradientColors: ["#412593", "#24145b", "#10062c"],
         ctaColor: "black",
         ctaBg: "#ffffff",
@@ -41,35 +44,35 @@ export default function App(props: AppProps) {
   return (
     <>
       <Head>
-        <title>${title}</title>
+        <title>{SIZZY_TITLE}</title>
         <meta
             name="title"
-            content={title}
+            content={SIZZY_TITLE}
         />
         <meta
             name="description"
-            content="Develop, debug and test your website with ease and speed. Intuitive and quick development tools help you focus on your product and ideas."
+            content={SIZZY_DESCRIPTION}
         />
 
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="https://sizzy.co/"/>
         <meta
             property="og:title"
-            content={title}
+            content={SIZZY_TITLE}
         />
         <meta
             property="og:description"
-            content="Develop, debug and test your website with ease and speed. Intuitive and quick development tools help you focus on your product and ideas."
+            content={SIZZY_DESCRIPTION}
         />
 
         <meta property="twitter:url" content="https://sizzy.co/"/>
         <meta
             property="twitter:title"
-            content={title}
+            content={SIZZY_TITLE}
         />
         <meta
             property="twitter:description"
-            content="Develop, debug and test your website with ease and speed. Intuitive and quick development tools help you focus on your product and ideas."
+            content={SIZZY_DESCRIPTION}
         />
 
         <meta

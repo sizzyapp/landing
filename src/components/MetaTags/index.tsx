@@ -1,3 +1,4 @@
+import {SIZZY_DESCRIPTION, SIZZY_TITLE} from "pages/_app.page";
 import React from "react";
 import Head from "next/head";
 
@@ -9,8 +10,8 @@ export const MetaTags: React.FC<{
   favicon?: string;
 }> = ({
   url = `https://sizzy.co`,
-  title = `Sizzy - The Browser For Developers`,
-  description = `Stop wasting time and speed up your development workflow`,
+  title = SIZZY_TITLE,
+  description = SIZZY_DESCRIPTION,
   image = url + `/images/meta.png`,
   favicon = `/favicon.icon`,
 }) => {
