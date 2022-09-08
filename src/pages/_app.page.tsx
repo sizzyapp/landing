@@ -35,6 +35,7 @@ export default function App(props: AppProps) {
     const tmp = { value, date: new Date().toJSON() };
 
     setCookie(null, "sizzy-ref", JSON.stringify(tmp), {
+      domain: process.env.NODE_ENV === "development" ? "localhost" : `.${window.location.hostname}`,
       maxAge: 12 * 30 * 24 * 60 * 60,
       path: "/",
     });
