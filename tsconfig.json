@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "downlevelIteration": true,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -21,18 +18,10 @@
     "jsx": "preserve",
     "baseUrl": "./src",
     "paths": {
-      "contentlayer/generated": [
-        "../.contentlayer/generated"
-      ]
+      "contentlayer/generated": ["../.contentlayer/generated"]
     },
     "incremental": true
   },
-  "include": [
-    "src",
-    "pages",
-    ".contentlayer/generated"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src", "pages", ".contentlayer/generated"],
+  "exclude": ["node_modules"]
 }

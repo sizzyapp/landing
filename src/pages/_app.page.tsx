@@ -31,14 +31,18 @@ export default function App(props: AppProps) {
   const mightBeDesktop = useMediaQuery("(min-width: 900px)");
 
   useEffect(() => {
-    const value = Object.fromEntries(new URLSearchParams(window.location.search).entries());
-    const tmp = { value, date: new Date().toJSON() };
+    const urlQueryEntries = [...new URLSearchParams(window.location.search).entries()];
+    if (urlQueryEntries.length) {
+      const value = Object.fromEntries(urlQueryEntries);
+      const tmp = { value, date: new Date().toJSON() };
 
-    setCookie(null, "sizzy-ref", JSON.stringify(tmp), {
-      domain: process.env.NODE_ENV === "development" ? "localhost" : `.${window.location.hostname}`,
-      maxAge: 12 * 30 * 24 * 60 * 60,
-      path: "/",
-    });
+      setCookie(null, "sizzy-ref", JSON.stringify(tmp), {
+        domain:
+          process.env.NODE_ENV === "development" ? "localhost" : `.${window.location.hostname}`,
+        maxAge: 12 * 30 * 24 * 60 * 60,
+        path: "/",
+      });
+    }
   }, []);
 
   const socialImage = getMetaImage({
