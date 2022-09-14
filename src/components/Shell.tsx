@@ -8,6 +8,9 @@ import { Spotlight } from "components/Spotlight";
 import React from "react";
 import { ReactGenieAnimations } from "react-genie-with-emotion";
 import { RealReactFC } from "types";
+import dynamic from "next/dynamic";
+
+const CookieNotice = dynamic(() => import("components/CookieNotice"), { ssr: false });
 
 const Shell: RealReactFC<
   AppShellProps & {
@@ -47,6 +50,8 @@ const Shell: RealReactFC<
           {children}
         </Spotlight>
       </Conditional>
+
+      <CookieNotice />
     </AppShell>
   );
 };
