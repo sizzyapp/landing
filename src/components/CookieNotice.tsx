@@ -1,27 +1,19 @@
 import React, { useState } from "react";
 import { Text, Button, CloseButton, Group, Paper, Box } from "@mantine/core";
-import { parseCookies, setCookie } from "nookies";
-
-export const COOKIES_ACCEPTED_KEY = "sizzy-cookies-accepted";
+import { useCanUseCookies } from "hooks/useCanUseCookie";
 
 const CookieNotice: React.FC = () => {
-  const cookies = parseCookies();
   const [ignore, setIgnore] = useState(false);
 
   const hasNoSearch = typeof window !== "undefined" && window.location.search === "";
-  const acceptedCookies = cookies[COOKIES_ACCEPTED_KEY] === "true";
-  if (hasNoSearch || acceptedCookies || ignore) {
+  const { canUseCookies, acceptCookies } = useCanUseCookies();
+  if (hasNoSearch || canUseCookies || ignore) {
     return null;
   }
 
   const onClose = () => setIgnore(true);
   const onConfirm = () => {
-    setCookie(null, COOKIES_ACCEPTED_KEY, "true", {
-      domain: process.env.NODE_ENV === "development" ? "localhost" : `.${window.location.hostname}`,
-      maxAge: 12 * 30 * 24 * 60 * 60,
-      path: "/",
-    });
-
+    acceptCookies();
     onClose();
   };
 

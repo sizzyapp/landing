@@ -10,6 +10,7 @@ import { emotionCache } from "styles/emotion-cache";
 import { mantineTheme } from "styles/theme";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 import { useGoogleAnalytics, useOnPageLoad } from "../utils/utils";
+import { useAffiliateTracking } from "hooks/useAffiliateTracking";
 
 export const SIZZY_TAGLINE = "The browser for web developers";
 export const SIZZY_TITLE = `Sizzy — ${SIZZY_TAGLINE}`;
@@ -20,6 +21,7 @@ export default function App(props: AppProps) {
 
   const pageLoaded = useOnPageLoad();
 
+  useAffiliateTracking();
   useGoogleAnalytics({
     id: process.env.NEXT_PUBLIC_ANALYTICS_ID as string,
     startLoading: pageLoaded,
@@ -29,21 +31,6 @@ export default function App(props: AppProps) {
   const [scroll] = useWindowScroll();
 
   const mightBeDesktop = useMediaQuery("(min-width: 900px)");
-
-  useEffect(() => {
-    const urlQueryEntries = [...new URLSearchParams(window.location.search).entries()];
-    if (urlQueryEntries.length) {
-      const value = Object.fromEntries(urlQueryEntries);
-      const tmp = { value, date: new Date().toJSON() };
-
-      setCookie(null, "sizzy-ref", JSON.stringify(tmp), {
-        domain:
-          process.env.NODE_ENV === "development" ? "localhost" : `.${window.location.hostname}`,
-        maxAge: 12 * 30 * 24 * 60 * 60,
-        path: "/",
-      });
-    }
-  }, []);
 
   const socialImage = getMetaImage({
     preset: "netlify",
