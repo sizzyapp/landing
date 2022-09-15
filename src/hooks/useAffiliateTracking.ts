@@ -27,6 +27,7 @@ export const useAffiliateTracking = () => {
     if (!canUseCookies) return;
     if (ref.current) return;
 
+    // f**k useEffect running twice in dev :)
     ref.current = true;
 
     const searchParams = new URLSearchParams(window.location.search);

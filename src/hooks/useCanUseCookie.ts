@@ -1,7 +1,7 @@
 import { parseCookies, setCookie as nookieSetCookie } from "nookies";
 
 const cookieOptions = {
-  domain: process.env.NODE_ENV === "development" ? "localhost" : `.${window.location.hostname}`,
+  domain: process.env.NODE_ENV === "development" ? "localhost" : ".sizzy.co",
   maxAge: 11 * 30 * 24 * 60 * 60,
   path: "/",
 };
