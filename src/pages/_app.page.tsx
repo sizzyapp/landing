@@ -11,14 +11,14 @@ import { mantineTheme } from "styles/theme";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 import { useGoogleAnalytics, useOnPageLoad } from "../utils/utils";
 import { useAffiliateTracking } from "hooks/useAffiliateTracking";
+import { CookieProvider } from "hooks/useCookies";
 
 export const SIZZY_TAGLINE = "The browser for web developers";
 export const SIZZY_TITLE = `Sizzy — ${SIZZY_TAGLINE}`;
 export const SIZZY_DESCRIPTION = `Develop, debug and test your website with ease and speed. Intuitive and quick development tools help you focus on your product and ideas.`;
 
-export default function App(props: AppProps) {
+const InnerApp: React.FC<AppProps> = (props) => {
   const { Component, pageProps } = props;
-
   const pageLoaded = useOnPageLoad();
 
   useAffiliateTracking();
@@ -29,9 +29,34 @@ export default function App(props: AppProps) {
   });
 
   const [scroll] = useWindowScroll();
-
   const mightBeDesktop = useMediaQuery("(min-width: 900px)");
 
+  return (
+    <>
+      <Component {...pageProps} />
+      <Affix position={{ bottom: 20, right: 20 }}>
+        <Transition transition="slide-up" mounted={mightBeDesktop && scroll.y > 0}>
+          {(transitionStyles) => (
+            <Group
+              style={transitionStyles}
+              sx={(theme) => ({
+                background: theme.colors.gray[0],
+                padding: theme.spacing.xs,
+                borderRadius: theme.radius.md,
+                color: theme.colors.gray[6],
+                fontSize: theme.fontSizes.xs,
+              })}
+            >
+              Press Ctrl/⌘ + K to jump to any page.
+            </Group>
+          )}
+        </Transition>
+      </Affix>
+    </>
+  );
+};
+
+const App: React.FC<AppProps> = (props) => {
   const socialImage = getMetaImage({
     preset: "netlify",
     logo: sizzyLogoUrl,
@@ -76,26 +101,12 @@ export default function App(props: AppProps) {
         emotionCache={emotionCache}
         theme={mantineTheme}
       >
-        <Component {...pageProps} />
-        <Affix position={{ bottom: 20, right: 20 }}>
-          <Transition transition="slide-up" mounted={mightBeDesktop && scroll.y > 0}>
-            {(transitionStyles) => (
-              <Group
-                style={transitionStyles}
-                sx={(theme) => ({
-                  background: theme.colors.gray[0],
-                  padding: theme.spacing.xs,
-                  borderRadius: theme.radius.md,
-                  color: theme.colors.gray[6],
-                  fontSize: theme.fontSizes.xs,
-                })}
-              >
-                Press Ctrl/⌘ + K to jump to any page.
-              </Group>
-            )}
-          </Transition>
-        </Affix>
+        <CookieProvider>
+          <InnerApp {...props} />
+        </CookieProvider>
       </MantineProvider>
     </>
   );
-}
+};
+
+export default App;

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { setCookie, useCanUseCookies } from "hooks/useCanUseCookie";
+import { useCookies } from "hooks/useCookies";
 import { isDev } from "utils/utils";
 
 const ENDPOINT = isDev
@@ -20,12 +20,12 @@ const sendAffiliateTrackingData = async (args: Record<string, string>) => {
 };
 
 export const useAffiliateTracking = () => {
-  const { canUseCookies } = useCanUseCookies();
+  const cookies = useCookies();
   const ref = useRef(false);
 
   useEffect(() => {
-    if (!canUseCookies) return;
     if (ref.current) return;
+    if (!cookies.canUse) return;
 
     // f**k useEffect running twice in dev :)
     ref.current = true;
@@ -37,11 +37,11 @@ export const useAffiliateTracking = () => {
       const value = Object.fromEntries(urlQueryEntries);
       const tmp = { value, date: new Date().toJSON() };
 
-      setCookie("sizzy-ref-obj", JSON.stringify(tmp));
+      cookies.set("sizzy-ref-obj", JSON.stringify(tmp));
       const refId = searchParams.get("ref");
 
       if (refId) {
-        setCookie("sizzy-ref-id", refId);
+        cookies.set("sizzy-ref-id", refId);
         sendAffiliateTrackingData({
           ref: refId,
           page: `${window.location.pathname}`,
@@ -49,5 +49,5 @@ export const useAffiliateTracking = () => {
         });
       }
     }
-  }, [canUseCookies]);
+  }, [cookies.canUse, cookies.set]);
 };
