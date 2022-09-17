@@ -1,9 +1,10 @@
 import React from 'react';
+import Head from 'next/head'
 
 const TermsAndConditions = () => {
   return (
-    <html lang="en">
-      <head>
+    <>
+      <Head>
         <meta charSet="utf-8" />
         <meta
           name="viewport"
@@ -14,10 +15,10 @@ const TermsAndConditions = () => {
           href="https://fonts.googleapis.com/css?family=PT+Sans"
           rel="stylesheet"
         />
-        <link rel="stylesheet" href="/css/terms.css" />
         <title>Sizzy Terms & Conditions</title>
-      </head>
-      <body className="terms">
+      </Head>
+
+      <div className="terms">
         <div id="root" style={{ maxWidth: 900, width: '100%', margin: 'auto' }}>
           <h2>Terms & Conditions</h2>
           <div style={{ fontSize: 14, opacity: 0.5 }}>
@@ -99,7 +100,7 @@ const TermsAndConditions = () => {
               padding: '10px 15px',
             }}
           >
-            <div style={{ color: 'white', fontSize: 19, fontWeight: 'bold' }}>
+            <div style={{ fontSize: 19, fontWeight: 'bold' }}>
               Summary
             </div>
             <br />
@@ -926,8 +927,8 @@ const TermsAndConditions = () => {
             </span>
           </p>
         </div>
-      </body>
-    </html>
+      </div>
+    </>
   );
 };
 
