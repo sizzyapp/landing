@@ -26,14 +26,34 @@ import { RealReactFC } from "types";
 
 export const HEADER_HEIGHT = 60;
 
-export const ResponsiveHeader: RealReactFC<{}> = () => {
-  const [opened, { open, close }] = useDisclosure(false);
-  const { classes } = useStyles();
+export type HeaderProps = {
+  isFixed?: boolean;
+  shadow?: boolean;
+  blurry?: boolean;
+};
 
+export let headerShadow = "0 0 11px 0px rgb(0 0 0 / 8%)";
+
+export const ResponsiveHeader: RealReactFC<HeaderProps> = ({
+  isFixed,
+  shadow = true,
+  blurry = true,
+}) => {
+  const [opened, { open, close }] = useDisclosure(false);
+  const { classes } = useStyles({ blurry });
   const { route } = useRouter();
 
   return (
-    <Header height={HEADER_HEIGHT} className={classes.root}>
+    <Header
+      sx={{
+        position: "fixed",
+        top: 0,
+        transition: "all 100ms linear",
+        ...(isFixed && shadow && { boxShadow: headerShadow }),
+      }}
+      height={HEADER_HEIGHT}
+      className={classes.root}
+    >
       <Container className={classes.header}>
         <NextLink href="/" passHref>
           <Anchor variant="text">

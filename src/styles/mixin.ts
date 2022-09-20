@@ -3,3 +3,8 @@ export const fontSize = (size, gapIncrease = 0) => ({
   fontSize: size,
   lineHeight: `${size + gapIncrease}px`,
 });
+
+export const blurryBg = {
+  backgroundColor: "rgba(255,255,255, 0.8)",
+  backdropFilter: `blur(8px)`,
+};
