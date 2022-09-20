@@ -1,10 +1,9 @@
 import React from "react";
-
 import Head from "next/head";
 
 const Privacy = () => {
   return (
-    <html>
+    <>
       <Head>
         <style jsx>
           {`
@@ -42,6 +41,7 @@ const Privacy = () => {
         />
         <title>Sizzy Privacy Policy</title>
       </Head>
+
       <body>
         <div className="privacy">
           <div style={{ maxWidth: 900, margin: "auto" }}>
@@ -573,7 +573,7 @@ const Privacy = () => {
           </div>
         </div>
       </body>
-    </html>
+    </>
   );
 };
 
