@@ -8,6 +8,7 @@ import Feature from "pages/features/Feature";
 import React from "react";
 import { autoGrid } from "styled-mixins";
 import { Vertical } from "styles/layout-components";
+import { getMetaImage } from "utils/get-meta-image";
 
 const FeaturesPage: React.FC = () => {
   let filteredFeatures = allFeatures.filter((f) => f.layout !== "grid");
@@ -15,9 +16,10 @@ const FeaturesPage: React.FC = () => {
   return (
     <Shell wrapper={false}>
       <MetaTags
-        url={`https://sizzy.co/jobs`}
+        url={`https://sizzy.co/features`}
         title="Sizzy Features"
         description="Sizzy Features"
+        image={getMetaImage({ title: "Sizzy features" })}
       />
 
       <Wrapper maxWidth={1600}>

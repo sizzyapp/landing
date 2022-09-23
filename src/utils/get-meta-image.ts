@@ -9,20 +9,24 @@ type NetlifyTemplate = {
   title?: string;
 };
 
-type Template = { preset: string } & NetlifyTemplate;
+type Template = { preset?: string } & NetlifyTemplate;
 
-export const getMetaImage = ({
-  gradientColors = ["a", "b", "c"],
-  ...rest
-}: Template) => {
-  const gradients = gradientColors.reduce((accum, g, i) => {
-    accum[`gradientColors.${i}`] = g;
-    return accum;
-  }, {});
-  const urlParams = new URLSearchParams({ ...gradients, ...rest });
-  let ramz = urlParams.toString();
-  let params = encodeURIComponent(ramz);
-  const workingUrl =
-    "https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3F" + params;
-  return workingUrl;
+const defaultValues: Template = {
+  preset: "netlify",
+  logo: sizzyLogoUrl,
+  gradientColors: ["#412593", "#24145b", "#10062c"],
+  ctaColor: "black",
+  ctaBg: "#ffffff",
+};
+
+export const getMetaImage = (args: Template) => {
+  const { gradientColors: colors = ["a", "b", "c"], ...rest } = { ...defaultValues, ...args };
+
+  const gradient = colors.reduce((acc, g, i) => ({ ...acc, [`gradientColors.${i}`]: g }), {});
+  const urlParams = new URLSearchParams({ ...gradient, ...rest });
+
+  return (
+    "https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3F" +
+    encodeURIComponent(urlParams.toString())
+  );
 };
