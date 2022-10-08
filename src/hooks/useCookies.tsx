@@ -2,7 +2,10 @@ import { parseCookies, setCookie as nookieSetCookie } from "nookies";
 import { createContext, useContext, useState } from "react";
 
 const DEFAULT_COOKIE_OPTIONS = {
-  domain: process.env.NODE_ENV === "development" ? "localhost" : ".sizzy.co",
+  domain:
+    process.env.NODE_ENV === "development"
+      ? "localhost"
+      : process.env.NEXT_PUBLIC_COOKIE_DOMAIN || ".sizzy.co",
   maxAge: 11 * 30 * 24 * 60 * 60,
   path: "/",
 };
