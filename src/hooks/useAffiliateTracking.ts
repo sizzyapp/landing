@@ -3,8 +3,10 @@ import { useEffect, useRef } from "react";
 import { useCookies } from "hooks/useCookies";
 import { isDev } from "utils/utils";
 
-const ENDPOINT = isDev
-  ? `${process.env.NEXT_PUBLIC_PORTAL_URL || "http://localhost:3000"}/api/affiliate`
+const ENDPOINT = process.env.NEXT_PUBLIC_PORTAL_URL
+  ? `${process.env.NEXT_PUBLIC_PORTAL_URL}/api/affiliate`
+  : isDev
+  ? "http://localhost:3000/api/affiliate"
   : "https://portal.sizzy.co/api/affiliate";
 
 const sendAffiliateTrackingData = async (args: Record<string, string>) => {
