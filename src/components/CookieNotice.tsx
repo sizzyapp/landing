@@ -18,14 +18,32 @@ const CookieNotice: React.FC = () => {
   };
 
   return (
-    <Box sx={{ position: "fixed", bottom: 0, zIndex: 1000, width: "100%" }} p="xs">
+    <Box
+      sx={{
+        position: "fixed",
+        bottom: 0,
+        zIndex: 1000,
+        maxWidth: "900px",
+        width: "100%",
+        left: "50%",
+        transform: "translateX(-50%)",
+      }}
+      p="xs"
+    >
       <Paper withBorder p="md" radius="md" shadow="md">
-        <Group position="apart" mb="xs">
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
+        >
           <Text size="md" weight={500}>
             Hey, we brought cookies! yummy-looking cookie icon 🍪
           </Text>
           <CloseButton mr={-9} mt={-9} onClick={onClose} />
-        </Group>
+        </Box>
         <Group position="apart" mt="xs">
           <Text color="dimmed" size="xs">
             We want to make sure your experience with Sizzy is “sweet”. We also care about your{" "}
