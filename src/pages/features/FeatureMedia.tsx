@@ -14,7 +14,7 @@ const FeatureMedia = ({ image, video }) => {
           component="video"
           controls={true}
           muted={true}
-          src={video.replace(".mov", ".mp4")}
+          src={video}
         />
       )}
     </>
