@@ -39,8 +39,8 @@ const ExpensePage: NextPage<{
                 textAlign: "center",
               })}
             >
-              Given that Sizzy helps you be more productive at work, you can ask
-              your company to pay for the subscription.
+              Given that Sizzy helps you be more productive at work, you can ask your company to pay
+              for the subscription.
               <br />
             </Text>
             <Text
@@ -54,15 +54,9 @@ const ExpensePage: NextPage<{
           </Stack>
           <Stack align="center">
             <Title order={2}>1. Notify your manager</Title>
-            <Text>
-              Find your manager by the water cooler, or shoot them a quick chat
-              message.
-            </Text>
+            <Text>Find your manager by the water cooler, or shoot them a quick chat message.</Text>
 
-            <SlackMessage
-              text={messageText}
-              avatar="https://res.cloudinary.com/kitze/image/upload/v1660669950/Sizzy%20Landing/avataaars.png"
-            />
+            <SlackMessage text={messageText} avatar="/images/avataaars.png" />
             <Button
               variant="subtle"
               leftIcon={<FaCopy />}
@@ -76,16 +70,10 @@ const ExpensePage: NextPage<{
           <Stack align="center">
             <Title order={2}>2. Email your manager</Title>
             <Text>
-              Short emails are the best. Copy the template below and personalise
-              it for yourself.
+              Short emails are the best. Copy the template below and personalise it for yourself.
             </Text>
-            <EmailBox
-              subject={managerEmail.subject}
-              recipient={managerEmail.recipient}
-            >
-              <Box
-                dangerouslySetInnerHTML={{ __html: managerEmail.body.html }}
-              />
+            <EmailBox subject={managerEmail.subject} recipient={managerEmail.recipient}>
+              <Box dangerouslySetInnerHTML={{ __html: managerEmail.body.html }} />
             </EmailBox>
             <Button
               variant="subtle"
@@ -100,8 +88,8 @@ const ExpensePage: NextPage<{
           <Stack align="center">
             <Title order={2}>3. Follow-up after 3 days</Title>
             <Text>
-              Your manager is a busy person? Reply with this reminder if you
-              haven’t heard back from them.
+              Your manager is a busy person? Reply with this reminder if you haven’t heard back from
+              them.
             </Text>
             <EmailBox
               subject={managerFollowupEmail.subject}
@@ -138,9 +126,7 @@ const ExpensePage: NextPage<{
 
 export async function getStaticProps() {
   const managerEmail = allEmails.find((e) => e.slug === "manager");
-  const managerFollowupEmail = allEmails.find(
-    (e) => e.slug === "manager-followup"
-  );
+  const managerFollowupEmail = allEmails.find((e) => e.slug === "manager-followup");
   return {
     props: {
       managerEmail,
