@@ -9,15 +9,10 @@ import { Horizontal, Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
 import { TransformedTweet } from "types/tweet";
 
-const TweetAvatars: RealReactFC<{ tweets: TransformedTweet[] }> = ({
-  tweets,
-}) => {
+const TweetAvatars: RealReactFC<{ tweets: TransformedTweet[] }> = ({ tweets }) => {
   return (
     <Anchor className="sizzy-pink-3" component={NextLink} href="/customers">
-      <Avatar.Group
-        spacing="xs"
-        sx={{ width: "100%", maxWidth: 670, flexWrap: "wrap" }}
-      >
+      <Avatar.Group spacing="xs" sx={{ width: "100%", maxWidth: 670, flexWrap: "wrap" }}>
         {orderTweets(uniqBy(tweets, (t) => t.author_id)).map((t) => (
           <Tooltip
             label={
@@ -47,11 +42,7 @@ const Award: RealReactFC<{ title: string }> = ({ children, title }) => {
       <Laurel size={laurelSize} />
       <Horizontal spacing="sm">
         <Vertical spacing={0} center>
-          <Text
-            sx={(t) => ({ color: t.colors.gray[8] })}
-            size="sm"
-            weight={800}
-          >
+          <Text sx={(t) => ({ color: t.colors.gray[8] })} size="sm" weight={800}>
             {title}
           </Text>
           <Text size="xs" sx={(t) => ({ color: t.colors.gray[8] })}>
@@ -65,23 +56,18 @@ const Award: RealReactFC<{ title: string }> = ({ children, title }) => {
   );
 };
 
-const SocialProof: RealReactFC<{ tweets: TransformedTweet[] }> = ({
-  tweets,
-}) => {
+const SocialProof: RealReactFC<{ tweets: TransformedTweet[] }> = ({ tweets }) => {
   return (
     <Vertical className="sizzy-teal-4" spacing="lg" fullW center>
       <Horizontal className="sizzy-red-3" center>
-        <Image
-          width={125}
-          src="https://res.cloudinary.com/kitze/image/upload/v1660728127/Sizzy%20Landing/product-hunt-logo-horizontal-orange.png"
-        />
+        <Image width={125} src="/images/product-hunt-logo-horizontal-orange.png" />
         <Award title="#1">Product of the day</Award>
         <Award title="#1">Product of the week</Award>
         <Award title="#3">Product of the month</Award>
       </Horizontal>
       <Vertical center spacing={5}>
         <TweetAvatars tweets={tweets} />
-        <Text color="gray.7" size="lg" >
+        <Text color="gray.7" size="lg">
           <i> Developers love it, and you will too!</i>
         </Text>
       </Vertical>

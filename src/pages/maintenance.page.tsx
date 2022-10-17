@@ -12,7 +12,7 @@ const MaintenancePage: NextPage = () => {
         <Title>We're doing some maintenance and we'll be back soon</Title>
 
         <Vertical centerV>
-          <Image src="https://res.cloudinary.com/kitze/image/upload/v1659952592/Sizzy%20Landing/Team/DyVCoN9X0AAj6zO.jpg" />
+          <Image src="/images/cloudinary/DyVCoN9X0AAj6zO.jpg" />
           <Text>Cute dog picture while you wait</Text>
         </Vertical>
       </Vertical>
