@@ -1,4 +1,5 @@
 import { LinkType } from "types";
+import { allJobs } from "contentlayer/generated";
 
 let docs = {
   link: "https://docs.sizzy.co",
@@ -23,7 +24,7 @@ let changelog = {
   isExternal: true,
 };
 
-let jobs = { link: "/jobs", label: "Jobs" };
+let jobs = { link: "/jobs", label: "Jobs", counter: allJobs.length };
 let about = { link: "/about", label: "About" };
 
 let login = {
@@ -33,13 +34,13 @@ let login = {
 };
 
 export let headerLinks: LinkType[] = [
-  {
+  /*{
     link: "/use-cases",
     label: "Use cases",
-  },
+  },*/
   { link: "/features", label: "Features" },
   { link: "/customers", label: "Customers" },
-  { link: "/vs-other-browsers", label: "Comparison" },
+  // { link: "/vs-other-browsers", label: "Comparison" },
   {
     link: "https://portal.sizzy.co/download",
     label: "Download",
@@ -49,16 +50,13 @@ export let headerLinks: LinkType[] = [
     link: "/pricing",
     label: "Pricing",
   },
+  about,
+  jobs,
 ];
 
 export let learnPopupLinks = [docs, roadmap, changelog, blog];
 export let companyLinks = [about, jobs];
-export const mobileLinks: LinkType[] = [
-  ...headerLinks,
-  ...learnPopupLinks,
-  ...companyLinks,
-  login,
-];
+export const mobileLinks: LinkType[] = [...headerLinks, ...learnPopupLinks, login];
 
 export let footerLinks: LinkType[] = [
   { link: "/privacy", label: "Privacy" },

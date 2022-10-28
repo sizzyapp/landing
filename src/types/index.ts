@@ -6,4 +6,5 @@ export type LinkType = {
   link: string;
   label: string;
   isExternal?: boolean;
+  counter?: number;
 };

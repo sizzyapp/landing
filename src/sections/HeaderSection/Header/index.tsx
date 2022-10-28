@@ -10,12 +10,7 @@ import {
   Title,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import {
-  companyLinks,
-  headerLinks,
-  learnPopupLinks,
-  mobileLinks,
-} from "config/links";
+import { headerLinks, learnPopupLinks, mobileLinks } from "config/links";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -45,10 +40,7 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
               }}
               spacing={10}
             >
-              <Image
-                sx={{ width: 30, maxWidth: 30, maxHeight: 30, height: 30 }}
-                src="/logo.png"
-              />
+              <Image sx={{ width: 30, maxWidth: 30, maxHeight: 30, height: 30 }} src="/logo.png" />
               <Title order={3} sx={(t) => ({ color: t.colors.dark[4] })}>
                 Sizzy
               </Title>
@@ -57,15 +49,10 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
         </NextLink>
         <Group spacing={0} className={classes.links}>
           {headerLinks.map((link) => (
-            <HeaderLink
-              key={link.link}
-              activeRoute={route}
-              link={link}
-              closeMenu={close}
-            />
+            <HeaderLink key={link.link} activeRoute={route} link={link} closeMenu={close} />
           ))}
           <HeaderMenu title="Learn" links={learnPopupLinks} />
-          <HeaderMenu title="Company" links={companyLinks} />
+          {/*<HeaderMenu title="Company" links={companyLinks} />*/}
         </Group>
 
         <NextLink href="https://portal.sizzy.co/login" passHref>
@@ -81,18 +68,9 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
           </Button>
         </NextLink>
 
-        <Menu
-          onChange={(o) => (o === true ? open() : close())}
-          shadow="md"
-          width="100%"
-        >
+        <Menu onChange={(o) => (o === true ? open() : close())} shadow="md" width="100%">
           <Menu.Target>
-            <Burger
-              opened={opened}
-              onClick={open}
-              className={classes.burger}
-              size="sm"
-            />
+            <Burger opened={opened} onClick={open} className={classes.burger} size="sm" />
           </Menu.Target>
 
           <Menu.Dropdown>

@@ -3,6 +3,7 @@ import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 
 import { allFeatures, Feature as FeatureType } from "contentlayer/generated";
 import FeatureMedia from "pages/features/FeatureMedia";
+import { ErrorBoundary } from "react-error-boundary";
 import { Vertical } from "styles/layout-components";
 
 const Feature: React.FC<{
@@ -10,8 +11,7 @@ const Feature: React.FC<{
   findBySlug?: string;
   wrapper?: boolean;
 }> = ({ feature, findBySlug, wrapper = true }) => {
-  const foundFeature =
-    feature || allFeatures.find((f) => f.slug === findBySlug);
+  const foundFeature = feature || allFeatures.find((f) => f.slug === findBySlug);
   if (!foundFeature) return null;
   const { title, description, image, video } = foundFeature;
   return (
@@ -35,7 +35,9 @@ const Feature: React.FC<{
             {title}
           </Title>
           <Text size="md" sx={(t) => ({ color: t.colors.gray[8] })}>
-            <MarkdownContent>{description}</MarkdownContent>
+            <ErrorBoundary fallback={<div>"error :("</div>}>
+              <MarkdownContent>{description}</MarkdownContent>
+            </ErrorBoundary>
           </Text>
         </Vertical>
       </Vertical>

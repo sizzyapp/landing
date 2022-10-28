@@ -10,9 +10,12 @@ const customLinks = {
 };
 
 export const renderers = {
-  code: (props) => {
-    const { language } = props;
-    return codeRenderer(props);
+  code: ({ language, children }) => {
+    return (
+      <Code sx={{ fontWeight: "bold" }} lang={language}>
+        {children}
+      </Code>
+    );
   },
   break: () => <br />,
   paragraph: ({ children }) => (
