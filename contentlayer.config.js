@@ -35,10 +35,9 @@ export const BlogPost = defineDocumentType(() => ({
     description: {
       type: "string",
       required: true,
-    }
+    },
   },
 }));
-
 
 export const TeamMember = defineDocumentType(() => ({
   name: "TeamMember",
@@ -61,7 +60,7 @@ export const TeamMember = defineDocumentType(() => ({
       required: true,
     },
     color: {
-      type: 'string'
+      type: "string",
     },
     country: {
       type: "string",
@@ -126,6 +125,11 @@ export const Job = defineDocumentType(() => ({
     description: {
       type: "string",
       description: "The description of the job",
+      required: false,
+    },
+    metaimageurl: {
+      type: "string",
+      description: "The meta image of the job",
       required: false,
     },
   },
@@ -233,14 +237,5 @@ export const Feature = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [
-    UseCase,
-    Job,
-    Feature,
-    Testimonial,
-    Benefit,
-    TeamMember,
-    Email,
-    BlogPost
-  ],
+  documentTypes: [UseCase, Job, Feature, Testimonial, Benefit, TeamMember, Email, BlogPost],
 });

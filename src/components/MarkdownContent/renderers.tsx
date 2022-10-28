@@ -1,9 +1,8 @@
-import {Anchor, Blockquote, Code, Divider, List, Title,} from "@mantine/core";
+import { Anchor, Blockquote, Code, Divider, Image, List, Title } from "@mantine/core";
 import React from "react";
-import {MdCheck} from "react-icons/md";
-import {codeRenderer} from "./code-renderer";
+import { MdCheck } from "react-icons/md";
+import { codeRenderer } from "./code-renderer";
 
-import {customComponents} from "./custom-components";
 import ZoomImage from "./ZoomImage";
 
 const customLinks = {
@@ -13,10 +12,6 @@ const customLinks = {
 export const renderers = {
   code: (props) => {
     const { language } = props;
-    let found = customComponents[language];
-    if (found) {
-      return found(props);
-    }
     return codeRenderer(props);
   },
   break: () => <br />,
@@ -38,11 +33,28 @@ export const renderers = {
       </Title>
     );
   },
-  hr: Divider,
-  image: (props) => <ZoomImage sx={{ borderRadius: 6 }} {...props} />,
-  referenceImage: (props) => (
-    <ZoomImage borderRadius={6} {...props} style={{ width: "100%" }} />
-  ),
+  hr: () => <Divider />,
+  Image: ({ sx = "{}", centered, src, ...props }) => {
+    const centeredStyles = {
+      margin: "auto",
+      marginTop: 20,
+      marginBottom: 20,
+      borderRadius: 5,
+      maxWidth: 700,
+      width: "100%",
+    };
+    return (
+      <Image
+        sx={{
+          overflow: "hidden",
+          ...(centered && centeredStyles),
+          ...JSON.parse(sx),
+        }}
+        src={src}
+      />
+    );
+  },
+  referenceImage: (props) => <ZoomImage borderRadius={6} {...props} style={{ width: "100%" }} />,
   link: (props) => {
     const customLink = customLinks[props.href];
     if (customLink) {

@@ -9,7 +9,7 @@ import { RealReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 
 const JobPage: RealReactFC<{ job: Job }> = ({ job }) => {
-  const { title, body, slug, jobtype } = job;
+  const { title, body, slug, metaimageurl, jobtype } = job;
 
   return (
     <Shell>
@@ -18,14 +18,17 @@ const JobPage: RealReactFC<{ job: Job }> = ({ job }) => {
           title={title}
           description={jobtype}
           url={`https://sizzy.co/jobs/${slug}`}
-          image={getMetaImage({
-            preset: "netlify",
-            logo: sizzyLogoUrl,
-            title: title,
-            gradientColors: ["#412593", "#24145b", "#10062c"],
-            ctaColor: "black",
-            ctaBg: "#ffffff",
-          })}
+          image={
+            metaimageurl ||
+            getMetaImage({
+              preset: "netlify",
+              logo: sizzyLogoUrl,
+              title: title,
+              gradientColors: ["#412593", "#24145b", "#10062c"],
+              ctaColor: "black",
+              ctaBg: "#ffffff",
+            })
+          }
         />
         <Stack spacing="md">
           <BreadcrumbsComponent
