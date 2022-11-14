@@ -7,7 +7,10 @@ import {
   Header,
   Image,
   Menu,
+  Switch,
   Title,
+  useMantineColorScheme,
+  useMantineTheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
@@ -23,6 +26,7 @@ import { useStyles } from "sections/HeaderSection/Header/styles";
 import HeaderLink from "sections/HeaderSection/HeaderLink";
 import { HeaderMenu } from "sections/HeaderSection/HeaderMenu";
 import { RealReactFC } from "types";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 export const HEADER_HEIGHT = 60;
 
@@ -42,6 +46,9 @@ export const ResponsiveHeader: RealReactFC<HeaderProps> = ({
   const [opened, { open, close }] = useDisclosure(false);
   const { classes } = useStyles({ blurry });
   const { route } = useRouter();
+
+  const theme = useMantineTheme();
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
     <Header
@@ -100,6 +107,15 @@ export const ResponsiveHeader: RealReactFC<HeaderProps> = ({
             Log in
           </Button>
         </NextLink>
+
+        <Switch
+          sx={{ cursor: "pointer" }}
+          onClick={() => toggleColorScheme()}
+          size="md"
+          color={colorScheme === "dark" ? "gray" : "dark"}
+          onLabel={<FiSun size={16} color={theme.colors.yellow[4]} />}
+          offLabel={<FiMoon size={16} color={theme.colors.blue[6]} />}
+        />
 
         <Menu
           onChange={(o) => (o === true ? open() : close())}

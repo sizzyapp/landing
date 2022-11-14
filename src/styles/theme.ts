@@ -1,7 +1,6 @@
 import { MantineThemeOverride } from "@mantine/core";
 
 export let mantineTheme: MantineThemeOverride = {
-  colorScheme: "light",
   primaryColor: "purple",
   primaryShade: 4,
   colors: {
