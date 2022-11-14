@@ -8,17 +8,20 @@ import { allFeatures } from "contentlayer/generated";
 import { FeatureNavigator } from "pages/features/FeatureNavigator";
 import FeaturesList from "pages/features/FeaturesList";
 import React from "react";
+import { Popover, Button } from "@mantine/core";
+import { Vertical } from "../../styles/layout-components";
 
 export const FeaturesContext = React.createContext<any>({});
 
 const FeaturesPage: React.FC = () => {
   const isInSizzy = useInSizzy();
 
-  const [shownFeatures, handlers] = useListState([]);
+  const [shownFeatures, { append: addShownFeature }] = useListState<string>([]);
 
   let register = (slug: string) => {
-    if (shownFeatures.filter((f) => f !== slug)) {
-      handlers.append(slug);
+    let alreadyExists = !!shownFeatures.find((f) => f === slug);
+    if (!alreadyExists) {
+      addShownFeature(slug);
     }
   };
 
@@ -34,9 +37,23 @@ const FeaturesPage: React.FC = () => {
         />
 
         {isInSizzy && (
-          <Text fontSize={20}>
-            {shownFeatures.length} / {allFeatures.length}
-          </Text>
+          <Vertical spacing={10}>
+            <Text>
+              {shownFeatures.length} / {allFeatures.length} features
+            </Text>
+            <ul>
+              {allFeatures.map((f, i) => {
+                let isShown = !!shownFeatures.find((slug) => slug === f.slug);
+                return (
+                  !isShown && (
+                    <li>
+                      {i}.{f.slug}
+                    </li>
+                  )
+                );
+              })}
+            </ul>
+          </Vertical>
         )}
 
         <Wrapper maxWidth={1600}>
