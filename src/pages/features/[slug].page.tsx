@@ -2,7 +2,7 @@ import { Stack } from "@mantine/core";
 import BreadcrumbsComponent from "components/Breadcrumbs";
 import DownloadButton from "components/DownloadButton";
 
-import MarkdownContent from "components/MarkdownContent/MarkdownContent";
+import LandingMDXPreview from "components/LandingMDXPreview/LandingMDXPreview";
 import MetaTags from "components/MetaTags";
 import Shell from "components/Shell";
 import { allFeatures, Feature } from "contentlayer/generated";
@@ -40,7 +40,7 @@ const FeaturePage: RealReactFC<{ feature: Feature }> = ({ feature }) => {
           ]}
         />
         <Stack>
-          <MarkdownContent>{description}</MarkdownContent>
+          <LandingMDXPreview>{description}</LandingMDXPreview>
           <FeatureMedia image={image} video={video} />
         </Stack>
         <DownloadButton center={false} size="lg" variant="light" />

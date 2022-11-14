@@ -1,6 +1,6 @@
 import { Badge, Button, Container, Stack, Title } from "@mantine/core";
 import BreadcrumbsComponent from "components/Breadcrumbs";
-import MarkdownContent from "components/MarkdownContent/MarkdownContent";
+import LandingMDXPreview from "components/LandingMDXPreview/LandingMDXPreview";
 import MetaTags from "components/MetaTags";
 import Shell from "components/Shell";
 import { allJobs, Job } from "contentlayer/generated";
@@ -48,7 +48,7 @@ const JobPage: RealReactFC<{ job: Job }> = ({ job }) => {
             <Badge>{jobtype}</Badge>
           </Stack>
           <Stack align="start">
-            <MarkdownContent>{body.raw}</MarkdownContent>
+            <LandingMDXPreview>{body.raw}</LandingMDXPreview>
             <Button
               radius="xl"
               component="a"

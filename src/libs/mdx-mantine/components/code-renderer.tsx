@@ -1,9 +1,13 @@
 import React from "react";
 import { Box } from "@mantine/core";
-import Highlight, { defaultProps } from "prism-react-renderer";
+import Highlight, { defaultProps, Language } from "prism-react-renderer";
 import prismTheme from "prism-react-renderer/themes/shadesOfPurple";
 
-export const codeRenderer = ({ value, language }) => {
+export const CodeRenderer: React.FC<{
+  language: Language;
+  value: string;
+}> = ({ value, language }) => {
+  if (!value) return null;
   return (
     <Highlight
       {...defaultProps}

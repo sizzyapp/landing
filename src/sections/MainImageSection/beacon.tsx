@@ -1,5 +1,5 @@
 import { Box, useMantineTheme } from "@mantine/core";
-import MarkdownContent from "components/MarkdownContent/MarkdownContent";
+import LandingMDXPreview from "components/LandingMDXPreview/LandingMDXPreview";
 import Tooltip from "components/Tooltip";
 import { motion } from "framer-motion";
 import React from "react";
@@ -15,7 +15,7 @@ export const Beacon: RealReactFC<{
   const { colors } = useMantineTheme();
 
   return (
-    <Tooltip label={<MarkdownContent>{children}</MarkdownContent>}>
+    <Tooltip label={<LandingMDXPreview>{children}</LandingMDXPreview>}>
       <Box
         component={motion.div}
         animate={{

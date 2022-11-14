@@ -1,5 +1,4 @@
 import { createStyles } from "@mantine/core";
-import ReactMarkdown from "react-markdown";
 
 export interface MyComponentStylesParams {
   clamp?: boolean;

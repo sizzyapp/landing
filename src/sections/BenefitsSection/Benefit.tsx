@@ -1,6 +1,6 @@
 import { Center, Container, Image, Stack, Text, Title } from "@mantine/core";
 import DownloadButton from "components/DownloadButton";
-import MarkdownContent from "components/MarkdownContent/MarkdownContent";
+import LandingMDXPreview from "components/LandingMDXPreview/LandingMDXPreview";
 import Quote from "components/Quote";
 import { allTestimonials, allBenefits } from "contentlayer/generated";
 
@@ -33,7 +33,7 @@ const Benefit: React.FC<{
               <Text
                 sx={(theme) => ({ fontSize: theme.fontSizes.lg, opacity: 0.8 })}
               >
-                <MarkdownContent>{body.raw}</MarkdownContent>
+                <LandingMDXPreview>{body.raw}</LandingMDXPreview>
               </Text>
             </Stack>
             {testimonial && <Quote {...testimonial} />}

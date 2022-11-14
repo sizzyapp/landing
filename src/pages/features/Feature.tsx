@@ -1,5 +1,5 @@
 import { Box, Text, Title } from "@mantine/core";
-import MarkdownContent from "components/MarkdownContent/MarkdownContent";
+import LandingMDXPreview from "components/LandingMDXPreview/LandingMDXPreview";
 
 import { allFeatures, Feature as FeatureType } from "contentlayer/generated";
 import FeatureMedia from "pages/features/FeatureMedia";
@@ -44,7 +44,7 @@ const Feature: React.FC<{
         {title}
       </Title>
       <Text color="gray.8" size="xl">
-        <MarkdownContent>{description}</MarkdownContent>
+        <LandingMDXPreview>{description}</LandingMDXPreview>
       </Text>
     </Vertical>
   );

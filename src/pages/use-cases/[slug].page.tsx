@@ -2,7 +2,7 @@ import { Group, Stack } from "@mantine/core";
 import BreadcrumbsComponent from "components/Breadcrumbs";
 import DownloadButton from "components/DownloadButton";
 
-import MarkdownContent from "components/MarkdownContent/MarkdownContent";
+import LandingMDXPreview from "components/LandingMDXPreview/LandingMDXPreview";
 import MetaTags from "components/MetaTags";
 import Shell from "components/Shell";
 import { allUseCases } from "contentlayer/generated";
@@ -37,7 +37,7 @@ const UseCaseArticlePage = ({ post }) => {
             },
           ]}
         />
-        <MarkdownContent>{body.raw}</MarkdownContent>
+        <LandingMDXPreview>{body.raw}</LandingMDXPreview>
         <DownloadButton center={false} size="lg" variant="light" />
       </Stack>
     </Shell>
