@@ -24,7 +24,7 @@ const Shell: RealReactFC<
     <AppShell
       header={
         <Vertical fullW>
-          <Horizontal center fullW sx={{ backgroundColor: "black", height: 30 }} color="white">
+          <Horizontal center fullW sx={{ backgroundColor: "black", height: 40 }} color="white">
             <Text sx={{ textAlign: "center", fontWeight: "bold" }} color="white">
               🔥 Black Friday Sale - 50% off 🔥
             </Text>
