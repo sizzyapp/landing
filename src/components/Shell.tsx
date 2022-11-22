@@ -1,7 +1,9 @@
 import { AppShell, AppShellProps, Text } from "@mantine/core";
+import { NextLink } from "@mantine/next";
 import { Spotlight } from "components/Spotlight";
 import Wrapper, { WrapperProps } from "components/Wrapper";
 import Conditional from "conditional-wrap";
+import { discountText } from "config/discount";
 import { footerLinks } from "config/links";
 import dynamic from "next/dynamic";
 import React from "react";
@@ -23,12 +25,30 @@ const Shell: RealReactFC<
   return (
     <AppShell
       header={
-        <Vertical fullW>
-          <Horizontal center fullW sx={{ backgroundColor: "black", height: 40 }} color="white">
-            <Text sx={{ textAlign: "center", fontWeight: "bold" }} color="white">
-              🔥 Black Friday Sale - 50% off 🔥
-            </Text>
-          </Horizontal>
+        <Vertical
+          sx={{
+            "> a": {
+              textDecoration: "none !important",
+            },
+          }}
+          fullW
+        >
+          <NextLink href="/pricing">
+            <Horizontal
+              center
+              fullW
+              sx={{
+                backgroundColor: "black",
+                cursor: "pointer",
+                height: 50,
+              }}
+              color="white"
+            >
+              <Text sx={{ textAlign: "center", fontWeight: "bold", fontSize: 20 }} color="white">
+                {discountText}
+              </Text>
+            </Horizontal>
+          </NextLink>
           <ResponsiveHeader />
         </Vertical>
       }

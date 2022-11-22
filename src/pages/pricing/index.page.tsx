@@ -6,6 +6,7 @@ import MagicGrid from "components/MagicGrid";
 import Text from "components/mantine/Text";
 import Shell from "components/Shell";
 import Tooltip from "components/Tooltip";
+import { discountCoupon, discountText } from "config/discount";
 import { allTeamMembers } from "contentlayer/generated";
 import NextLink from "next/link";
 import CompanyLogos from "pages/customers/CompanyLogos";
@@ -134,6 +135,16 @@ const PricingPage = () => {
               choose from, so we kept our pricing pretty straightforward.
             </Subtitle>
           </Vertical>
+          {isDiscounted && (
+            <Vertical fullW center>
+              <Text color="violet.400" fontSize={24} weight="bold">
+                {discountText}
+              </Text>
+              <Text fz={11} c="gray.8">
+                (the coupon <b>{discountCoupon}</b> will be automatically applied at discount)
+              </Text>
+            </Vertical>
+          )}
           <MagicGrid width={200}>
             <PricingCard
               isDiscounted={isDiscounted}
