@@ -3,7 +3,7 @@ import { NextLink } from "@mantine/next";
 import { Spotlight } from "components/Spotlight";
 import Wrapper, { WrapperProps } from "components/Wrapper";
 import Conditional from "conditional-wrap";
-import { discountText } from "config/discount";
+import { discountText, HAS_DISCOUNT } from "config/discount";
 import { footerLinks } from "config/links";
 import dynamic from "next/dynamic";
 import React from "react";
@@ -22,6 +22,24 @@ const Shell: RealReactFC<
     padding?: number;
   }
 > = ({ children, wrapperProps, wrapper = true, padding }) => {
+  let SaleBanner = (
+    <NextLink href="/pricing">
+      <Horizontal
+        center
+        fullW
+        sx={{
+          backgroundColor: "black",
+          cursor: "pointer",
+          height: 50,
+        }}
+        color="white"
+      >
+        <Text sx={{ textAlign: "center", fontWeight: "bold", fontSize: 20 }} color="white">
+          {discountText}
+        </Text>
+      </Horizontal>
+    </NextLink>
+  );
   return (
     <AppShell
       header={
@@ -33,22 +51,7 @@ const Shell: RealReactFC<
           }}
           fullW
         >
-          <NextLink href="/pricing">
-            <Horizontal
-              center
-              fullW
-              sx={{
-                backgroundColor: "black",
-                cursor: "pointer",
-                height: 50,
-              }}
-              color="white"
-            >
-              <Text sx={{ textAlign: "center", fontWeight: "bold", fontSize: 20 }} color="white">
-                {discountText}
-              </Text>
-            </Horizontal>
-          </NextLink>
+          {HAS_DISCOUNT ? SaleBanner : null}
           <ResponsiveHeader />
         </Vertical>
       }

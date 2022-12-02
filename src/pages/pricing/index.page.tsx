@@ -6,7 +6,7 @@ import MagicGrid from "components/MagicGrid";
 import Text from "components/mantine/Text";
 import Shell from "components/Shell";
 import Tooltip from "components/Tooltip";
-import { discountCoupon, discountText } from "config/discount";
+import { discountCoupon, discountText, HAS_DISCOUNT } from "config/discount";
 import { allTeamMembers } from "contentlayer/generated";
 import NextLink from "next/link";
 import CompanyLogos from "pages/customers/CompanyLogos";
@@ -42,12 +42,13 @@ const Subtitle: RealReactFC<{}> = ({ children }) => (
   </Text>
 );
 
+const isDiscounted = HAS_DISCOUNT;
+
 const PricingCard: RealReactFC<{
   subtitle: ReactNode;
-  isDiscounted?: boolean;
   price: Price;
   showMonth?: boolean;
-}> = ({ price, subtitle, isDiscounted, showMonth = true }) => {
+}> = ({ price, subtitle, showMonth = true }) => {
   return (
     <Card
       withBorder={true}
@@ -60,30 +61,36 @@ const PricingCard: RealReactFC<{
     >
       <Vertical spacing="md" sx={{ height: "100%" }} center>
         <Vertical center spacing={0}>
-          <Text
-            {...(isDiscounted && {
-              sx: { opacity: 0.5, fontSize: 25 },
-            })}
-            weight="bold"
-            fontSize={40}
-          >
+          {isDiscounted && (
             <Text
-              span
-              {...(isDiscounted && { sx: { textDecoration: "line-through", fontSize: 20 } })}
+              {...(isDiscounted
+                ? {
+                    sx: { opacity: 0.5, fontSize: 25 },
+                  }
+                : {})}
+              weight="bold"
+              fontSize={40}
             >
-              ${price.regular}
-            </Text>
-            {showMonth && (
               <Text
                 span
-                color="gray.6"
-                fontSize={13}
-                {...(isDiscounted && { sx: { textDecoration: "line-through", fontSize: 11 } })}
+                {...(isDiscounted ? { sx: { textDecoration: "line-through", fontSize: 20 } } : {})}
               >
-                /month
+                ${price.regular}
               </Text>
-            )}
-          </Text>
+              {showMonth && (
+                <Text
+                  span
+                  color="gray.6"
+                  fontSize={13}
+                  {...(isDiscounted
+                    ? { sx: { textDecoration: "line-through", fontSize: 11 } }
+                    : {})}
+                >
+                  /month
+                </Text>
+              )}
+            </Text>
+          )}
           <Text weight="bold" fontSize={35}>
             ${price.discounted}
             {showMonth && (
@@ -146,22 +153,9 @@ const PricingPage = () => {
             </Vertical>
           )}
           <MagicGrid width={200}>
-            <PricingCard
-              isDiscounted={isDiscounted}
-              price={annualPrice}
-              subtitle="if paid annually"
-            />
-            <PricingCard
-              isDiscounted={isDiscounted}
-              subtitle="if paid monthly"
-              price={monthlyPrice}
-            />
-            <PricingCard
-              isDiscounted={isDiscounted}
-              showMonth={false}
-              subtitle="one-time purchase"
-              price={lifetimePrice}
-            />
+            <PricingCard price={annualPrice} subtitle="if paid annually" />
+            <PricingCard subtitle="if paid monthly" price={monthlyPrice} />
+            <PricingCard showMonth={false} subtitle="one-time purchase" price={lifetimePrice} />
           </MagicGrid>
           <GradientButton href={buyLink}>Buy now</GradientButton>
           <Vertical center spacing="md">
