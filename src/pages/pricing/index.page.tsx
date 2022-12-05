@@ -49,6 +49,8 @@ const PricingCard: RealReactFC<{
   price: Price;
   showMonth?: boolean;
 }> = ({ price, subtitle, showMonth = true }) => {
+  const mainPrice = HAS_DISCOUNT ? price.discounted : price.regular;
+
   return (
     <Card
       withBorder={true}
@@ -92,7 +94,7 @@ const PricingCard: RealReactFC<{
             </Text>
           )}
           <Text weight="bold" fontSize={35}>
-            ${price.discounted}
+            ${mainPrice}
             {showMonth && (
               <Text span color="gray.6" fontSize={13}>
                 /month
@@ -107,9 +109,9 @@ const PricingCard: RealReactFC<{
     </Card>
   );
 };
+
 const PricingPage = () => {
   const buyLink = "https://portal.sizzy.co/pricing";
-  const isDiscounted = true;
 
   return (
     <Shell
@@ -142,7 +144,7 @@ const PricingPage = () => {
               choose from, so we kept our pricing pretty straightforward.
             </Subtitle>
           </Vertical>
-          {isDiscounted && (
+          {HAS_DISCOUNT && (
             <Vertical fullW center>
               <Text color="violet.400" fontSize={24} weight="bold">
                 {discountText}
