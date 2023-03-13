@@ -2,15 +2,14 @@ import { ButtonProps } from "@mantine/core";
 import GradientButton from "components/GradientButton";
 import { trackButtonClick } from "utils/utils";
 
-type T = ButtonProps &
-  React.ComponentPropsWithoutRef<"a"> & { label?: string; center?: boolean };
+type T = ButtonProps & React.ComponentPropsWithoutRef<"a"> & { label?: string; center?: boolean };
 
 const DownloadButton: React.FC<T> = (props) => {
-  const { label = "Download for free", center = true, ...rest } = props;
+  const { label = "Try now", center = true, ...rest } = props;
 
   return (
     <GradientButton
-      href="https://portal.sizzy.co/download"
+      href="https://portal.sizzy.co/pricing"
       onClick={() => {
         try {
           // @ts-ignore

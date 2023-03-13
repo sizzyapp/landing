@@ -15,6 +15,7 @@ import { FaRegLightbulb } from "react-icons/fa";
 import GraphSection from "sections/GraphSection";
 import { Horizontal, Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
+import { useDiscountInfo } from "../../sections/HeaderSection/PPP";
 
 type Price = {
   regular: number;
@@ -42,14 +43,25 @@ const Subtitle: RealReactFC<{}> = ({ children }) => (
   </Text>
 );
 
-const isDiscounted = HAS_DISCOUNT;
+const priceWithDiscount = (price: number, discount: number) => {
+  let discounted = price - (price * discount) / 100;
+  return roundToTwoDecimals(discounted);
+};
+
+const roundToTwoDecimals = (num: number) => {
+  return Math.round((num + Number.EPSILON) * 100) / 100;
+};
 
 const PricingCard: RealReactFC<{
   subtitle: ReactNode;
   price: Price;
   showMonth?: boolean;
 }> = ({ price, subtitle, showMonth = true }) => {
-  const mainPrice = HAS_DISCOUNT ? price.discounted : price.regular;
+  const pppInfo = useDiscountInfo();
+  const discount = pppInfo?.discountInfo?.discount;
+  const isDiscounted = discount > 0;
+
+  const mainPrice = isDiscounted ? priceWithDiscount(price.regular, discount) : price.regular;
 
   return (
     <Card
@@ -129,7 +141,6 @@ const PricingPage = () => {
           <Subtitle>
             Start a free 14 days trial so you can see how much time and frustration Sizzy saves you.{" "}
             <br />
-            <b>No payment information required.</b>
           </Subtitle>
           <DownloadButton />
         </Vertical>
