@@ -7,7 +7,7 @@ export const useDiscountInfo = () => {
 
   const getDiscount = async () => {
     try {
-      const ffs = await fetch("http://localhost:3000/api/ppp");
+      const ffs = await fetch(`${process.env.NEXT_PUBLIC_PORTAL_URL}/api/ppp`);
       const countries = await (() => require("config/countries.json"))();
       const discountInfo = await ffs.json();
       const country = countries.find((c: any) => c.code === discountInfo.country);
