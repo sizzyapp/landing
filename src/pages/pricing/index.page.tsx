@@ -1,7 +1,6 @@
 import { Alert, Anchor, Avatar, Badge, Button, Card, Stack, Title } from "@mantine/core";
 import BadassTitle, { Highlight } from "components/BadassTitle";
 import DownloadButton from "components/DownloadButton";
-import { GradientButton } from "components/GradientButton";
 import MagicGrid from "components/MagicGrid";
 import Text from "components/mantine/Text";
 import Shell from "components/Shell";
@@ -134,21 +133,10 @@ const PricingPage = () => {
       }}
     >
       <Vertical spacing={100} fullW center>
-        <Vertical center fullW spacing="lg">
-          <BadassTitle>
-            Completely <Highlight>free</Highlight> for 14 days
-          </BadassTitle>
-          <Subtitle>
-            Start a free 14 days trial so you can see how much time and frustration Sizzy saves you.{" "}
-            <br />
-          </Subtitle>
-          <DownloadButton />
-        </Vertical>
-
         <Vertical spacing="xl" sx={{ maxWidth: 700 }} center fullW>
           <Vertical spacing="lg">
             <BadassTitle>
-              Super <Highlight>affordable</Highlight> pricing
+              <Highlight>Free</Highlight> for 14 days, <br /> affordable afterwards
             </BadassTitle>
             <Subtitle>
               We didn't want to overwhelm you with complex pricing plans and tons of options to
@@ -170,7 +158,11 @@ const PricingPage = () => {
             <PricingCard subtitle="if paid monthly" price={monthlyPrice} />
             <PricingCard showMonth={false} subtitle="one-time purchase" price={lifetimePrice} />
           </MagicGrid>
-          <GradientButton href={buyLink}>Buy now</GradientButton>
+          <Subtitle>
+            Start a free 14 days trial so you can see how much time and frustration Sizzy saves you.{" "}
+            <br />
+          </Subtitle>
+          <DownloadButton />
           <Vertical center spacing="md">
             <Vertical center spacing={3}>
               <Title sx={(t) => ({ color: t.colors.gray[7] })} order={5}>

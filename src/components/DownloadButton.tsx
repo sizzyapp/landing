@@ -5,7 +5,7 @@ import { trackButtonClick } from "utils/utils";
 type T = ButtonProps & React.ComponentPropsWithoutRef<"a"> & { label?: string; center?: boolean };
 
 const DownloadButton: React.FC<T> = (props) => {
-  const { label = "Try now", center = true, ...rest } = props;
+  const { label = "Try now for free", center = true, ...rest } = props;
 
   return (
     <GradientButton
