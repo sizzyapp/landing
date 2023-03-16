@@ -56,8 +56,7 @@ const PricingCard: RealReactFC<{
   price: Price;
   showMonth?: boolean;
 }> = ({ price, subtitle, showMonth = true }) => {
-  const pppInfo = useDiscountInfo();
-  const discount = pppInfo?.discountInfo?.discount;
+  const { discount } = useDiscountInfo();
   const isDiscounted = discount > 0;
 
   const mainPrice = isDiscounted ? priceWithDiscount(price.regular, discount) : price.regular;

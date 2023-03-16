@@ -3,15 +3,14 @@ import { Horizontal, Vertical } from "../../styles/layout-components";
 import { Text } from "@mantine/core";
 
 export const useDiscountInfo = () => {
-  let [pppInfo, setPppInfo] = useState<any>(null);
+  let [pppInfo, setPppInfo] = useState<any>({});
 
   const getDiscount = async () => {
     try {
-      const ffs = await fetch(`${process.env.NEXT_PUBLIC_PORTAL_URL}/api/ppp`);
-      const countries = await (() => require("config/countries.json"))();
+      let url = `${process.env.NEXT_PUBLIC_PORTAL_URL}/api/ppp`;
+      const ffs = await fetch(url);
       const discountInfo = await ffs.json();
-      const country = countries.find((c: any) => c.code === discountInfo.country);
-      setPppInfo({ discountInfo, country });
+      setPppInfo(discountInfo);
     } catch (err) {
       console.log("err is", err);
     }
@@ -26,10 +25,9 @@ export const useDiscountInfo = () => {
 
 export const PPP = () => {
   const pppInfo = useDiscountInfo();
-  const hasDiscountInfo = pppInfo?.discountInfo && pppInfo?.country;
-  if (!hasDiscountInfo) return null;
+  if (!pppInfo) return null;
 
-  const { discountInfo, country } = pppInfo;
+  const { countryName, flag, discount } = pppInfo;
 
   return (
     <Horizontal
@@ -40,11 +38,11 @@ export const PPP = () => {
       bg="violet.5"
     >
       <Horizontal>
-        <Text sx={{ fontSize: 30 }}>{country.emoji}</Text>
+        <Text sx={{ fontSize: 30 }}>{flag}</Text>
       </Horizontal>
       <Vertical spacing={5}>
         <Text>
-          Special pricing for {country.name} - <b>${discountInfo.discount}%</b> off
+          Special pricing for {countryName} - <b>{discount}%</b> off
         </Text>
       </Vertical>
     </Horizontal>
