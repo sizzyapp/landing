@@ -12,6 +12,7 @@ import { FooterSimple } from "sections/Footer";
 import { ResponsiveHeader } from "sections/HeaderSection/Header";
 import { Horizontal, Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
+import { PPP } from "../sections/HeaderSection/PPP";
 
 const CookieNotice = dynamic(() => import("components/CookieNotice"), { ssr: false });
 
@@ -52,7 +53,10 @@ const Shell: RealReactFC<
           fullW
         >
           {HAS_DISCOUNT ? SaleBanner : null}
-          <ResponsiveHeader />
+          <Vertical fullW spacing={0}>
+            <PPP />
+            <ResponsiveHeader />
+          </Vertical>
         </Vertical>
       }
       footer={<FooterSimple links={footerLinks} />}
