@@ -29,6 +29,8 @@ export const PPP = () => {
 
   const { countryName, flag, discount } = pppInfo;
 
+  if (!countryName && discount && discount > 0) return null;
+
   return (
     <Horizontal
       p="sm"
