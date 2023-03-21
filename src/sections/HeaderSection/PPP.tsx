@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Horizontal, Vertical } from "../../styles/layout-components";
 import { Text } from "@mantine/core";
+import { isEmpty } from "lodash";
 
 export const useDiscountInfo = () => {
   let [pppInfo, setPppInfo] = useState<any>({});
@@ -25,11 +26,11 @@ export const useDiscountInfo = () => {
 
 export const PPP = () => {
   const pppInfo = useDiscountInfo();
-  if (!pppInfo) return null;
+  if (isEmpty(pppInfo)) return null;
 
   const { countryName, flag, discount } = pppInfo;
 
-  if (!countryName && discount && discount > 0) return null;
+  if (discount <= 0) return null;
 
   return (
     <Horizontal
