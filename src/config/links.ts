@@ -41,11 +41,11 @@ export let headerLinks: LinkType[] = [
   { link: "/features", label: "Features" },
   { link: "/customers", label: "Customers" },
   // { link: "/vs-other-browsers", label: "Comparison" },
-  {
+  /*{
     link: "https://portal.sizzy.co/download",
     label: "Download",
     isExternal: true,
-  },
+  },*/
   {
     link: "/pricing",
     label: "Pricing",
