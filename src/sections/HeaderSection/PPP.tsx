@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Horizontal, Vertical } from "../../styles/layout-components";
 import { Text } from "@mantine/core";
 import { isEmpty } from "lodash";
+import { Flag } from "./Flag";
 
 export const useDiscountInfo = () => {
   let [pppInfo, setPppInfo] = useState<any>({});
@@ -41,7 +42,7 @@ export const PPP = () => {
       bg="violet.5"
     >
       <Horizontal>
-        <Text sx={{ fontSize: 30 }}>{flag}</Text>
+        <Flag flag={flag} />
       </Horizontal>
       <Vertical spacing={5}>
         <Text>
