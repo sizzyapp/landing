@@ -1,16 +1,22 @@
-import {
-  Text,
-  Box,
-  Center,
-  Avatar,
-  AspectRatio,
-  Stack,
-  Title,
-  Group,
-  Image,
-  Badge,
-} from "@mantine/core";
+import { AspectRatio, Badge, Box, Group, Image, Stack, Text, Title } from "@mantine/core";
 import { TeamMember as TeamMemberType } from "contentlayer/generated";
+
+export const TeamMemberText = ({ children }) => {
+  return (
+    <Text
+      sx={(t) => ({
+        ">a": {
+          color: t.colors.violet[6],
+          textDecoration: "none",
+        },
+      })}
+      color="dimmed"
+      dangerouslySetInnerHTML={{
+        __html: children,
+      }}
+    />
+  );
+};
 
 const TeamMember: React.FC<{ member: TeamMemberType }> = ({ member }) => {
   return (
@@ -76,7 +82,7 @@ const TeamMember: React.FC<{ member: TeamMemberType }> = ({ member }) => {
             </Badge>
           ))}
         </Group>
-        <Text color="dimmed">{member.description}</Text>
+        <TeamMemberText>{member.description}</TeamMemberText>
       </Stack>
     </Group>
   );

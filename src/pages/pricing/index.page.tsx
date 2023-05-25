@@ -15,6 +15,7 @@ import GraphSection from "sections/GraphSection";
 import { Horizontal, Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
 import { useDiscountInfo } from "../../sections/HeaderSection/PPP";
+import { TeamMemberText } from "../about/TeamMember";
 
 type Price = {
   regular: number;
@@ -213,7 +214,7 @@ const PricingPage = () => {
                         ))}
                       </Horizontal>
                     </Vertical>
-                    <Text>{t.description}</Text>
+                    <TeamMemberText>{t.description}</TeamMemberText>
                   </Vertical>
                 }
               >

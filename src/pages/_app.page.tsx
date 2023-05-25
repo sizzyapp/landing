@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Affix, Group, MantineProvider, Transition } from "@mantine/core";
 import { useMediaQuery, useWindowScroll } from "@mantine/hooks";
-import { setCookie } from "nookies";
 import { AppProps } from "next/app";
 import Head from "next/head";
 
@@ -12,6 +11,7 @@ import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 import { useGoogleAnalytics, useOnPageLoad } from "../utils/utils";
 import { useAffiliateTracking } from "hooks/useAffiliateTracking";
 import { CookieProvider } from "hooks/useCookies";
+import PlausibleProvider from "next-plausible";
 
 export const SIZZY_TAGLINE = "The browser for web developers";
 export const SIZZY_TITLE = `Sizzy — ${SIZZY_TAGLINE}`;
@@ -95,16 +95,18 @@ const App: React.FC<AppProps> = (props) => {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        emotionCache={emotionCache}
-        theme={mantineTheme}
-      >
-        <CookieProvider>
-          <InnerApp {...props} />
-        </CookieProvider>
-      </MantineProvider>
+      <PlausibleProvider domain={"sizzy.co"}>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          emotionCache={emotionCache}
+          theme={mantineTheme}
+        >
+          <CookieProvider>
+            <InnerApp {...props} />
+          </CookieProvider>
+        </MantineProvider>
+      </PlausibleProvider>
     </>
   );
 };
