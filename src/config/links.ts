@@ -51,7 +51,6 @@ export let headerLinks: LinkType[] = [
     label: "Pricing",
   },
   about,
-  jobs,
 ];
 
 export let learnPopupLinks = [docs, roadmap, changelog, blog];
