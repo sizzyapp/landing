@@ -7,7 +7,7 @@ import {
   Header,
   Image,
   Menu,
-  Title,
+  Title, Tooltip,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { headerLinks, learnPopupLinks, mobileLinks } from "config/links";
@@ -18,6 +18,7 @@ import { useStyles } from "sections/HeaderSection/Header/styles";
 import HeaderLink from "sections/HeaderSection/HeaderLink";
 import { HeaderMenu } from "sections/HeaderSection/HeaderMenu";
 import { RealReactFC } from "types";
+import {GradientBorderButton} from "../../../components/GradientBorderButton";
 
 export const HEADER_HEIGHT = 60;
 
@@ -52,6 +53,15 @@ export const ResponsiveHeader: RealReactFC<{}> = () => {
             <HeaderLink key={link.link} activeRoute={route} link={link} closeMenu={close} />
           ))}
           <HeaderMenu title="Learn" links={learnPopupLinks} />
+          <Tooltip multiline={true} label={<div>
+            Master Fast-Paced Fullstack Development. <br/> Finally ship that product!
+          </div>} position="bottom" withArrow>
+          <div>
+            <GradientBorderButton>
+              Zero To Shipped
+            </GradientBorderButton>
+          </div>
+          </Tooltip>
           {/*<HeaderMenu title="Company" links={companyLinks} />*/}
         </Group>
 
