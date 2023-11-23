@@ -57,9 +57,15 @@ const PricingCard: RealReactFC<{
   price: Price;
   showMonth?: boolean;
 }> = ({ price, subtitle, showMonth = true }) => {
-  const { discount } = useDiscountInfo();
-  const isDiscounted = discount > 0;
+  let { discount } = useDiscountInfo();
+  let isDiscounted = discount > 0;
 
+  if(HAS_DISCOUNT){
+    if(!isDiscounted){
+        discount = 50;
+        isDiscounted = true;
+    }
+  }
   const mainPrice = isDiscounted ? priceWithDiscount(price.regular, discount) : price.regular;
 
   return (
@@ -136,7 +142,7 @@ const PricingPage = () => {
         <Vertical spacing="xl" sx={{ maxWidth: 700 }} center fullW>
           <Vertical spacing="lg">
             <BadassTitle>
-              <Highlight>Free</Highlight> for 14 days, <br /> affordable afterwards
+              <Highlight>Free</Highlight> for 14 days <br /> affordable afterwards
             </BadassTitle>
             <Subtitle>
               We didn't want to overwhelm you with complex pricing plans and tons of options to
@@ -149,14 +155,14 @@ const PricingPage = () => {
                 {discountText}
               </Text>
               <Text fz={11} c="gray.8">
-                (the coupon <b>{discountCoupon}</b> will be automatically applied at discount)
+                (the coupon <b>{discountCoupon}</b> will be automatically applied at checkout)
               </Text>
             </Vertical>
           )}
           <MagicGrid width={200}>
             <PricingCard price={annualPrice} subtitle="if paid annually" />
-            <PricingCard subtitle="if paid monthly" price={monthlyPrice} />
-            <PricingCard showMonth={false} subtitle="one-time purchase" price={lifetimePrice} />
+            <PricingCard price={monthlyPrice} subtitle="if paid monthly"  />
+            <PricingCard price={lifetimePrice} showMonth={false} subtitle="one-time purchase"  />
           </MagicGrid>
           <Subtitle>
             Start a free 14 days trial so you can see how much time and frustration Sizzy saves you.{" "}
