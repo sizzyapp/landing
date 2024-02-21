@@ -21,11 +21,6 @@ const logos: Logo[] = [
     width: 180,
   },
   {
-    id: "duckduckgo",
-    src: "/images/logos/duckduckgo.png",
-    width: 100,
-  },
-  {
     id: "msi",
     src: "/images/logos/msi.png",
     width: 150,
