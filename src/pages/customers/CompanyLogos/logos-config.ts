@@ -25,7 +25,6 @@ const logos: Logo[] = [
     src: "/images/logos/msi.png",
     width: 150,
   },
-
   {
     id: "usa",
     src: "/images/logos/usa.png",
