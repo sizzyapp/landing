@@ -1,3 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .debug {
+        @apply border border-red-500;
+    }
+
+    .debug-2 {
+        @apply outline  outline-1 outline-red-500;
+    }
+
+    .horizontal {
+        @apply flex flex-row;
+    }
+
+    .vertical {
+        @apply flex flex-col;
+    }
+
+    .horizontal.center-v {
+        @apply items-center
+    }
+
+    .horizontal.center-h {
+        @apply justify-center
+    }
+
+    .horizontal.center {
+        @apply justify-center items-center;
+    }
+
+    .vertical.center-v {
+        @apply justify-center;
+    }
+
+    .vertical.center-h {
+        @apply items-center;
+    }
+
+    .vertical.center {
+        @apply justify-center items-center;
+    }
+
+    .space-between {
+        @apply justify-between;
+    }
+
+    .circle {
+        @apply rounded-full shrink-0
+    }
+
+    .z-max {
+        z-index: 99999999;
+    }
+
+    .center-ffs {
+        @apply flex justify-center items-center text-center align-middle m-auto
+    }
+
+}
+
+
 ::selection {
     background: #f4e8ff;
 }
