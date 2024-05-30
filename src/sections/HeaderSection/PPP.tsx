@@ -11,6 +11,7 @@ export const useDiscountInfo = () => {
     try {
       let url = `${process.env.NEXT_PUBLIC_PORTAL_URL}/api/ppp`;
       const ffs = await fetch(url);
+      console.log('discount info', ffs);
       const discountInfo = await ffs.json();
       setPppInfo(discountInfo);
     } catch (err) {
