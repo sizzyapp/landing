@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --port 3050",
-    "build": "next build && next export",
+    "build": "contentlayer build && next build",
     "start": "next start",
     "buildnstart": "yarn build && yarn start",
     "reinstall": "rm -rf node_modules && yarn",
     "tsc": "tsc",
-    "plop": "plop"
+    "plop": "plop",
+    "cleanup": "rm -rf .contentlayer && rm -rf .next"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",

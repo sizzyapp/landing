@@ -29,7 +29,7 @@ export const useStyles = createStyles((theme) => ({
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontSize: 44,
     lineHeight: 1.2,
-    fontWeight: 900,
+    fontWeight: 500,
 
     [theme.fn.smallerThan("xs")]: {
       fontSize: 28,

@@ -18,8 +18,6 @@ export const Beacon: RealReactFC<{
   const isTouchDevice = require("is-touch-device")();
   const canHover = !isTouchDevice;
 
-  console.log(`canHover: ${isTouchDevice}`);
-
   return (
     <Tooltip
       {...(!canHover && {

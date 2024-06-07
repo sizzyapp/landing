@@ -2,7 +2,6 @@ import { Text, Title } from "@mantine/core";
 import MagicGrid from "components/MagicGrid";
 import Quote from "components/Quote";
 import Shell from "components/Shell";
-import { tweetIds } from "config/tweets";
 import { allTestimonials } from "contentlayer/generated";
 import { GetStaticProps } from "next";
 import CompanyLogos from "pages/customers/CompanyLogos";
@@ -11,11 +10,8 @@ import React from "react";
 import { Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
 import { TransformedTweet } from "types/tweet";
-import { getTweets } from "utils/get-tweets";
 
-const CustomersPage: RealReactFC<{ tweets: TransformedTweet[] }> = ({
-  tweets = [],
-}) => {
+const CustomersPage: RealReactFC<{ tweets: TransformedTweet[] }> = ({ tweets = [] }) => {
   let customerTestimonials = (
     <Vertical debug spacing="xl">
       <Vertical center debug spacing="sm">
@@ -23,8 +19,7 @@ const CustomersPage: RealReactFC<{ tweets: TransformedTweet[] }> = ({
           Customers
         </Title>
         <Text align="center">
-          Sizzy is the tool of choice for category leading and fast growing
-          companies
+          Sizzy is the tool of choice for category leading and fast growing companies
         </Text>
       </Vertical>
 
@@ -54,7 +49,7 @@ const CustomersPage: RealReactFC<{ tweets: TransformedTweet[] }> = ({
       <Vertical spacing={100}>
         {customerTestimonials}
         <CompanyLogos />
-        {tweetTestimonials}
+        {/*{tweetTestimonials}*/}
       </Vertical>
     </Shell>
   );
@@ -67,7 +62,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const logosPath = path.join(process.cwd(), "public", "devtools-logos");
     const logos = fs.readdirSync(logosPath);
 
-    const tweets = await getTweets(tweetIds);
+    const tweets = [];
     return { props: { tweets, logos } };
   } catch (error) {
     console.log(error);

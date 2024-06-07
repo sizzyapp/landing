@@ -9,12 +9,9 @@ export const getTweets = async (ids: ID[]) => {
   let tweetFields =
     "attachments,author_id,public_metrics,created_at,id,in_reply_to_user_id,referenced_tweets,text";
   let userFields = "id,name,profile_image_url,protected,url,username,verified";
-  let mediaFields =
-    "duration_ms,height,media_key,preview_image_url,type,url,width,public_metrics";
+  let mediaFields = "duration_ms,height,media_key,preview_image_url,type,url,width,public_metrics";
 
-  let idStrings = ids
-    .map((i) => i.toString())
-    .filter((i) => i.trim().length !== 0);
+  let idStrings = ids.map((i) => i.toString()).filter((i) => i.trim().length !== 0);
   const queryParams = qs.stringify({
     ids: idStrings.join(","),
     expansions: expansions,
@@ -23,14 +20,11 @@ export const getTweets = async (ids: ID[]) => {
     "media.fields": mediaFields,
   });
 
-  const response = await fetch(
-    `https://api.twitter.com/2/tweets?${queryParams}`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.TWITTER_API_TOKEN}`,
-      },
-    }
-  );
+  const response = await fetch(`https://api.twitter.com/2/tweets?${queryParams}`, {
+    headers: {
+      Authorization: `Bearer ${process.env.TWITTER_API_TOKEN}`,
+    },
+  });
 
   const tweets = (await response.json()) as RawTweetType;
 
@@ -54,7 +48,7 @@ export const getTweets = async (ids: ID[]) => {
     );
   };
 
-  let processedTweets = tweets.data.reduce(
+  let processedTweets = tweets.data?.reduce(
     (allTweets: Record<string, TransformedTweet>, tweet: TweetData) => {
       const tweetWithAuthor = {
         ...tweet,
