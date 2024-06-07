@@ -1,5 +1,4 @@
 import { AppShell, AppShellProps, Text } from "@mantine/core";
-import { NextLink } from "@mantine/next";
 import { Spotlight } from "components/Spotlight";
 import Wrapper, { WrapperProps } from "components/Wrapper";
 import Conditional from "conditional-wrap";
@@ -13,6 +12,7 @@ import { ResponsiveHeader } from "sections/HeaderSection/Header";
 import { Horizontal, Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
 import { PPP } from "../sections/HeaderSection/PPP";
+import Link from "next/link";
 
 const CookieNotice = dynamic(() => import("components/CookieNotice"), { ssr: false });
 
@@ -24,7 +24,7 @@ const Shell: RealReactFC<
   }
 > = ({ children, wrapperProps, wrapper = true, padding }) => {
   let SaleBanner = (
-    <NextLink href="/pricing">
+    <Link href="/pricing">
       <Horizontal
         center
         fullW
@@ -39,8 +39,9 @@ const Shell: RealReactFC<
           {discountText}
         </Text>
       </Horizontal>
-    </NextLink>
+    </Link>
   );
+
   return (
     <AppShell
       header={
@@ -88,7 +89,7 @@ const Shell: RealReactFC<
         </Spotlight>
       </Conditional>
 
-      <CookieNotice />
+      {/*<CookieNotice />*/}
     </AppShell>
   );
 };

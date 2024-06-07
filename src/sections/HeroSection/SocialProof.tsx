@@ -1,5 +1,4 @@
-import { Anchor, Avatar, Image, Text } from "@mantine/core";
-import { NextLink } from "@mantine/next";
+import { Avatar, Box, Image, Text } from "@mantine/core";
 import Laurel from "sections/HeroSection/Laurel";
 import Tooltip from "components/Tooltip";
 import { uniqBy } from "lodash";
@@ -8,10 +7,11 @@ import React from "react";
 import { Horizontal, Vertical } from "styles/layout-components";
 import { RealReactFC } from "types";
 import { TransformedTweet } from "types/tweet";
+import Link from "next/link";
 
 const TweetAvatars: RealReactFC<{ tweets: TransformedTweet[] }> = ({ tweets }) => {
   return (
-    <Anchor className="sizzy-pink-3" component={NextLink} href="/customers">
+    <Link href="/customers">
       <Avatar.Group spacing="xs" sx={{ width: "100%", maxWidth: 670, flexWrap: "wrap" }}>
         {orderTweets(uniqBy(tweets, (t) => t.author_id)).map((t) => (
           <Tooltip
@@ -30,7 +30,7 @@ const TweetAvatars: RealReactFC<{ tweets: TransformedTweet[] }> = ({ tweets }) =
           </Tooltip>
         ))}
       </Avatar.Group>
-    </Anchor>
+    </Link>
   );
 };
 
@@ -59,12 +59,12 @@ const Award: RealReactFC<{ title: string }> = ({ children, title }) => {
 const SocialProof: RealReactFC<{ tweets: TransformedTweet[] }> = ({ tweets }) => {
   return (
     <Vertical className="sizzy-teal-4" spacing="lg" fullW center>
-      <Horizontal className="sizzy-red-3" center>
+      <div className="vertical center space-y-4 sm:horizontal sm:space-x-4 sm:space-y-0">
         <Image width={125} src="/images/product-hunt-logo-horizontal-orange.png" />
         <Award title="#1">Product of the day</Award>
         <Award title="#1">Product of the week</Award>
         <Award title="#3">Product of the month</Award>
-      </Horizontal>
+      </div>
       <Vertical center spacing={5}>
         <TweetAvatars tweets={tweets} />
         <Text color="gray.7" size="lg">

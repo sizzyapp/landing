@@ -18,6 +18,11 @@ let blog = {
   label: "Blog",
 };
 
+const youtube = {
+  link: "https://youtube.com/@sizzyapp",
+  label: "YouTube",
+};
+
 let changelog = {
   link: "https://glink.so/sizzy",
   label: "Changelog",
@@ -53,7 +58,7 @@ export let headerLinks: LinkType[] = [
   about,
 ];
 
-export let learnPopupLinks = [docs, roadmap, changelog, blog];
+export let learnPopupLinks = [docs, roadmap, changelog, youtube];
 export let companyLinks = [about, jobs];
 export const mobileLinks: LinkType[] = [...headerLinks, ...learnPopupLinks, login];
 

@@ -1,13 +1,14 @@
-import { Center, Container, Stack, Text, Title } from "@mantine/core";
+import { Container, Text, Title } from "@mantine/core";
 import DownloadButton from "components/DownloadButton";
 import { Vertical } from "styles/layout-components";
 
 const FinalSlide: React.FC = () => {
   return (
     <Container
+      id="section-final-slide"
       sx={(theme) => ({
-        paddingTop: theme.spacing.xl * 4,
-        paddingBottom: theme.spacing.xl * 4,
+        paddingTop: 100,
+        paddingBottom: 100,
       })}
     >
       <Vertical spacing="lg" center>

@@ -4,6 +4,7 @@ import Tooltip from "components/Tooltip";
 import { motion } from "framer-motion";
 import React from "react";
 import { RealReactFC } from "types";
+import { useBoolean } from "react-hanger";
 
 let percentify = (a: number | string) => (typeof a === "string" ? a : `${a}%`);
 
@@ -13,18 +14,29 @@ export const Beacon: RealReactFC<{
 }> = ({ children, x, y }) => {
   let size = 10;
   const { colors } = useMantineTheme();
+  const opened = useBoolean(false);
+  const isTouchDevice = require("is-touch-device")();
+  const canHover = !isTouchDevice;
+
+  console.log(`canHover: ${isTouchDevice}`);
 
   return (
-    <Tooltip label={<MarkdownContent>{children}</MarkdownContent>}>
+    <Tooltip
+      {...(!canHover && {
+        opened: opened.value,
+      })}
+      label={<MarkdownContent>{children}</MarkdownContent>}
+    >
       <Box
+        onClick={() => {
+          if (!canHover) {
+            opened.toggle();
+          }
+        }}
         component={motion.div}
         animate={{
-          scale: [0, 1.3, 1],
-          backgroundColor: [
-            colors.purple[2],
-            colors.purple[1],
-            colors.purple[2],
-          ],
+          scale: [1, 1, 1],
+          backgroundColor: [colors.purple[2], colors.purple[1], colors.purple[2]],
         }}
         transition={{
           duration: 0.5,

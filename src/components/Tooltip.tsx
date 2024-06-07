@@ -2,12 +2,10 @@ import React from "react";
 import { RealReactFC } from "types";
 import { Tooltip, TooltipProps } from "@mantine/core";
 
-const TooltipComponent: RealReactFC<Partial<TooltipProps>> = ({
-  children,
-  ...props
-}) => {
+const TooltipComponent: RealReactFC<Partial<TooltipProps>> = ({ children, opened, ...props }) => {
   return (
     <Tooltip
+      {...(opened !== undefined && opened !== null && { opened })}
       label={children}
       width={300}
       multiline
@@ -17,7 +15,6 @@ const TooltipComponent: RealReactFC<Partial<TooltipProps>> = ({
         boxShadow: t.shadows.lg,
         color: t.colors.gray[8],
       })}
-      transition="pop"
       withArrow
       {...props}
     >

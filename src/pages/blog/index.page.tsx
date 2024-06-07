@@ -3,7 +3,7 @@ import Card from "components/Card";
 import MagicGrid from "components/MagicGrid";
 import MetaTags from "components/MetaTags";
 import Shell from "components/Shell";
-import {allBlogPosts, allJobs} from "contentlayer/generated";
+import { allBlogPosts, allJobs } from "contentlayer/generated";
 import NextLink from "next/link";
 import pluralize from "pluralize";
 import React from "react";
@@ -11,6 +11,8 @@ import { RealReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 
 const JobsPage: RealReactFC<{ allBlogPosts: typeof allBlogPosts }> = ({ allBlogPosts }) => {
+  return null;
+
   const image = getMetaImage({
     preset: "netlify",
     logo: sizzyLogoUrl,
@@ -37,10 +39,7 @@ const JobsPage: RealReactFC<{ allBlogPosts: typeof allBlogPosts }> = ({ allBlogP
           <MagicGrid>
             {allBlogPosts.map((post) => (
               <NextLink passHref key={post.title} href={`/blog/${post.slug}`}>
-                <Card
-                  title={post.title}
-                  description={post.description}
-                />
+                <Card title={post.title} description={post.description} />
               </NextLink>
             ))}
           </MagicGrid>

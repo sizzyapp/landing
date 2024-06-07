@@ -68,10 +68,12 @@ const SpecializedTools = () => {
     },
   ];
   return (
-    <Vertical sx={{ maxWidth: 900, margin: "auto" }} spacing="xl" center fullW>
+    <section
+      id="specialized-tools-section"
+      className="vertical space-y-8 px-0 sm:px-5 max-w-[900px] m-auto center w-full"
+    >
       <BadassTitle>
-        Why does every professional get a specialized tool, but not web
-        developers?
+        Why does every professional get a specialized tool, but not web developers?
       </BadassTitle>
 
       <MagicGrid width={250}>
@@ -79,14 +81,10 @@ const SpecializedTools = () => {
           <Card withBorder shadow="sm">
             <Vertical center>
               {p.icon && <p.icon size={40} />}
-              <Text
-                size="xl"
-                sx={(t) => ({ color: t.colors.gray[7] })}
-                weight="bold"
-              >
+              <Text size="xl" sx={(t) => ({ color: t.colors.gray[7] })} weight="bold">
                 {p.title}
               </Text>
-              <Horizontal spacing="xs">
+              <Horizontal center spacing="xs">
                 {p.tools.map((t) => {
                   return (
                     <Badge
@@ -103,7 +101,7 @@ const SpecializedTools = () => {
           </Card>
         ))}
       </MagicGrid>
-    </Vertical>
+    </section>
   );
 };
 

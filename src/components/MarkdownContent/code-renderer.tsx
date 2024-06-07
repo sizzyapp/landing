@@ -1,16 +1,10 @@
 import React from "react";
 import { Box } from "@mantine/core";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import prismTheme from "prism-react-renderer/themes/shadesOfPurple";
+import { Highlight } from "prism-react-renderer";
 
 export const codeRenderer = ({ value, language }) => {
   return (
-    <Highlight
-      {...defaultProps}
-      code={value}
-      language={language || "javascript"}
-      theme={prismTheme}
-    >
+    <Highlight code={value} language={language || "javascript"}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <Box
           sx={(theme) => ({

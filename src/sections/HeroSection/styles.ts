@@ -37,11 +37,11 @@ export const useStyles = createStyles((theme) => ({
   },
 
   subtitle: {
-    fontSize: theme.fontSizes.xl * 1.3,
+    fontSize: theme.fontSizes.xl,
     lineHeight: 1.2,
     opacity: 0.8,
     [theme.fn.smallerThan("xs")]: {
-      fontSize: theme.fontSizes.xl,
+      fontSize: theme.fontSizes.lg,
     },
   },
 

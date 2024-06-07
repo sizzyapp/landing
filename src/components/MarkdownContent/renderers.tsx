@@ -1,7 +1,6 @@
 import { Anchor, Blockquote, Code, Divider, Image, List, Title } from "@mantine/core";
 import React from "react";
 import { MdCheck } from "react-icons/md";
-import { codeRenderer } from "./code-renderer";
 
 import ZoomImage from "./ZoomImage";
 
