@@ -1,7 +1,7 @@
 import * as React from "react";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 
-const Laurel: RealReactFC<{ size: number; mirror?: boolean; style?: any }> = ({
+const Laurel: ReactFC<{ size: number; mirror?: boolean; style?: any }> = ({
   size,
   mirror,
   ...props

@@ -6,7 +6,7 @@
     "dev": "next dev --port 3050",
     "build": "contentlayer build && next build",
     "start": "next start",
-    "buildnstart": "yarn build && yarn start",
+    "buildnstart": "yar n build && yarn start",
     "reinstall": "rm -rf node_modules && yarn",
     "tsc": "tsc",
     "plop": "plop",

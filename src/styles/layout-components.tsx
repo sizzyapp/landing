@@ -1,5 +1,5 @@
 import { Stack, Group, StackProps, GroupProps } from "@mantine/core";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 
 type commonProps = {
   centerH?: boolean;
@@ -22,9 +22,8 @@ const commonProps = ({ debug, fullW }: commonProps) => {
     ...(fullW && { width: "100%" }),
   };
 };
-export const Horizontal: RealReactFC<GroupProps & commonProps> = (props) => {
-  const { children, center, fullW, centerV, centerH, debug, sx, ...rest } =
-    props;
+export const Horizontal: ReactFC<GroupProps & commonProps> = (props) => {
+  const { children, center, fullW, centerV, centerH, debug, sx, ...rest } = props;
   return (
     <Group
       {...{
@@ -51,9 +50,8 @@ export const Horizontal: RealReactFC<GroupProps & commonProps> = (props) => {
   );
 };
 export type VerticalProps = StackProps & commonProps;
-export const Vertical: RealReactFC<VerticalProps> = (props) => {
-  const { children, center, fullW, centerV, centerH, debug, sx, ...rest } =
-    props;
+export const Vertical: ReactFC<VerticalProps> = (props) => {
+  const { children, center, fullW, centerV, centerH, debug, sx, ...rest } = props;
 
   return (
     <Stack

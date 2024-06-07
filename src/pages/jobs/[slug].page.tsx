@@ -5,10 +5,10 @@ import MetaTags from "components/MetaTags";
 import Shell from "components/Shell";
 import { allJobs, Job } from "contentlayer/generated";
 import React from "react";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 
-const JobPage: RealReactFC<{ job: Job }> = ({ job }) => {
+const JobPage: ReactFC<{ job: Job }> = ({ job }) => {
   const { title, body, slug, metaimageurl, jobtype } = job;
 
   return (

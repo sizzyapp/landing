@@ -1,9 +1,9 @@
 import { Anchor, Breadcrumbs } from "@mantine/core";
 import NextLink from "next/link";
 import React from "react";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 
-const BreadcrumbsComponent: RealReactFC<{
+const BreadcrumbsComponent: ReactFC<{
   breadcrumbs: { label: string; href: string }[];
 }> = ({ breadcrumbs }) => {
   return (

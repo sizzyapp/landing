@@ -1,24 +1,28 @@
 import { Anchor, Card, Group, Image, Stack } from "@mantine/core";
-import { RealReactFC } from "types";
-import { TransformedTweet } from "types/tweet";
+import { ReactFC } from "types";
 import { LikeIcon, ReplyIcon, RetweetIcon, TwitterLogo } from "./Icons";
 import { ActionIcons } from "./Styles";
 import Text from "components/mantine/Text";
+import { Tweet } from "../SocialProof/types";
+import { cleanName, cleanTweet } from "../SocialProof/utils";
+import { Vertical } from "../../styles/layout-components";
 
-const Tweet: RealReactFC<{
-  tweet: TransformedTweet;
+const Tweet: ReactFC<{
+  tweet: Tweet;
 }> = ({ tweet }) => {
   if (!tweet) return null;
 
-  const { author, public_metrics, id, text } = tweet;
+  const { user, favorite_count, reply_count, retweet_count, id, full_text: text } = tweet;
+  const username = user.screen_name;
+  const name = cleanName(user.name);
 
-  const authorUrl = `https://twitter.com/${author.username}`;
+  const authorUrl = `https://twitter.com/${username}`;
   const likeUrl = `https://twitter.com/intent/like?tweet_id=${id}`;
   const retweetUrl = `https://twitter.com/intent/retweet?tweet_id=${id}`;
   const replyUrl = `https://twitter.com/intent/tweet?in_reply_to=${id}`;
-  const tweetUrl = `https://twitter.com/${author.username}/status/${id}`;
+  const tweetUrl = `https://twitter.com/${username}/status/${id}`;
 
-  const formattedText = text.replace(/https:\/\/[\n\S]+/g, "");
+  const formattedText = cleanTweet(text);
 
   let avatarSize = 46;
 
@@ -26,21 +30,21 @@ const Tweet: RealReactFC<{
     <Group>
       <ActionIcons href={replyUrl} target="_blank" rel="noopener noreferrer">
         <ReplyIcon />
-        <Text>{public_metrics.reply_count}</Text>
+        <Text>{reply_count}</Text>
       </ActionIcons>
       <ActionIcons href={retweetUrl} target="_blank" rel="noopener noreferrer">
         <RetweetIcon />
-        <Text>{public_metrics.retweet_count}</Text>
+        <Text>{retweet_count}</Text>
       </ActionIcons>
       <ActionIcons href={likeUrl} target="_blank" rel="noopener noreferrer">
         <LikeIcon />
-        <Text>{public_metrics.like_count}</Text>
+        <Text>{favorite_count}</Text>
       </ActionIcons>
     </Group>
   );
 
   let nameAndUsername = (
-    <Stack spacing={0}>
+    <Vertical spacing={6}>
       <Text
         sx={(t) => ({
           fontSize: 17,
@@ -49,12 +53,12 @@ const Tweet: RealReactFC<{
           color: t.colors.gray[8],
         })}
       >
-        {author.name}
+        {name}
       </Text>
       <Text color="gray.7" fontSize={15}>
-        @{author.username}
+        @{username}
       </Text>
-    </Stack>
+    </Vertical>
   );
   let avatar = (
     <Image
@@ -64,19 +68,14 @@ const Tweet: RealReactFC<{
         borderRadius: "100%",
         overflow: "hidden",
       }}
-      alt={author.username}
+      alt={username}
       height={avatarSize}
       width={avatarSize}
-      src={author.profile_image_url.replace("_normal", "")}
+      src={user.profile_image_url_https}
     />
   );
   let avatarAndName = (
-    <Anchor
-      underline={false}
-      href={authorUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Anchor underline={false} href={authorUrl} target="_blank" rel="noopener noreferrer">
       <Group spacing={10}>
         <Group spacing={5}>
           {avatar}
@@ -95,7 +94,7 @@ const Tweet: RealReactFC<{
   );
 
   return (
-    <Card shadow="md">
+    <Card shadow="md" withBorder>
       <Stack sx={{ height: "100%" }} spacing={10}>
         {avatarAndName}
 
@@ -110,7 +109,7 @@ const Tweet: RealReactFC<{
           {formattedText}
         </Text>
 
-        <Stack spacing={5}>{icons}</Stack>
+        {/*<Stack spacing={5}>{icons}</Stack>*/}
       </Stack>
     </Card>
   );

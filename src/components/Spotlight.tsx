@@ -3,17 +3,10 @@ import { mobileLinks } from "config/links";
 import { allFeatures, allJobs, allUseCases } from "contentlayer/generated";
 import { useRouter } from "next/router";
 import React from "react";
-import {
-  FaBriefcase,
-  FaGlobe,
-  FaHome,
-  FaRocket,
-  FaSearch,
-  FaWrench,
-} from "react-icons/fa";
-import { RealReactFC } from "types";
+import { FaBriefcase, FaGlobe, FaHome, FaRocket, FaSearch, FaWrench } from "react-icons/fa";
+import { ReactFC } from "types";
 
-export const Spotlight: RealReactFC<{}> = ({ children }) => {
+export const Spotlight: ReactFC<{}> = ({ children }) => {
   const { push } = useRouter();
   const spotlightActions: SpotlightAction[] = [
     {

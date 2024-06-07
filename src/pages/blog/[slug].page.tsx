@@ -1,14 +1,14 @@
-import {Container, Stack, Title} from "@mantine/core";
+import { Container, Stack, Title } from "@mantine/core";
 import BreadcrumbsComponent from "components/Breadcrumbs";
 import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 import MetaTags from "components/MetaTags";
 import Shell from "components/Shell";
-import {allBlogPosts, BlogPost} from "contentlayer/generated";
+import { allBlogPosts, BlogPost } from "contentlayer/generated";
 import React from "react";
-import {RealReactFC} from "types";
-import {getMetaImage, sizzyLogoUrl} from "utils/get-meta-image";
+import { ReactFC } from "types";
+import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 
-const JobPage: RealReactFC<{ blogPost: BlogPost }> = ({ blogPost }) => {
+const JobPage: ReactFC<{ blogPost: BlogPost }> = ({ blogPost }) => {
   const { title, description, body, slug } = blogPost;
 
   return (
@@ -62,7 +62,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-        blogPost,
+      blogPost,
     },
   };
 }

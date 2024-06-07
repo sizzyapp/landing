@@ -7,10 +7,10 @@ import { allJobs } from "contentlayer/generated";
 import NextLink from "next/link";
 import pluralize from "pluralize";
 import React from "react";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 
-const JobsPage: RealReactFC<{ allJobs: typeof allJobs }> = ({ allJobs }) => {
+const JobsPage: ReactFC<{ allJobs: typeof allJobs }> = ({ allJobs }) => {
   const image = getMetaImage({
     preset: "netlify",
     logo: sizzyLogoUrl,
@@ -37,11 +37,7 @@ const JobsPage: RealReactFC<{ allJobs: typeof allJobs }> = ({ allJobs }) => {
           <MagicGrid>
             {allJobs.map((post) => (
               <NextLink passHref key={post.title} href={`/jobs/${post.slug}`}>
-                <Card
-                  title={post.title}
-                  description={post.description}
-                  badge={post.jobtype}
-                />
+                <Card title={post.title} description={post.description} badge={post.jobtype} />
               </NextLink>
             ))}
           </MagicGrid>

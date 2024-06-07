@@ -3,12 +3,12 @@ import MarkdownContent from "components/MarkdownContent/MarkdownContent";
 import Tooltip from "components/Tooltip";
 import { motion } from "framer-motion";
 import React from "react";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 import { useBoolean } from "react-hanger";
 
 let percentify = (a: number | string) => (typeof a === "string" ? a : `${a}%`);
 
-export const Beacon: RealReactFC<{
+export const Beacon: ReactFC<{
   x: number | string;
   y: number | string;
 }> = ({ children, x, y }) => {

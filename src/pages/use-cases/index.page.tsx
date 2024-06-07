@@ -6,12 +6,10 @@ import Shell from "components/Shell";
 import { allUseCases } from "contentlayer/generated";
 import NextLink from "next/link";
 import React from "react";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 
-const UseCasesPage: RealReactFC<{ allUseCases: typeof allUseCases }> = ({
-  allUseCases,
-}) => {
+const UseCasesPage: ReactFC<{ allUseCases: typeof allUseCases }> = ({ allUseCases }) => {
   return (
     <Shell>
       <MetaTags
@@ -32,11 +30,7 @@ const UseCasesPage: RealReactFC<{ allUseCases: typeof allUseCases }> = ({
         <MagicGrid>
           {allUseCases.map((post) => (
             <NextLink href={post.url} passHref>
-              <Card
-                title={post.title}
-                description={post.description}
-                key={post.slug}
-              />
+              <Card title={post.title} description={post.description} key={post.slug} />
             </NextLink>
           ))}
         </MagicGrid>

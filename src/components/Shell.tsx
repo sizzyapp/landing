@@ -10,13 +10,13 @@ import { ReactGenieAnimations } from "react-genie-with-emotion";
 import { FooterSimple } from "sections/Footer";
 import { ResponsiveHeader } from "sections/HeaderSection/Header";
 import { Horizontal, Vertical } from "styles/layout-components";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 import { PPP } from "../sections/HeaderSection/PPP";
 import Link from "next/link";
 
 const CookieNotice = dynamic(() => import("components/CookieNotice"), { ssr: false });
 
-const Shell: RealReactFC<
+const Shell: ReactFC<
   AppShellProps & {
     wrapper?: boolean;
     wrapperProps?: Partial<WrapperProps>;

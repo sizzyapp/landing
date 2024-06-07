@@ -7,10 +7,10 @@ import { allBlogPosts, allJobs } from "contentlayer/generated";
 import NextLink from "next/link";
 import pluralize from "pluralize";
 import React from "react";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 
-const JobsPage: RealReactFC<{ allBlogPosts: typeof allBlogPosts }> = ({ allBlogPosts }) => {
+const JobsPage: ReactFC<{ allBlogPosts: typeof allBlogPosts }> = ({ allBlogPosts }) => {
   return null;
 
   const image = getMetaImage({

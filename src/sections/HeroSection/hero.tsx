@@ -2,21 +2,20 @@ import { Button, Text } from "@mantine/core";
 import BadassTitle, { Highlight } from "components/BadassTitle";
 import DownloadButton from "components/DownloadButton";
 import React from "react";
-import SocialProof from "sections/HeroSection/SocialProof";
 
 import { useStyles } from "sections/HeroSection/styles";
 import { Horizontal, Vertical } from "styles/layout-components";
-import { RealReactFC } from "types";
-import { TransformedTweet } from "types/tweet";
+import { ReactFC } from "types";
 import { trackButtonClick } from "utils/utils";
+import { Tweet } from "../../components/SocialProof/types";
+import { SocialProof } from "../../components/SocialProof/SocialProof";
 
-export const Hero: RealReactFC<{ tweets: TransformedTweet[] }> = ({ tweets }) => {
+export const Hero: ReactFC<{ tweets: Tweet[] }> = ({ tweets }) => {
   const { classes } = useStyles();
   return (
     <Vertical center fullW className={`${classes.wrapper} sizzy-red-3`}>
       <Vertical fullW>
         <Vertical fullW center spacing="xl" className={`${classes.inner} sizzy-teal-3`}>
-          {/*<Image src="/logo.png" className={`${classes.logo}`} />*/}
           <Vertical fullW spacing="lg" center>
             <BadassTitle maxWidth={800}>
               <Highlight>The</Highlight> browser for web developers

@@ -1,8 +1,8 @@
 import React from "react";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 import { Tooltip, TooltipProps } from "@mantine/core";
 
-const TooltipComponent: RealReactFC<Partial<TooltipProps>> = ({ children, opened, ...props }) => {
+const TooltipComponent: ReactFC<Partial<TooltipProps>> = ({ children, opened, ...props }) => {
   return (
     <Tooltip
       {...(opened !== undefined && opened !== null && { opened })}

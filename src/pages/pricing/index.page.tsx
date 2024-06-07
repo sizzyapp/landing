@@ -13,7 +13,7 @@ import React, { ReactNode } from "react";
 import { FaRegLightbulb } from "react-icons/fa";
 import GraphSection from "sections/GraphSection";
 import { Horizontal, Vertical } from "styles/layout-components";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 import { useDiscountInfo } from "../../sections/HeaderSection/PPP";
 import { TeamMemberText } from "../about/TeamMember";
 
@@ -37,7 +37,7 @@ const lifetimePrice: Price = {
   discounted: 249,
 };
 
-const Subtitle: RealReactFC<{}> = ({ children }) => (
+const Subtitle: ReactFC<{}> = ({ children }) => (
   <Text align="center" color="gray.7" fontSize={[22, 10]}>
     {children}
   </Text>
@@ -52,7 +52,7 @@ const roundToTwoDecimals = (num: number) => {
   return Math.round((num + Number.EPSILON) * 100) / 100;
 };
 
-const PricingCard: RealReactFC<{
+const PricingCard: ReactFC<{
   subtitle: ReactNode;
   price: Price;
   showMonth?: boolean;
@@ -60,10 +60,10 @@ const PricingCard: RealReactFC<{
   let { discount } = useDiscountInfo();
   let isDiscounted = discount > 0;
 
-  if(HAS_DISCOUNT){
-    if(!isDiscounted){
-        discount = 50;
-        isDiscounted = true;
+  if (HAS_DISCOUNT) {
+    if (!isDiscounted) {
+      discount = 50;
+      isDiscounted = true;
     }
   }
   const mainPrice = isDiscounted ? priceWithDiscount(price.regular, discount) : price.regular;
@@ -161,8 +161,8 @@ const PricingPage = () => {
           )}
           <MagicGrid width={200}>
             <PricingCard price={annualPrice} subtitle="if paid annually" />
-            <PricingCard price={monthlyPrice} subtitle="if paid monthly"  />
-            <PricingCard price={lifetimePrice} showMonth={false} subtitle="one-time purchase"  />
+            <PricingCard price={monthlyPrice} subtitle="if paid monthly" />
+            <PricingCard price={lifetimePrice} showMonth={false} subtitle="one-time purchase" />
           </MagicGrid>
           <Subtitle>
             Start a free 14 days trial so you can see how much time and frustration Sizzy saves you.{" "}

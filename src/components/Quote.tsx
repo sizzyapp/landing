@@ -1,11 +1,9 @@
 import { Box, Stack, Text } from "@mantine/core";
 import React from "react";
 import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 
-const QuoteIcon: RealReactFC<{ orientation: "Left" | "Right" }> = ({
-  orientation,
-}) => {
+const QuoteIcon: ReactFC<{ orientation: "Left" | "Right" }> = ({ orientation }) => {
   let isLeft = orientation == "Left";
   const Icon = isLeft ? RiDoubleQuotesL : RiDoubleQuotesR;
   return (
@@ -24,15 +22,12 @@ const QuoteIcon: RealReactFC<{ orientation: "Left" | "Right" }> = ({
   );
 };
 
-const Quote: React.FC<{ author: string; content: string }> = ({
-  author,
-  content,
-}) => {
+const Quote: React.FC<{ author: string; content: string }> = ({ author, content }) => {
   return (
     <Stack sx={{ position: "relative" }}>
       <QuoteIcon orientation="Left" />
       <QuoteIcon orientation="Right" />
-      <Text color="dimmed">
+      <Text color="gray.8">
         <i>{content}</i>
       </Text>
       <Text

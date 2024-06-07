@@ -8,10 +8,10 @@ import CompanyLogos from "pages/customers/CompanyLogos";
 import Tweets from "pages/customers/Tweets";
 import React from "react";
 import { Vertical } from "styles/layout-components";
-import { RealReactFC } from "types";
-import { TransformedTweet } from "types/tweet";
+import { ReactFC } from "types";
+import { Tweet } from "../../components/SocialProof/types";
 
-const CustomersPage: RealReactFC<{ tweets: TransformedTweet[] }> = ({ tweets = [] }) => {
+const CustomersPage: ReactFC<{ tweets: Tweet[] }> = ({ tweets = [] }) => {
   let customerTestimonials = (
     <Vertical debug spacing="xl">
       <Vertical center debug spacing="sm">
@@ -49,7 +49,7 @@ const CustomersPage: RealReactFC<{ tweets: TransformedTweet[] }> = ({ tweets = [
       <Vertical spacing={100}>
         {customerTestimonials}
         <CompanyLogos />
-        {/*{tweetTestimonials}*/}
+        {tweetTestimonials}
       </Vertical>
     </Shell>
   );
@@ -61,8 +61,8 @@ export const getStaticProps: GetStaticProps = async () => {
     const path = require("path");
     const logosPath = path.join(process.cwd(), "public", "devtools-logos");
     const logos = fs.readdirSync(logosPath);
-
-    const tweets = [];
+    const tweets = JSON.parse(fs.readFileSync("./tweets.json", "utf8"));
+    console.log("tweets", tweets);
     return { props: { tweets, logos } };
   } catch (error) {
     console.log(error);

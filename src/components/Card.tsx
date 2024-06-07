@@ -1,8 +1,8 @@
 import { Badge, Card, Stack, Text, Title, CardProps } from "@mantine/core";
 import React from "react";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 
-const CardComponent: RealReactFC<
+const CardComponent: ReactFC<
   Partial<CardProps> & {
     title: string;
     badge?: string;

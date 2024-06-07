@@ -10,7 +10,7 @@ const HeaderButton = forwardRef<HTMLButtonElement, HeaderButtonType>(
         ref={ref}
         variant="subtle"
         color="gray"
-        size="xs"
+        size="md"
         sx={(theme) => ({ color: theme.colors.gray[7] })}
         {...rest}
       >
@@ -20,6 +20,4 @@ const HeaderButton = forwardRef<HTMLButtonElement, HeaderButtonType>(
   }
 );
 
-export default createPolymorphicComponent<"button", HeaderButtonType>(
-  HeaderButton
-);
+export default createPolymorphicComponent<"button", HeaderButtonType>(HeaderButton);

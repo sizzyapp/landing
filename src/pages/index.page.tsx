@@ -1,27 +1,21 @@
 import Shell from "components/Shell";
 import Wrapper from "components/Wrapper";
-import { tweetIds } from "config/tweets";
 import { map } from "lodash";
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
 import React from "react";
 import Benefits from "sections/BenefitsSection/Benefits";
-import DevtoolsLogos from "sections/DevtoolsLogos";
 import FinalSlide from "sections/FinalSlide";
 import GraphSection from "sections/GraphSection";
 import { Hero } from "sections/HeroSection/hero";
 import SpecializedTools from "sections/SpecializedToolsSection";
 import { Vertical } from "styles/layout-components";
-import { TransformedTweet } from "types/tweet";
-import { getTweets } from "utils/get-tweets";
 import MainImageSection from "../sections/MainImageSection/mainImageSection";
 import { useMediaQuery } from "@mantine/hooks";
 import { mqStrings } from "../styles/responsive";
+import { Tweet } from "../components/SocialProof/types";
 
-const Home: NextPage<{ logos?: string[]; tweets: TransformedTweet[] }> = ({
-  logos = [],
-  tweets = [],
-}) => {
+const Home: NextPage<{ logos?: string[]; tweets: Tweet[] }> = ({ logos = [], tweets = [] }) => {
   let spaceBetweenSections = 150;
   const isPhone = useMediaQuery(`${mqStrings.maxWidth(500)}`);
 
@@ -58,7 +52,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const path = require("path");
     const logosPath = path.join(process.cwd(), "public", "devtools-logos");
     const logos = fs.readdirSync(logosPath);
-    const tweets = await getTweets(tweetIds);
+    const tweets = JSON.parse(fs.readFileSync("./tweets.json", "utf8"));
     let mappedTweets = map(tweets, (t) => t);
     return { props: { logos, tweets: mappedTweets } };
   } catch (error) {

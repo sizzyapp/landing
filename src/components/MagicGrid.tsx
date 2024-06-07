@@ -1,12 +1,7 @@
-import {
-  Box,
-  BoxProps,
-  createPolymorphicComponent,
-  CSSObject,
-} from "@mantine/core";
+import { Box, BoxProps, createPolymorphicComponent, CSSObject } from "@mantine/core";
 import React from "react";
 import { autoGrid } from "styled-mixins";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 
 type GridProps = {
   width?: number;
@@ -17,7 +12,7 @@ type GridProps = {
   sx?: CSSObject;
 } & Partial<BoxProps>;
 
-const MagicGrid: RealReactFC<GridProps> = (props) => {
+const MagicGrid: ReactFC<GridProps> = (props) => {
   const {
     children,
     fallBackToOneColumn = true,

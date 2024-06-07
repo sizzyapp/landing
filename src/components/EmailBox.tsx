@@ -1,9 +1,9 @@
 import { Avatar, Divider, Group, Stack, Text } from "@mantine/core";
 import { FiAtSign, FiChevronDown, FiSmile, FiVideo } from "react-icons/fi";
 import { IoMdSend } from "react-icons/io";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 
-const EmailBox: RealReactFC<{
+const EmailBox: ReactFC<{
   subject: string;
   recipient: string;
 }> = ({ children, subject, recipient }) => {

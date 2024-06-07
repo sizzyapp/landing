@@ -1,12 +1,9 @@
 import { Menu } from "@mantine/core";
 import HeaderButton from "sections/HeaderSection/HeaderButton";
 import NextLink from "next/link";
-import { LinkType, RealReactFC } from "types";
+import { LinkType, ReactFC } from "types";
 
-export const HeaderMenu: RealReactFC<{ title: string; links: LinkType[] }> = ({
-  title,
-  links,
-}) => {
+export const HeaderMenu: ReactFC<{ title: string; links: LinkType[] }> = ({ title, links }) => {
   return (
     <Menu trigger="hover" shadow="md" width={200}>
       <Menu.Target>

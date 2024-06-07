@@ -8,10 +8,10 @@ import Shell from "components/Shell";
 import { allFeatures, Feature } from "contentlayer/generated";
 import FeatureMedia from "pages/features/FeatureMedia";
 import React from "react";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 import { getMetaImage, sizzyLogoUrl } from "utils/get-meta-image";
 
-const FeaturePage: RealReactFC<{ feature: Feature }> = ({ feature }) => {
+const FeaturePage: ReactFC<{ feature: Feature }> = ({ feature }) => {
   const { title, slug, description, image, video } = feature;
 
   return (

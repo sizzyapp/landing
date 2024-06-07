@@ -3,10 +3,10 @@ import HeaderButton from "sections/HeaderSection/HeaderButton";
 import Conditional from "conditional-wrap";
 import NextLink from "next/link";
 import React from "react";
-import { LinkType, RealReactFC } from "types";
+import { LinkType, ReactFC } from "types";
 import { trackButtonClick } from "utils/utils";
 
-const HeaderLink: RealReactFC<{
+const HeaderLink: ReactFC<{
   link: LinkType;
   activeRoute: string;
   closeMenu: () => void;
@@ -39,7 +39,7 @@ const HeaderLink: RealReactFC<{
         )}
       >
         <HeaderButton
-          size="xs"
+          size="md"
           {...(link.isExternal && {
             component: "a",
             target: "_blank",

@@ -18,11 +18,11 @@ import React from "react";
 import { useStyles } from "sections/HeaderSection/Header/styles";
 import HeaderLink from "sections/HeaderSection/HeaderLink";
 import { HeaderMenu } from "sections/HeaderSection/HeaderMenu";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 
 export const HEADER_HEIGHT = 60;
 
-export const ResponsiveHeader: RealReactFC<{}> = () => {
+export const ResponsiveHeader: ReactFC<{}> = () => {
   const [opened, { open, close }] = useDisclosure(false);
   const { classes } = useStyles();
 

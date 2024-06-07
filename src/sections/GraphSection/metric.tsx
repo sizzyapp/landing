@@ -2,12 +2,9 @@ import Text from "components/mantine/Text";
 import React from "react";
 import CountUp from "react-countup";
 import { Vertical } from "styles/layout-components";
-import { RealReactFC } from "types";
+import { ReactFC } from "types";
 
-export const Metric: RealReactFC<{ number: number; title: string }> = ({
-  number,
-  title,
-}) => {
+export const Metric: ReactFC<{ number: number; title: string }> = ({ number, title }) => {
   return (
     <Vertical spacing={10} center>
       <Text weight="bold" fontSize={40} color="gray.8">
