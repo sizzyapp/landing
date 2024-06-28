@@ -1,6 +1,6 @@
 import fs from "fs";
 
-const socialDataApiKey = "262|wcroASM9G1tbTZUsnmqqIi9ctSHUqhqFq5RfYEbD9db55c42";
+const socialDataApiKey = process.env.SOCIAL_DATA_API_KEY;
 
 export const tweetIds = [
   "1533070946868908033",
